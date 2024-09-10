@@ -7,8 +7,8 @@ Fatlab is a small business focused on 3D printing, large-scale printing, and las
 ## Technologies
 
 - **Angular 18**: Core framework for building the frontend.
-- **Angular Material**: UI component library for consistent design.
-<!-- - **Tailwind CSS** (optional): Will be considered in the future for utility-first styling. -->
+- **Primeng**: UI component library for consistent design.
+- **Tailwind CSS**: CSS utility library that makes it easy to create custom styles quickly and efficiently.
 - **TypeScript**: Provides type safety and improved development experience.
 - **RxJS**: Reactive programming for handling asynchronous data streams.
 - **CSS**: For styling components.
