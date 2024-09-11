@@ -13,6 +13,68 @@ Fatlab is a small business focused on 3D printing, large-scale printing, and las
 - **RxJS**: Reactive programming for handling asynchronous data streams.
 - **CSS**: For styling components.
 
+## Tailwind CSS Customization
+
+### Color Palette
+
+The custom color palette for the project is as follows:
+
+| Color Name  | Hex Code | Preview |
+| ----------- | -------- | ------- |
+| **Blue 1**  | `#f3f6fc` | ![#f3f6fc](https://via.placeholder.com/20/f3f6fc?text=+) |
+| **Blue 2**  | `#e7eef7` | ![#e7eef7](https://via.placeholder.com/20/e7eef7?text=+) |
+| **Blue 3**  | `#80ed99` | ![#80ed99](https://via.placeholder.com/20/80ed99?text=+) |
+| **Blue 4**  | `#45dfb1` | ![#45dfb1](https://via.placeholder.com/20/45dfb1?text=+) |
+| **Blue 5**  | `#0ad1c8` | ![#0ad1c8](https://via.placeholder.com/20/0ad1c8?text=+) |
+| **Blue 6**  | `#14919b` | ![#14919b](https://via.placeholder.com/20/14919b?text=+) |
+| **Blue 7**  | `#0b6477` | ![#0b6477](https://via.placeholder.com/20/0b6477?text=+) |
+| **Blue 8**  | `#213a57` | ![#213a57](https://via.placeholder.com/20/213a57?text=+) |
+| **Blue 9**  | `#16263b` | ![#16263b](https://via.placeholder.com/20/16263b?text=+) |
+
+### Fonts
+
+The project uses two custom fonts: **`Space Grotesk`** and **`Onest`**.
+
+### Text Sizes
+
+Below are the custom text sizes used in the project:
+
+![example](https://firebasestorage.googleapis.com/v0/b/fatlab-e4bbf.appspot.com/o/readme%2Fexample-size-fonts.PNG?alt=media&token=91ad55cf-fcc4-4b32-9b2c-9c2a85f113f2)
+
+## Typography
+
+Throughout the Fatlab application, we follow a consistent set of text styles to maintain visual harmony and readability. The typography system has pre-configured classes that can be applied to various text elements across the project.
+
+### Text Styles Overview:
+
+- **Title Styles**:
+  - `.text-title-1`
+  - `.text-title-2`
+  - `.text-title-3`
+  - `.text-title-4`
+  - `.text-title-5`
+
+- **Subtitle Styles**:
+  - `.text-subtitle-1`
+  - `.text-subtitle-2`
+  - `.text-subtitle-3`
+
+- **Body Text**:
+  - `.text-body-1`
+  - `.text-body-2` *(default)*
+  - `.text-body-3`
+
+- **Button Text**:
+  - `.text-button`
+
+- **Span & Caption**:
+  - `.text-span`
+  - `.text-span-bold`
+  - `.text-caption`
+  - `.text-underline`
+
+By default, most body text in the application uses `.text-body-2` for a consistent and clean appearance.
+
 ## Project Structure
 
 The project follows a clean architecture approach to separate concerns and ensure scalability.
