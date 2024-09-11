@@ -1,0 +1,20 @@
+<aside class="fixed h-screen px-5 py-4 bg-blue-8">
+    <app-user-profile></app-user-profile>
+    <hr class="m-0 border-blue-2">
+    <nav class="mt-2">
+        @for (group of groups; track $index) {
+            <h2 class="text-body-1 mt-3 text-blue-1">{{group.title}}</h2>
+            <ul class="grid gap-1">
+                @for (item of group.items; track $index) {
+                    <li>
+                        <a routerLinkActive="active" [routerLink]="item.link" 
+                            class="rounded-lg flex items-center gap-2 px-3 py-1 transition-[background]">
+                            <img src="{{item.icon}}" alt="icon {{item.name}}">
+                            <p class="text-nowrap text-blue-2">{{item.name}}</p>
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+    </nav>
+</aside>
