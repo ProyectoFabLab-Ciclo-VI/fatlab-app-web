@@ -24,6 +24,10 @@ body { @apply bg-blue-1 text-body-2 m-0 p-0 box-border; }
     src: url('/font/Onest/Onest-VariableFont_wght.ttf');
 }
 
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+a { text-decoration: none; }
+ul { list-style-type: none; margin: 0; padding: 0; }
+
 .text-title-1 { @apply font-space-grotesk text-12zp font-bold uppercase; }
 .text-title-2 { @apply font-space-grotesk text-11zp font-bold uppercase; }
 .text-title-3 { @apply font-space-grotesk text-9zp font-bold uppercase; }
@@ -43,3 +47,9 @@ body { @apply bg-blue-1 text-body-2 m-0 p-0 box-border; }
 .text-span-bold { @apply font-onest text-1zp font-semibold; }
 .text-caption { @apply font-onest text-1zp font-light; }
 .text-underline { @apply font-onest text-3zp underline; }
+
+.btn-primary {
+    @apply text-button bg-blue-6 text-blue-2 px-3 py-2 rounded-lg 
+    hover:bg-blue-7 active:bg-blue-5 active:scale-95 transition-all 
+    no-underline border-none cursor-pointer select-none;
+}

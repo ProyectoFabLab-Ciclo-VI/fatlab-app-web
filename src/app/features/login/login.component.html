@@ -1,0 +1,15 @@
+<form [formGroup]="login" (ngSubmit)="onSubmit()" class="grid gap-4">
+    <h1 class="text-title-3">Iniciar sesión</h1>
+    <div class="grid gap-2">
+        <label for="username">Nombre ususario</label>
+        <input id="username" type="text" formControlName="username" pInputText/>
+    </div>
+    <div class="grid gap-2">
+        <div class="flex gap-2 justify-between">
+            <label for="password">Contraseña</label>
+            <!-- <a routerLink="./forget-password" class="text-sm text-blue-7">¿Olvidaste tu contraseña?</a> -->
+        </div>
+        <p-password id="password" formControlName="password" [toggleMask]="true" [feedback]="false" />
+    </div>
+    <button type="submit" class="btn-primary w-fit">Iniciar sesión</button>
+</form>

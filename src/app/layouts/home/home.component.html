@@ -1,0 +1,12 @@
+<section [class]="{ 'activate':activateSidebar, 'no-activate':!activateSidebar,}" class="h-screen flex">
+    <app-sidebar id="sidebar" class="fixed z-[99]"></app-sidebar>
+    <main class="flex-[1_1_auto] overflow-auto">
+        @defer () {
+            <router-outlet/>
+        } @placeholder {
+            <app-loader/>
+        } @loading { 
+            <app-loader/>
+        }
+    </main>
+</section>

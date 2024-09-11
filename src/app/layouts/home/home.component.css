@@ -1,0 +1,29 @@
+#sidebar {
+    transition: margin-left .5s;
+    -webkit-transition: margin-left .5s;
+    -moz-transition: margin-left .5s;
+    -ms-transition: margin-left .5s;
+    -o-transition: margin-left .5s;
+}
+
+section.no-activate #sidebar {
+    margin-left: -100%;
+}
+
+section.activate #sidebar {
+    margin-left: 0%;
+}
+
+@media (width > 800px) {
+    section.no-activate #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar {
+        flex: 0 0 auto;
+        width: 250px;
+        height: 100%;
+        height: auto;
+        position: relative;
+    }
+}
