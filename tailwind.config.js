@@ -6,15 +6,15 @@ module.exports = {
   ],
   theme: {
     colors: {
-      "blue-1": "#f3f6fc",
-      "blue-2": "#e7eef7",
-      "blue-3": "#80ed99",
-      "blue-4": "#45dfb1",
-      "blue-5": "#0ad1c8",
-      "blue-6": "#14919b",
-      "blue-7": "#0b6477",
-      "blue-8": "#213a57",
-      "blue-9": "#16263b"
+      "blue-1": "#F3F6FC",
+      "blue-2": "#E6EEF8",
+      "blue-3": "#C8DAEF",
+      "blue-4": "#619BCF",
+      "blue-5": "#3D7EBA",
+      "blue-6": "#2C639D",
+      "blue-7": "#22456A",
+      "blue-8": "#213B59",
+      "blue-9": "#16263B"
     },
     fontFamily: {
       "space-grotesk": ["Space Grotesk", "sans-serif"],
@@ -22,8 +22,8 @@ module.exports = {
     },
     extend: {
       fontSize: {
-        "1zp": "0.5rem",
-        "2zp": "0.625rem",
+        "1zp": "0.625rem",
+        "2zp": "0.8rem",
         "3zp": "1rem",
         "4zp": "1.125rem",
         "5zp": "1.25rem",
