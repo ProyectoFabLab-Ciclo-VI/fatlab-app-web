@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { SidebarService } from '../../core/index.service.trigger';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { SidebarService } from './service/sidebar.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -7,19 +7,20 @@ import { Subscription } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
-  activateSidebar: boolean = true;
+export class HomeComponent implements OnInit, OnDestroy {
+  isActiveSidebar: boolean = true;
+  isActiveQuick: boolean = false;
   sidebarSub: Subscription = new Subscription();
 
   constructor(
-    private SiderbarSrv: SidebarService
+    private SiderbarSrv: SidebarService,
   ) { }
 
   ngOnInit(): void {
-    this.sidebarSub = this.SiderbarSrv.activatedSidebar$.subscribe(activate => this.activateSidebar = activate);
+    this.sidebarSub = this.SiderbarSrv.isActive$.subscribe(isActive => this.isActiveSidebar = isActive);
   }
 
   ngOnDestroy(): void {
-    this.sidebarSub.unsubscribe();
+    if(this.sidebarSub) this.sidebarSub.unsubscribe();
   }
 }

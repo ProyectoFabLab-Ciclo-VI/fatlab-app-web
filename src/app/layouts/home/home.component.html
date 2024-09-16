@@ -1,6 +1,6 @@
-<section [class]="{ 'activate':activateSidebar, 'no-activate':!activateSidebar,}" class="h-screen flex">
+<section [class]="{ 'activate':isActiveSidebar, 'no-activate':!isActiveSidebar,}" class="h-screen flex">
     <app-sidebar id="sidebar" class="fixed z-[99]"></app-sidebar>
-    <main class="flex-[1_1_auto] overflow-auto">
+    <main #container class="flex-[1_1_auto] overflow-auto">
         @defer () {
             <router-outlet/>
         } @placeholder {
@@ -9,4 +9,5 @@
             <app-loader/>
         }
     </main>
+    <app-quick-access class="grid h-screen"></app-quick-access>
 </section>

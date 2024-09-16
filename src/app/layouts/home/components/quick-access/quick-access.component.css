@@ -1,0 +1,11 @@
+li div img {
+    filter: invert(40%) sepia(9%) saturate(4961%) hue-rotate(174deg) brightness(80%) contrast(83%);
+}
+
+#icon-layout {
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}

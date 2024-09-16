@@ -3,7 +3,7 @@
         <label #checkboxMenu class="flex items-center pr-2 gap-1 mb-1 cursor-pointer rounded-[50px_16px_16px_50px] transition-[all_0.3s]">
             <div id="profile">
                 <img src="favicon.ico" alt="profile image" class="h-full object-cover">
-                <input type="checkbox" style="display: none;" [(ngModel)]="isActivateMenu">
+                <input type="checkbox" style="display: none;" [(ngModel)]="isActiveMenu">
             </div>
             <p class="text-blue-1 text-subtitle-3 select-none max-w-24 whitespace-nowrap overflow-hidden text-ellipsis">
                 {{user.name}}
@@ -24,7 +24,7 @@
     <span id="icon-view-sidebar" 
         class="flex items-center justify-center p-1 rounded-lg cursor-pointer bg-blue-8 hover:bg-blue-9 active:scale-95"
         (click)="reactiveSidebar()"
-        [class]="{ 'active': isActivateSidebar, 'desactive': !isActivateSidebar }">
+        [class]="{ 'active': isActiveSidebar, 'desactive': !isActiveSidebar }">
         <img src="icon/profile-user/icon-layout-sidebar.webp" alt="icon layout sidebar">
     </span>
 </article>

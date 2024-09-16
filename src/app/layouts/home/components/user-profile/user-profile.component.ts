@@ -1,20 +1,16 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { SidebarService } from '../../../../core/index.service.trigger';
+import { SidebarService } from '../../service/sidebar.service';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css',
-  standalone: true,
-  imports: [FormsModule, RouterModule],
 })
 export class UserProfileComponent {
   @ViewChild('menu') menuElement!: ElementRef;
   @ViewChild('checkboxMenu') checkboxMenuElement!: ElementRef;
-  isActivateSidebar: boolean = true;
-  isActivateMenu: boolean = false;
+  isActiveSidebar: boolean = true;
+  isActiveMenu: boolean = false;
   user = { 
     name: 'Ferxxo Fatlab',
   }
@@ -25,7 +21,7 @@ export class UserProfileComponent {
 
   @HostListener('window:resize', ['$event'])
   private onResize(event$: any) {
-    if (event$.target.innerWidth < 768 && this.isActivateSidebar) {
+    if (event$.target.innerWidth < 768 && this.isActiveSidebar) {
       this.reactiveSidebar();
     }
   }
@@ -33,13 +29,13 @@ export class UserProfileComponent {
   @HostListener('window:click', ['$event'])
   handleClickOutside(event: Event) {
     let isNotElementOfMenu = !this.menuElement.nativeElement.contains(event.target) && !this.checkboxMenuElement.nativeElement.contains(event.target)
-    if (isNotElementOfMenu && this.isActivateMenu) {
-      this.isActivateMenu = false;
+    if (isNotElementOfMenu && this.isActiveMenu) {
+      this.isActiveMenu = false;
     }
   }
 
   public reactiveSidebar() {
-    this.isActivateSidebar = !this.isActivateSidebar;
-    this.sidebarSrv.activatedSidebar$.next(this.isActivateSidebar);
+    this.isActiveSidebar = !this.isActiveSidebar;
+    this.sidebarSrv.isActive$.next(this.isActiveSidebar);
   }
 }

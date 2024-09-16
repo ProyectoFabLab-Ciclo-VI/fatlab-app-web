@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
-import { UserProfileComponent } from '../user-profile/user-profile.component';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
-  standalone: true,
-  imports: [UserProfileComponent, CommonModule, RouterLink, RouterLinkActive],
 })
 export class SidebarComponent {
   groups = [

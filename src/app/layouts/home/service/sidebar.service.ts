@@ -5,5 +5,5 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SidebarService {
-  activatedSidebar$: EventEmitter<boolean> = new EventEmitter<boolean>();
+  isActive$: EventEmitter<boolean> = new EventEmitter<boolean>();
 }
