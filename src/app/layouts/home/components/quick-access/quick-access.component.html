@@ -1,12 +1,12 @@
 <section class="bg-blue-2 grid grid-rows-[auto_1fr_1fr] *:border *:border-solid *:border-blue-6 *:border-r-0 *:border-b-0"
     [style]="isActiveQuick ? '' : 'display:none;'">
-    <div class="px-4 py-2 grid gap-4 border-t-0">
+    <div class="px-4 pt-2 pb-4 grid gap-4 border-t-0">
         <h1 class="text-subtitle-3 text-blue-9">Acciones rapida</h1>
         <!-- <div id="icon-layout" class="fixed flex items-center justify-center bg-blue-2 p-1 top-2 right-2 cursor-pointer rounded hover:bg-blue-3 active:scale-95">
             <img src="icon/quick-access/icon-layout.webp" alt="icon layout access">
         </div> -->
         <ul class="grid gap-3">
-            @for (quick of quickAccess; track $index) {
+            @for (quick of quickAccesses; track $index) {
                 <li class="flex justify-between items-center gap-2 px-2">
                     <div class="flex gap-1">
                         <img src="{{quick.src}}" alt="icon {{quick.name | lowercase}}" class="w-3 h-3">

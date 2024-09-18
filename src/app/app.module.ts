@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderComponent } from "./shared/components/loader/loader.component";
+import { NotificationComponent } from './shared/components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoaderComponent } from "./shared/components/loader/loader.component";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    LoaderComponent
+    LoaderComponent,
+    NotificationComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
