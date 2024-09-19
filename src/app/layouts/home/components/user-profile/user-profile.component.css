@@ -17,15 +17,6 @@ nav {
     @apply bg-blue-7 rounded border-blue-2 p-2 top-[110%] shadow-md shadow-blue-9 grid gap-1;
 }
 
-#profile {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @apply h-10 w-10 bg-blue-1 rounded-full border border-solid border-blue-9;
-}
-
 #user:has(#profile input:not(:checked)):active {
     scale: 0.95;
 }

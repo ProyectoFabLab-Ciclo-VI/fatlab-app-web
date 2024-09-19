@@ -1,4 +1,4 @@
-<section class="bg-blue-2 grid grid-rows-[auto_1fr_1fr] *:border *:border-solid *:border-blue-6 *:border-r-0 *:border-b-0"
+<section class="h-screen overflow-y-hidden grid grid-rows-[auto_1fr_1fr] bg-blue-2 border  border-l border-b-0 border-r-0 border-t-0 border-solid border-blue-6 b *:border *:border-solid *:border-blue-6 *:border-r-0 *:border-b-0 *:border-l-0"
     [style]="isActiveQuick ? '' : 'display:none;'">
     <div class="px-4 pt-2 pb-4 grid gap-4 border-t-0">
         <h1 class="text-subtitle-3 text-blue-9">Acciones rapida</h1>
@@ -17,10 +17,6 @@
             }
         </ul>
     </div>
-    <div>
-        <h1 class="text-subtitle-3 text-blue-9 px-4 py-2 bg-blue-2">Lista de deudores</h1>
-    </div>
-    <div>
-        <h1 class="max-w-60 text-subtitle-3 text-blue-9 px-4 py-2 bg-blue-2 whitespace-nowrap overflow-hidden text-ellipsis">Mantenimiento maquinas</h1>
-    </div>
+    <app-debtor-list/>
+    <app-maintenance-list/>
 </section>

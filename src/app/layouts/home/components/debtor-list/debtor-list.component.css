@@ -1,0 +1,4 @@
+ul {
+    height: calc((100vh - 196px - 80px)/2);
+    overflow-y: auto;
+}

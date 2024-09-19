@@ -1,0 +1,14 @@
+<div class="">
+    <h1 class="max-w-60 text-subtitle-3 text-blue-9 px-4 py-2 bg-blue-3 whitespace-nowrap overflow-hidden text-ellipsis">Mantenimiento maquinas</h1>
+    <ul class="overflow-y-auto">
+        @for (machine of machines; track $index) {
+            <li class="grid grid-cols-[1fr_auto] gap-2 mx-4 my-2 items-center">
+                <div>
+                    <span class="text-span-bold">{{ machine.nickname }}</span>
+                    <p class="max-w-32 text-body-2 whitespace-nowrap overflow-hidden text-ellipsis">{{ machine.name }}</p>
+                </div>
+                <span class="text-span">{{ machine.nextDate }}</span>
+            </li>
+        }
+    </ul>
+</div>

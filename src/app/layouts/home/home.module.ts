@@ -9,6 +9,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoaderComponent } from '../../shared/components/loader/loader.component';
 import { QuickAccessComponent } from './components/quick-access/quick-access.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { DebtorListComponent } from './components/debtor-list/debtor-list.component';
+import { AvatarComponent } from "../../shared/components/avatar/avatar.component";
+import { MaintenanceListComponent } from './components/maintenance-list/maintenance-list.component';
 
 
 @NgModule({
@@ -17,6 +20,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     QuickAccessComponent,
     SidebarComponent,
     UserProfileComponent,
+    DebtorListComponent,
+    MaintenanceListComponent,
   ],
   imports: [
     CommonModule,
@@ -25,7 +30,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     RouterLink,
     RouterLinkActive,
     FormsModule,
-    RouterModule
+    RouterModule,
+    AvatarComponent,
   ]
 })
 export class HomeModule { }
