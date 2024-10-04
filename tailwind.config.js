@@ -34,7 +34,13 @@ module.exports = {
         "10zp": "2.5rem",
         "11zp": "3rem",
         "12zp": "4rem"
-      }
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(57deg, var(--tw-gradient-stops))',
+      },
+      boxShadow: {
+        'custom': '0 24px 24px #00000040',
+      },
     },
   },
   plugins: [

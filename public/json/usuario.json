@@ -1,0 +1,42 @@
+[
+    {
+        "username": "john.doe@example.com",
+        "password": "Sunshine2024"
+    },
+    {
+        "username": "jane.smith@example.com",
+        "password": "OceanBreeze1"
+    },
+    {
+        "username": "michael.jones@example.com",
+        "password": "PurpleGiraffe!"
+    },
+    {
+        "username": "emily.brown@example.com",
+        "password": "ChocolateCake99"
+    },
+    {
+        "username": "daniel.white@example.com",
+        "password": "GreenApple#12"
+    },
+    {
+        "username": "sarah.miller@example.com",
+        "password": "SunnySkies7"
+    },
+    {
+        "username": "david.wilson@example.com",
+        "password": "BlueMountain22"
+    },
+    {
+        "username": "lisa.davis@example.com",
+        "password": "StarryNight*8"
+    },
+    {
+        "username": "james.moore@example.com",
+        "password": "TropicalFish#5"
+    },
+    {
+        "username": "laura.taylor@example.com",
+        "password": "CoffeeLover2023"
+    }
+]

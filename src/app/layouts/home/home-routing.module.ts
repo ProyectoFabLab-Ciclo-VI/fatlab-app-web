@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('../../features/gestion-maquina/gestion-maquina.module').then(m => m.GestionMaquinaModule)
       },
       {
+        path: 'pedido',
+        loadChildren: () => import('../../features/gestion-pedido/gestion-pedido.module').then(m => m.GestionPedidoModule),
+      },
+      {
         path: 'not-found',
         component: NotFoundComponent
       },

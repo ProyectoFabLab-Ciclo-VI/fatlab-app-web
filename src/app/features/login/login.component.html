@@ -1,15 +1,26 @@
-<form [formGroup]="login" (ngSubmit)="onSubmit()" class="grid gap-4">
-    <h1 class="text-title-3">Iniciar sesión</h1>
-    <div class="grid gap-2">
-        <label for="username">Nombre ususario</label>
-        <input id="username" type="text" formControlName="username" pInputText/>
+<form [formGroup]="user" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 items-center relative">
+    <h1 class="font-space-grotesk font-bold text-3xl text-center">Login</h1>
+    <div class="grid gap-1 w-full">
+        <input type="text" formControlName="username" pInputText placeholder="username"
+            (invalid)="false" required
+            [ngClass]="{'ng-invalid ng-dirty': user.controls['username'].touched && user.controls['username'].invalid}" />
+        
+        @if (user.controls['username'].touched && user.value.username === '') {
+            <p class="text-[red] pl-2">Es requerido el email</p>
+        } @else if (user.controls['username'].touched && user.controls['username'].invalid) {
+            <p class="text-[red] pl-2">El email es invalido</p>
+        }
+
     </div>
-    <div class="grid gap-2">
-        <div class="flex gap-2 justify-between">
-            <label for="password">Contraseña</label>
-            <!-- <a routerLink="./forget-password" class="text-sm text-blue-7">¿Olvidaste tu contraseña?</a> -->
-        </div>
-        <p-password id="password" formControlName="password" [toggleMask]="true" [feedback]="false" />
+    <div class="grid gap-1">
+        <p-password id="password" formControlName="password" placeholder="password" 
+            [toggleMask]="true" [feedback]="false"
+            [ngClass]="{'ng-invalid ng-dirty': user.controls['password'].touched && user.controls['password'].invalid}" />
+
+        @if (user.controls['password'].touched && user.value.password === '') {
+            <p class="text-[red] pl-2">Es requerido la contraseña</p>
+        }
+        
     </div>
-    <button type="submit" class="btn-primary w-fit">Iniciar sesión</button>
+    <button type="submit" class="btn btn-flat-primary w-fit" [disabled]="user.invalid">Iniciar sesión</button>
 </form>

@@ -1,13 +1,15 @@
 <section [class]="{ 'activate':isActiveSidebar, 'no-activate':!isActiveSidebar,}" class="h-screen flex">
     <app-sidebar id="sidebar" class="fixed z-[99]"></app-sidebar>
-    <main #container class="flex-[1_1_auto] overflow-auto">
-        @defer () {
-            <router-outlet/>
-        } @placeholder {
-            <app-loader/>
-        } @loading { 
-            <app-loader/>
-        }
-    </main>
-    <app-quick-access class="grid h-screen"></app-quick-access>
+    <div class="grid grid-cols-[1fr_auto] w-full">
+        <main #container class="flex-[1_1_auto] overflow-auto">
+            @defer () {
+                <router-outlet/>
+            } @placeholder {
+                <app-loader/>
+            } @loading { 
+                <app-loader/>
+            }
+        </main>
+        <app-quick-access class="grid h-screen"></app-quick-access>
+    </div>
 </section>
