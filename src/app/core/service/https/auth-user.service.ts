@@ -18,7 +18,7 @@ export class AuthUserService {
   ) { }
 
   login(username: string, password: string): Observable<boolean> {
-    if(username === 'error@error' && password === 'error') return throwError("Error del servidor");
+    if(username === 'error@error' && password === 'error') return throwError(() => new Error("Error del servidor"));
     
     return this.http.get<User[]>(this.url).pipe(
       map((users: User[]) => {

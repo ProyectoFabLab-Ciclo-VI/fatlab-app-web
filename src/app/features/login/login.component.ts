@@ -7,13 +7,14 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthUserService } from '../../core/index.service.http';
 import { NotificationService } from '../../core/index.service.trigger';
 import { CommonModule } from '@angular/common';
+import { FloatLabelComponent } from '../../shared/components/float-label/float-label.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, PasswordModule, InputTextModule, FloatLabelModule, RouterModule]
+  imports: [CommonModule, ReactiveFormsModule, PasswordModule, InputTextModule, FloatLabelModule, RouterModule, FloatLabelComponent]
 })
 export class LoginComponent {
   user: FormGroup = new FormGroup({
@@ -33,7 +34,8 @@ export class LoginComponent {
       next: isValid => {
         if(isValid) {
           this.route.navigate(['/home']);
-          this.notificationSrv.addNotification('success',`Bienvenido ${username}`);
+          const name = username.split('@')[0];
+          this.notificationSrv.addNotification('success',`Bienvenido ${name}`);
           return;
         }
         this.notificationSrv.addNotification('error', 'Lo siento, no te encontramos');
