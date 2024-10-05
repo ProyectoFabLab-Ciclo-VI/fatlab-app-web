@@ -1,0 +1,76 @@
+.float-label label {
+    background: #fff;
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.float-label input,
+.float-label textarea,
+.float-label select {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    border: 1px solid #E6E9ED;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
+.float-label input::placeholder,
+.float-label textarea::placeholder,
+.float-label select::placeholder {
+    color: transparent;
+}
+
+.float-label input:hover,
+.float-label textarea:hover,
+.float-label select:hover {
+    border-color:#6A7991;
+    box-shadow: 0px 0px 4px #00000040;
+}
+
+.float-label input:focus,
+.float-label textarea:focus,
+.float-label select:focus {
+    border-color:#122545;
+    box-shadow: 0px 0px 4px #146FB4;
+}
+
+.float-label input:focus ~ label,
+.float-label textarea:focus ~ label,
+.float-label select:focus ~ label,
+.float-label input:not(:placeholder-shown) ~ label,
+.float-label textarea:not(:placeholder-shown) ~ label,
+.float-label select:valid ~ label {
+    color: #146FB4;
+    /* font-size: 0.8rem; */
+    top: -0.2rem;
+}
+
+
+.float-label input.ng-invalid.ng-touched {
+    border-color: red;
+    box-shadow: 0px 0px 4px rgba(255, 0, 0, 0.5);
+}
+
+.float-label input.ng-invalid.ng-touched ~ label {
+    color: red;
+}
