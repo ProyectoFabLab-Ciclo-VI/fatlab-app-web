@@ -8,7 +8,6 @@ import { HomeComponent } from './home.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoaderComponent } from '../../shared/components/loader/loader.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { AvatarComponent } from "../../shared/components/avatar/avatar.component";
 
 
 @NgModule({

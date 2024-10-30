@@ -1,13 +1,4 @@
-aside {
-    transition: margin-left .5s;
-    -webkit-transition: margin-left .5s;
-    -moz-transition: margin-left .5s;
-    -ms-transition: margin-left .5s;
-    -o-transition: margin-left .5s;
-}
-
-
-ul li {
+/* ul li {
     transition: background .3s;
     -webkit-transition: background .3s;
     -moz-transition: background .3s;
@@ -21,4 +12,4 @@ a:not(.active) {
 
 a.active {
     @apply bg-primary-500 *:text-neutral-50;
-}
+} */
