@@ -13,8 +13,7 @@ label:has(#profile input:checked) {
 nav {
     position: absolute;
     width: max-content;
-    border: 1px solid;
-    @apply bg-primary-600 rounded border-primary-100 p-2 top-[110%] shadow-md shadow-primary-900 grid gap-1;
+    @apply bg-primary-700 rounded-2xl px-2 py-4 top-[105%] shadow-md shadow-primary-900 grid gap-[10px];
 }
 
 #user:has(#profile input:not(:checked)):active {
