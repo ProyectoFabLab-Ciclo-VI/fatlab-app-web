@@ -81,7 +81,8 @@ module.exports = {
     },
     fontFamily: {
       "space-grotesk": ["Space Grotesk", "sans-serif"],
-      "onest": ["Onest", "sans-serif"]
+      "onest": ["Onest", "sans-serif"],
+      "JetBrains-Mono": ["JetBrains Mono", "sans-serif"]
     },
     extend: {
       fontSize: {
