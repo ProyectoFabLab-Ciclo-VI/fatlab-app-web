@@ -16,9 +16,9 @@ ul li {
 }
 
 a:not(.active) {
-    @apply hover:bg-blue-9 accent-blue-7 *:text-blue-2;
+    @apply hover:bg-primary-900 accent-primary-600 *:text-neutral-100;
 }
 
 a.active {
-    @apply bg-blue-6 *:text-blue-1;
+    @apply bg-primary-500 *:text-neutral-50;
 }

@@ -1,69 +1,15 @@
-@import "primeng/resources/themes/aura-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
+/* @import "primeng/resources/themes/aura-light-blue/theme.css";
+@import "primeng/resources/primeng.css"; */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    /* Danger Colors */
-    --color-danger-50: #fef2f2;
-    --color-danger-100: #fee6e5;
-    --color-danger-200: #fccfcf;
-    --color-danger-300: #f9a8a8;
-    --color-danger-400: #f57779;
-    --color-danger-500: #ec474f;
-    --color-danger-600: #dc3545;
-    --color-danger-700: #b7192c;
-    --color-danger-800: #99182c;
-    --color-danger-900: #83182c;
-    --color-danger-950: #490812;
-
-    /* Info Colors */
-    --color-info-50: #edf7ff;
-    --color-info-100: #d7ebff;
-    --color-info-200: #b9ddff;
-    --color-info-300: #88c9ff;
-    --color-info-400: #50abff;
-    --color-info-500: #2886ff;
-    --color-info-600: #1f6fff;
-    --color-info-700: #0a4feb;
-    --color-info-800: #0f40be;
-    --color-info-900: #133b95;
-    --color-info-950: #11255a;
-
-    /* Success Colors */
-    --color-success-50: #f1fcf2;
-    --color-success-100: #dff9e4;
-    --color-success-200: #c1f1cb;
-    --color-success-300: #90e5a3;
-    --color-success-400: #58d073;
-    --color-success-500: #32b550;
-    --color-success-600: #28a745;
-    --color-success-700: #1f7634;
-    --color-success-800: #1e5d2d;
-    --color-success-900: #1a4d27;
-    --color-success-950: #092a12;
-
-    /* Warning Colors */
-    --color-warning-50: #fcfaea;
-    --color-warning-100: #f9f3c8;
-    --color-warning-200: #f5e493;
-    --color-warning-300: #efce55;
-    --color-warning-400: #e7b41b;
-    --color-warning-500: #d8a11a;
-    --color-warning-600: #bb7d13;
-    --color-warning-700: #955a13;
-    --color-warning-800: #7c4717;
-    --color-warning-900: #6a3b19;
-    --color-warning-950: #3d1f0b;
-}
-
 * {
     scrollbar-width: thin;
     scrollbar-color: #5C6C7B #EDF0F3;
     scroll-behavior: smooth;
-    @apply text-blue-9;
+    @apply text-primary-900;
 }
 
 body { @apply text-body-2 m-0 p-0 box-border; }
@@ -116,199 +62,159 @@ ul { list-style-type: none; margin: 0; padding: 0; }
 /* ------------------------------------------ */
 /* button flat colors */
 .btn-flat-primary {
-    @apply bg-blue-5 text-blue-1;
+    @apply bg-primary-400 text-neutral-50;
 }
 
 .btn-flat-danger {
-    background-color: var(--color-danger-600);
-    color: var(--color-danger-50);
+    @apply bg-error-600 text-error-50;
 }
 
 .btn-flat-success {
-    background-color: var(--color-success-600);
-    color: var(--color-success-50);
+    @apply bg-success-600 text-success-50;
 }
 
 .btn-flat-warning {
-    background-color: var(--color-warning-400);
-    color: var(--color-warning-50);
+    @apply bg-warning-600 text-warning-50;
 }
 
 .btn-flat-info {
-    background-color: var(--color-info-500);
-    color: var(--color-info-50);
+    @apply bg-primary-600 text-neutral-50;
 }
 
 /* Hover flat States */
-.btn-flat-primary:hover { @apply bg-blue-6; }
+.btn-flat-primary:hover { @apply bg-primary-500; }
 
 .btn-flat-danger:hover {
-    background-color: var(--color-danger-700);
+    @apply bg-error-700;
 }
 
 .btn-flat-success:hover {
-    background-color: var(--color-success-700);
+    @apply bg-success-700;
 }
 
 .btn-flat-info:hover {
-    background-color: var(--color-info-700);
+    @apply bg-primary-700;
 }
 
 .btn-flat-warning:hover {
-    background-color: var(--color-warning-700);
+    @apply bg-warning-700;
 }
 
 /* Active flat States */
-.btn-flat-primary:active { @apply bg-blue-7; }
+.btn-flat-primary:active { @apply bg-primary-600; }
 
 .btn-flat-danger:active {
-    background-color: var(--color-danger-800);
+    @apply bg-warning-800;
 }
 
 .btn-flat-success:active {
-    background-color: var(--color-success-800);
+    @apply bg-success-800;
 }
 
 .btn-flat-info:active {
-    background-color: var(--color-info-800);
+    @apply bg-primary-800;
 }
 
 .btn-flat-warning:active {
-    background-color: var(--color-warning-800);
+    @apply bg-warning-800;
 }
 
 /* Disabled flat States */
 .btn-flat-primary:disabled {
-    @apply bg-blue-1 text-blue-4;
+    @apply bg-primary-50 text-primary-300;
 }
 
 .btn-flat-danger:disabled {
-    background-color: var(--color-danger-50);
-    color: var(--color-danger-400);
+    @apply bg-error-50 text-error-400;
 }
 
 .btn-flat-success:disabled {
-    background-color: var(--color-success-50);
-    color: var(--color-success-400);
+    @apply bg-success-50 text-success-400;
 }
 
 .btn-flat-info:disabled {
-    background-color: var(--color-info-50);
-    color: var(--color-info-400);
+    @apply bg-primary-50 text-primary-400;
 }
 
 .btn-flat-warning:disabled {
-    background-color: var(--color-warning-50);
-    color: var(--color-warning-400);
+    @apply bg-warning-50 text-warning-400;
 }
 
 
 /* ------------------------------------------ */
 /* outline button colors */
 
-.btn-outline-primary { @apply bg-blue-1 border border-solid border-blue-5 text-blue-5; }
+.btn-outline-primary { @apply bg-primary-50 border border-solid border-primary-400 text-primary-400; }
 
 .btn-outline-danger {
-    background-color: var(--color-danger-50);
-    border: 1px solid var(--color-danger-600);
-    color: var(--color-danger-600)
+    @apply bg-error-50 border-error-600 text-error-600;
 }
 
 .btn-outline-success {
-    background-color: var(--color-success-50);
-    border: 1px solid var(--color-success-600);
-    color: var(--color-success-600)
+    @apply bg-success-50 border-success-600 text-success-600;
 }
 
 .btn-outline-info {
-    background-color: var(--color-info-50);
-    border: 1px solid var(--color-info-600);
-    color: var(--color-info-600)
+    @apply bg-primary-50 border-primary-600 text-primary-600;
 }
 
 .btn-outline-warning {
-    background-color: var(--color-warning-50);
-    border: 1px solid var(--color-warning-600);
-    color: var(--color-warning-600)
+    @apply bg-warning-50 border-warning-600 text-warning-600;
 }
 
 /* hover outline States */
-.btn-outline-primary:hover { @apply bg-blue-2 border-blue-6 text-blue-6; }
+.btn-outline-primary:hover { @apply bg-primary-100 border-primary-500 text-neutral-500; }
 
 .btn-outline-danger:hover {
-    background-color: var(--color-danger-100);
-    border: 1px solid var(--color-danger-700);
-    color: var(--color-danger-700)
+    @apply bg-error-100 border-error-700 text-error-700;
 }
 
 .btn-outline-success:hover {
-    background-color: var(--color-success-100);
-    border: 1px solid var(--color-success-700);
-    color: var(--color-success-700)
+    @apply bg-success-100 border-success-700 text-success-700;
 }
 
 .btn-outline-info:hover {
-    background-color: var(--color-info-100);
-    border: 1px solid var(--color-info-700);
-    color: var(--color-info-700)
+    @apply bg-primary-100 border-primary-700 text-primary-700;
 }
 
 .btn-outline-warning:hover {
-    background-color: var(--color-warning-100);
-    border: 1px solid var(--color-warning-700);
-    color: var(--color-warning-700)
+    @apply bg-warning-100 border-warning-700 text-warning-700;
 }
 
 /* active outline States */
-.btn-outline-primary:active { @apply bg-blue-2 border-blue-7 text-blue-7; }
+.btn-outline-primary:active { @apply bg-primary-100 border-primary-600 text-primary-600; }
 
 .btn-outline-danger:active {
-    background-color: var(--color-danger-100);
-    border: 1px solid var(--color-danger-800);
-    color: var(--color-danger-800)
+    @apply bg-error-100 border-error-800 text-error-800;
 }
 
 .btn-outline-success:active {
-    background-color: var(--color-success-100);
-    border: 1px solid var(--color-success-800);
-    color: var(--color-success-800)
+    @apply bg-success-100 border-success-800 text-success-800;
 }
 
 .btn-outline-info:active {
-    background-color: var(--color-info-100);
-    border: 1px solid var(--color-info-800);
-    color: var(--color-info-800)
+    @apply bg-primary-100 border-primary-800 text-primary-800;
 }
 
 .btn-outline-warning:active {
-    background-color: var(--color-warning-100);
-    border: 1px solid var(--color-warning-800);
-    color: var(--color-warning-800)
+    @apply bg-warning-100 border-warning-800 text-warning-800;
 }
 
 /* Disabled States */
-.btn-outline-primary:disabled { @apply bg-blue-1 border-blue-3 text-blue-3; }
+.btn-outline-primary:disabled { @apply bg-primary-50 border-primary-200 text-primary-200; }
 
 .btn-outline-danger:disabled {
-    background-color: var(--color-danger-50);
-    border: 1px solid var(--color-danger-400);
-    color: var(--color-danger-400)
+    @apply bg-error-50 border-error-400 text-error-400;
 }
 
 .btn-outline-success:disabled {
-    background-color: var(--color-success-50);
-    border: 1px solid var(--color-success-400);
-    color: var(--color-success-400)
+    @apply bg-success-50 border-success-400 text-success-400;
 }
 
 .btn-outline-info:disabled {
-    background-color: var(--color-info-50);
-    border: 1px solid var(--color-info-400);
-    color: var(--color-info-400)
+    @apply bg-primary-50 border-primary-400 text-primary-400;
 }
 
 .btn-outline-warning:disabled {
-    background-color: var(--color-warning-50);
-    border: 1px solid var(--color-warning-400);
-    color: var(--color-warning-400)
+    @apply bg-warning-50 border-warning-400 text-warning-400;
 }

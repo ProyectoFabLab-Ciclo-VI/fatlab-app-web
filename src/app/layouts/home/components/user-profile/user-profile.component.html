@@ -2,29 +2,22 @@
     <div id="user" class="relative">
         <label #checkboxMenu class="flex items-center pr-2 gap-1 mb-1 cursor-pointer rounded-[50px_16px_16px_50px] transition-[all_0.3s]">
             <div id="profile">
-                 <app-avatar/>
                 <input type="checkbox" style="display: none;" [(ngModel)]="isActiveMenu">
             </div>
-            <p class="text-blue-1 text-subtitle-3 select-none max-w-24 whitespace-nowrap overflow-hidden text-ellipsis">
+            <p class="text-neutral-50 text-subtitle-3 select-none max-w-24 whitespace-nowrap overflow-hidden text-ellipsis">
                 {{user.name}}
             </p>
             <img src="icon/profile-user/icon-caret-down.webp" alt="caret down" class="h-6 w-6">
         </label>
         <nav #menu>
-            <div class="*:*:text-blue-1 *:text-blue-1">
-                <p><strong>Usuario:</strong> {{user.name}}</p>
-            </div>
-            <hr class="w-full">
-            <a routerLink="/" class="flex gap-2 items-center rounded hover:bg-blue-9 active:bg-blue-7 active:scale-95 px-3 py-1">
+            <a routerLink="/" class="flex gap-2 items-center rounded hover:bg-primary-900 active:bg-primary-600 active:scale-95 px-3 py-1">
+                <!-- <img src="icon/profile-user/icon-logout.webp" alt="logout" class="h-6 w-6"> -->
+                <span class="text-button text-primary-900">Cambiar contraseña</span>
+            </a>
+            <a routerLink="/" class="flex gap-2 items-center rounded hover:bg-primary-900 active:bg-primary-600 active:scale-95 px-3 py-1">
                 <img src="icon/profile-user/icon-logout.webp" alt="logout" class="h-6 w-6">
-                <span class="text-button text-blue-1">Cerrar sesion</span>
+                <span class="text-button text-primary-900">Cerrar sesion</span>
             </a>
         </nav>
     </div>
-    <span id="icon-view-sidebar" 
-        class="flex items-center justify-center p-1 rounded-lg cursor-pointer bg-blue-8 hover:bg-blue-9 active:scale-95"
-        (click)="reactiveSidebar()"
-        [class]="{ 'active': isActiveSidebar, 'desactive': !isActiveSidebar }">
-        <img src="icon/profile-user/icon-layout-sidebar.webp" alt="icon layout sidebar">
-    </span>
 </article>

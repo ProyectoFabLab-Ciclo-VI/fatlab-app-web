@@ -12,7 +12,7 @@ export class UserProfileComponent {
   isActiveSidebar: boolean = true;
   isActiveMenu: boolean = false;
   user = { 
-    name: 'Ferxxo Fatlab',
+    name: 'Administrador',
   }
 
   constructor(

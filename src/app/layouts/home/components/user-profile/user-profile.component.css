@@ -7,14 +7,14 @@
 } */
 
 label:has(#profile input:checked) {
-    @apply bg-blue-7;
+    @apply bg-primary-600;
 }
 
 nav {
     position: absolute;
     width: max-content;
     border: 1px solid;
-    @apply bg-blue-7 rounded border-blue-2 p-2 top-[110%] shadow-md shadow-blue-9 grid gap-1;
+    @apply bg-primary-600 rounded border-primary-100 p-2 top-[110%] shadow-md shadow-primary-900 grid gap-1;
 }
 
 #user:has(#profile input:not(:checked)):active {

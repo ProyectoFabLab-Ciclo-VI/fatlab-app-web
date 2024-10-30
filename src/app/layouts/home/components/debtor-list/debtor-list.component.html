@@ -1,9 +1,9 @@
 <div>
-    <h1 class="text-subtitle-3 text-blue-9 px-4 py-2 bg-blue-3">Lista de deudores</h1>
+    <h1 class="text-subtitle-3 text-primary-900 px-4 py-2 bg-primary-200">Lista de deudores</h1>
     <ul class="overflow-y-auto">
         @for (debtor of debtors; track $index) {
             <li class="grid grid-cols-[auto_1fr_auto] gap-2 mx-4 my-2 items-center">
-                <app-avatar [isDark]="true" [letter]="debtor.name[0]"></app-avatar>
+                <!-- <app-avatar [isDark]="true" [letter]="debtor.name[0]"></app-avatar> -->
                 <div>
                     <span class="text-span-bold">{{ debtor.code }}</span>
                     <p class="max-w-28 text-body-2 whitespace-nowrap overflow-hidden text-ellipsis">{{ debtor.name }}</p>

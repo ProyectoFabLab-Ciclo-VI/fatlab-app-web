@@ -1,22 +1,22 @@
-<section class="h-screen overflow-y-hidden grid grid-rows-[auto_1fr_1fr] bg-blue-2 border  border-l border-b-0 border-r-0 border-t-0 border-solid border-blue-6 b *:border *:border-solid *:border-blue-6 *:border-r-0 *:border-b-0 *:border-l-0"
+<section class="h-screen overflow-y-hidden grid grid-rows-[auto_1fr_1fr] bg-primary-100 border  border-l border-b-0 border-r-0 border-t-0 border-solid border-primary-500 b *:border *:border-solid *:border-primary-500 *:border-r-0 *:border-b-0 *:border-l-0"
     [style]="isActiveQuick ? '' : 'display:none;'">
     <div class="px-4 pt-2 pb-4 grid gap-4 border-t-0">
-        <h1 class="text-subtitle-3 text-blue-9">Acciones rapida</h1>
-        <!-- <div id="icon-layout" class="fixed flex items-center justify-center bg-blue-2 p-1 top-2 right-2 cursor-pointer rounded hover:bg-blue-3 active:scale-95">
+        <h1 class="text-subtitle-3 text-primary-900">Acciones rapida</h1>
+        <!-- <div id="icon-layout" class="fixed flex items-center justify-center bg-primary-100 p-1 top-2 right-2 cursor-pointer rounded hover:bg-primary-200 active:scale-95">
             <img src="icon/quick-access/icon-layout.webp" alt="icon layout access">
         </div> -->
         <ul class="grid gap-3">
             @for (quick of quickAccesses; track $index) {
                 <li class="flex justify-between items-center gap-2 px-2">
                     <div class="flex gap-1">
-                        <img src="{{quick.src}}" alt="icon {{quick.name | lowercase}}" class="w-3 h-3">
-                        <p class="text-body-3 text-blue-6">{{quick.name}}</p>
+                        <!-- <img src="{{quick.src}}" alt="icon {{quick.name | lowercase}}" class="w-3 h-3"> -->
+                        <p class="text-body-3 text-neutral-500">{{quick.name}}</p>
                     </div>
-                    <span class="text-span font-bold text-blue-6">{{quick.ctrl}}</span>
+                    <span class="text-span font-bold text-neutral-500">{{quick.ctrl}}</span>
                 </li>
             }
         </ul>
     </div>
-    <app-debtor-list/>
-    <app-maintenance-list/>
+    <!-- <app-debtor-list/>
+    <app-maintenance-list/> -->
 </section>
