@@ -28,11 +28,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 a { text-decoration: none; }
 ul { list-style-type: none; margin: 0; padding: 0; }
 
-.text-title-1 { @apply font-space-grotesk text-12zp font-bold uppercase; }
-.text-title-2 { @apply font-space-grotesk text-11zp font-bold uppercase; }
-.text-title-3 { @apply font-space-grotesk text-9zp font-bold uppercase; }
-.text-title-4 { @apply font-space-grotesk text-8zp font-bold uppercase; }
-.text-title-5 { @apply font-space-grotesk text-6zp font-bold uppercase; }
+.text-title-1 { @apply font-space-grotesk text-12zp font-bold; }
+.text-title-2 { @apply font-space-grotesk text-11zp font-bold; }
+.text-title-3 { @apply font-space-grotesk text-9zp font-bold; }
+.text-title-4 { @apply font-space-grotesk text-8zp font-bold; }
+.text-title-5 { @apply font-space-grotesk text-6zp font-bold; }
 
 .text-subtitle-1 { @apply font-space-grotesk text-10zp font-medium; }
 .text-subtitle-2 { @apply font-space-grotesk text-7zp font-medium; }
@@ -42,7 +42,7 @@ ul { list-style-type: none; margin: 0; padding: 0; }
 .text-body-2 { @apply font-onest text-3zp; }
 .text-body-3 { @apply font-onest text-2zp; }
 
-.text-button { @apply font-space-grotesk text-4zp font-medium uppercase; }
+.text-button { @apply font-space-grotesk text-4zp font-medium; }
 .text-span { @apply font-onest text-1zp; }
 .text-span-bold { @apply font-onest text-1zp font-semibold; }
 .text-caption { @apply font-onest text-1zp font-light; }
