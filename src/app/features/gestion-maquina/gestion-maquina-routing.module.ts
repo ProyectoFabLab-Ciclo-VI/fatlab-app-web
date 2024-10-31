@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GestionMaquinaComponent } from './gestion-maquina.component';
+import { EdicionMaquinaComponent } from './edicion-maquina/edicion-maquina.component';
 
 const routes: Routes = [
   {
+    path: 'edicion',
+    loadChildren: () => import('./edicion-maquina/edicion-maquina.module').then(m => m.EdicionMaquinaModule),
+  },
+  {
     path: '',
-    component: GestionMaquinaComponent
+    redirectTo: 'edicion',
+    pathMatch: 'full'
   }
 ];
 

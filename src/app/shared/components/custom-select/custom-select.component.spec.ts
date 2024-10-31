@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GestionMaquinaComponent } from './gestion-maquina.component';
+import { CustomSelectComponent } from './custom-select.component';
 
-describe('GestionMaquinaComponent', () => {
-  let component: GestionMaquinaComponent;
-  let fixture: ComponentFixture<GestionMaquinaComponent>;
+describe('CustomSelectComponent', () => {
+  let component: CustomSelectComponent;
+  let fixture: ComponentFixture<CustomSelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GestionMaquinaComponent]
+      declarations: [CustomSelectComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GestionMaquinaComponent);
+    fixture = TestBed.createComponent(CustomSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

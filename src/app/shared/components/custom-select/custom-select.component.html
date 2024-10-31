@@ -1,0 +1,28 @@
+<div>
+    @if (labelName != "") {
+        <p>{{ labelName }}</p>
+    }
+    <div class="relative inline-block w-64" [class.opacity-50]="disabled" [class.cursor-not-allowed]="disabled">
+        <div class="flex justify-between items-center z-20 border border-gray-300 rounded-lg shadow-[0_4px_14px_#0000001f] p-4 bg-[#fff] cursor-pointer select-none"
+             (click)="togglePanel()"
+             [class.bg-neutral-100]="disabled">
+            <span class="block truncate" [class.text-gray-500]="!selectedValue">{{ selectedValue ? getViewValue(selectedValue) : placeholder }}</span>
+            <div class="icon-selected" [class.-rotate-180]="panelOpen">
+                <svg width="12" height="7" viewBox="0 0 12 7" fill="none">
+                    <path opacity="0.8" d="M1 1L6 6L11 1" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        @if (panelOpen) {
+            <div class="absolute w-full top-[108%] bg-[#fff] rounded-lg shadow-[0_4px_14px_#0000001f] max-h-60 overflow-auto z-[9]">
+                @for (option of options; track $index) {
+                    <div class="px-4 py-3 cursor-pointer select-none relative *:hover:font-medium"
+                         (click)="selectOption(option)"
+                         [class.bg-neutral-100]="option.value === selectedValue">
+                        <span class="text-[#333333]">{{ option.viewValue }}</span>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

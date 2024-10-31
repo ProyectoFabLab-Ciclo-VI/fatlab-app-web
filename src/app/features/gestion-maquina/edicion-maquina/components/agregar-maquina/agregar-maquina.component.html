@@ -1,0 +1,31 @@
+<form action="post" class="bg-[#d5d8db36] px-[32px] py-[21px] rounded-[50px]">
+    <h1 class="font-JetBrains-Mono text-[40px] font-bold mb-8">Agregar Máquina</h1>
+    <div class="grid grid-cols-[1fr_auto] gap-8">
+        <app-float-label>
+            <input id="nombre-maquina" type="text" placeholder="nombre"/>
+            <label for="nombre-maquina" class="select-none text-neutral-300">Nombre de la Máquina</label>
+        </app-float-label>
+        <app-float-label>
+            <input id="codigo" type="text" placeholder="codigo"/>
+            <label for="codigo" class="select-none text-neutral-300">Código Upeu</label>
+        </app-float-label>
+    </div>
+    <div class="mt-7 flex gap-8">
+        <app-custom-select labelName="Tipo de maquina" [options]="tipoMaquina"/>
+        <app-custom-select labelName="Estado" [options]="tipoMaquina"/>
+    </div>
+    <div class="mt-7 flex justify-end gap-3">
+        <button type="button" class="p-2 flex gap-2 bg-primary-400 rounded-xl border-none items-center active:scale-95">
+            <span class="font-space-grotesk font-bold text-[20px] text-[#fff]">Limpiar</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 10L14 14M14 10L10 14M12 3C19.2 3 21 4.8 21 12C21 19.2 19.2 21 12 21C4.8 21 3 19.2 3 12C3 4.8 4.8 3 12 3Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button type="submit" class="p-2 flex gap-2 bg-primary-400 rounded-xl border-none items-center active:scale-95">
+            <span class="font-space-grotesk font-bold text-[20px] text-[#fff]">Agregar</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 17H20M17 14V20M4 5C4 4.73478 4.10536 4.48043 4.29289 4.29289C4.48043 4.10536 4.73478 4 5 4H9C9.26522 4 9.51957 4.10536 9.70711 4.29289C9.89464 4.48043 10 4.73478 10 5V9C10 9.26522 9.89464 9.51957 9.70711 9.70711C9.51957 9.89464 9.26522 10 9 10H5C4.73478 10 4.48043 9.89464 4.29289 9.70711C4.10536 9.51957 4 9.26522 4 9V5ZM14 5C14 4.73478 14.1054 4.48043 14.2929 4.29289C14.4804 4.10536 14.7348 4 15 4H19C19.2652 4 19.5196 4.10536 19.7071 4.29289C19.8946 4.48043 20 4.73478 20 5V9C20 9.26522 19.8946 9.51957 19.7071 9.70711C19.5196 9.89464 19.2652 10 19 10H15C14.7348 10 14.4804 9.89464 14.2929 9.70711C14.1054 9.51957 14 9.26522 14 9V5ZM4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H9C9.26522 14 9.51957 14.1054 9.70711 14.2929C9.89464 14.4804 10 14.7348 10 15V19C10 19.2652 9.89464 19.5196 9.70711 19.7071C9.51957 19.8946 9.26522 20 9 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+</form>
