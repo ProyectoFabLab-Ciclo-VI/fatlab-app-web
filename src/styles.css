@@ -1,6 +1,3 @@
-/* @import "primeng/resources/themes/aura-light-blue/theme.css";
-@import "primeng/resources/primeng.css"; */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,215 +9,40 @@
     @apply text-primary-900;
 }
 
-body { @apply text-body-2 m-0 p-0 box-border; }
+body { @apply m-0 p-0 box-border; }
 
 @font-face {
-    font-family: "Space Grotesk";
-    src: url('/font/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf');
+    font-family: "inter";
+    src: 
+        url('/public/font/Inter/Inter-Italic-VariableFont_opsz.ttf'),
+        url('/public/font/Inter/Inter-VariableFont_opsz.ttf'),
+        ;
 }
 
 @font-face {
-    font-family: "Onest";
-    src: url('/font/Onest/Onest-VariableFont_wght.ttf');
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url('/font/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf'),
-        url('/font/JetBrains_Mono/JetBrainsMono-Italic-VariableFont_wght.ttf');
+    font-family: "poppins";
+    src: 
+        url('/public/font/Poppins/Poppins-Regular.ttf'),
+        url('/public/font/Poppins/Poppins-Black.ttf'),
+        url('/public/font/Poppins/Poppins-BlackItalic.ttf'),
+        url('/public/font/Poppins/Poppins-Bold.ttf'),
+        url('/public/font/Poppins/Poppins-BoldItalic.ttf'),
+        url('/public/font/Poppins/Poppins-ExtraBold.ttf'),
+        url('/public/font/Poppins/Poppins-ExtraBoldItalic.ttf'),
+        url('/public/font/Poppins/Poppins-ExtraLight.ttf'),
+        url('/public/font/Poppins/Poppins-ExtraLightItalic.ttf'),
+        url('/public/font/Poppins/Poppins-Italic.ttf'),
+        url('/public/font/Poppins/Poppins-Light.ttf'),
+        url('/public/font/Poppins/Poppins-LightItalic.ttf'),
+        url('/public/font/Poppins/Poppins-Medium.ttf'),
+        url('/public/font/Poppins/Poppins-MediumItalic.ttf'),
+        url('/public/font/Poppins/Poppins-SemiBold.ttf'),
+        url('/public/font/Poppins/Poppins-SemiBoldItalic.ttf'),
+        url('/public/font/Poppins/Poppins-Thin.ttf'),
+        url('/public/font/Poppins/Poppins-ThinItalic.ttf'),
+        ;
 }
 
 h1, h2, h3, h4, h5, h6, p { margin: 0; }
 a { text-decoration: none; }
 ul { list-style-type: none; margin: 0; padding: 0; }
-
-.text-title-1 { @apply font-space-grotesk text-12zp font-bold; }
-.text-title-2 { @apply font-space-grotesk text-11zp font-bold; }
-.text-title-3 { @apply font-space-grotesk text-9zp font-bold; }
-.text-title-4 { @apply font-space-grotesk text-8zp font-bold; }
-.text-title-5 { @apply font-space-grotesk text-6zp font-bold; }
-
-.text-subtitle-1 { @apply font-space-grotesk text-10zp font-medium; }
-.text-subtitle-2 { @apply font-space-grotesk text-7zp font-medium; }
-.text-subtitle-3 { @apply font-space-grotesk text-5zp font-medium; }
-
-.text-body-1 { @apply font-onest text-4zp font-semibold; }
-.text-body-2 { @apply font-onest text-3zp; }
-.text-body-3 { @apply font-onest text-2zp; }
-
-.text-button { @apply font-space-grotesk text-4zp font-medium; }
-.text-span { @apply font-onest text-1zp; }
-.text-span-bold { @apply font-onest text-1zp font-semibold; }
-.text-caption { @apply font-onest text-1zp font-light; }
-.text-underline { @apply font-onest text-3zp underline; }
-
-/* button styles */
-.btn {
-    @apply text-button px-4 py-2 flex items-center
-    gap-2 rounded-lg border-none transition-all duration-300
-    select-none cursor-pointer;
-}
-
-.btn:active { @apply scale-95; }
-
-.btn:disabled { @apply scale-100 cursor-not-allowed; }
-
-/* ------------------------------------------ */
-/* button flat colors */
-.btn-flat-primary {
-    @apply bg-primary-400 text-neutral-50;
-}
-
-.btn-flat-danger {
-    @apply bg-error-600 text-error-50;
-}
-
-.btn-flat-success {
-    @apply bg-success-600 text-success-50;
-}
-
-.btn-flat-warning {
-    @apply bg-warning-600 text-warning-50;
-}
-
-.btn-flat-info {
-    @apply bg-primary-600 text-neutral-50;
-}
-
-/* Hover flat States */
-.btn-flat-primary:hover { @apply bg-primary-500; }
-
-.btn-flat-danger:hover {
-    @apply bg-error-700;
-}
-
-.btn-flat-success:hover {
-    @apply bg-success-700;
-}
-
-.btn-flat-info:hover {
-    @apply bg-primary-700;
-}
-
-.btn-flat-warning:hover {
-    @apply bg-warning-700;
-}
-
-/* Active flat States */
-.btn-flat-primary:active { @apply bg-primary-600; }
-
-.btn-flat-danger:active {
-    @apply bg-warning-800;
-}
-
-.btn-flat-success:active {
-    @apply bg-success-800;
-}
-
-.btn-flat-info:active {
-    @apply bg-primary-800;
-}
-
-.btn-flat-warning:active {
-    @apply bg-warning-800;
-}
-
-/* Disabled flat States */
-.btn-flat-primary:disabled {
-    @apply bg-primary-50 text-primary-300;
-}
-
-.btn-flat-danger:disabled {
-    @apply bg-error-50 text-error-400;
-}
-
-.btn-flat-success:disabled {
-    @apply bg-success-50 text-success-400;
-}
-
-.btn-flat-info:disabled {
-    @apply bg-primary-50 text-primary-400;
-}
-
-.btn-flat-warning:disabled {
-    @apply bg-warning-50 text-warning-400;
-}
-
-
-/* ------------------------------------------ */
-/* outline button colors */
-
-.btn-outline-primary { @apply bg-primary-50 border border-solid border-primary-400 text-primary-400; }
-
-.btn-outline-danger {
-    @apply bg-error-50 border-error-600 text-error-600;
-}
-
-.btn-outline-success {
-    @apply bg-success-50 border-success-600 text-success-600;
-}
-
-.btn-outline-info {
-    @apply bg-primary-50 border-primary-600 text-primary-600;
-}
-
-.btn-outline-warning {
-    @apply bg-warning-50 border-warning-600 text-warning-600;
-}
-
-/* hover outline States */
-.btn-outline-primary:hover { @apply bg-primary-100 border-primary-500 text-neutral-500; }
-
-.btn-outline-danger:hover {
-    @apply bg-error-100 border-error-700 text-error-700;
-}
-
-.btn-outline-success:hover {
-    @apply bg-success-100 border-success-700 text-success-700;
-}
-
-.btn-outline-info:hover {
-    @apply bg-primary-100 border-primary-700 text-primary-700;
-}
-
-.btn-outline-warning:hover {
-    @apply bg-warning-100 border-warning-700 text-warning-700;
-}
-
-/* active outline States */
-.btn-outline-primary:active { @apply bg-primary-100 border-primary-600 text-primary-600; }
-
-.btn-outline-danger:active {
-    @apply bg-error-100 border-error-800 text-error-800;
-}
-
-.btn-outline-success:active {
-    @apply bg-success-100 border-success-800 text-success-800;
-}
-
-.btn-outline-info:active {
-    @apply bg-primary-100 border-primary-800 text-primary-800;
-}
-
-.btn-outline-warning:active {
-    @apply bg-warning-100 border-warning-800 text-warning-800;
-}
-
-/* Disabled States */
-.btn-outline-primary:disabled { @apply bg-primary-50 border-primary-200 text-primary-200; }
-
-.btn-outline-danger:disabled {
-    @apply bg-error-50 border-error-400 text-error-400;
-}
-
-.btn-outline-success:disabled {
-    @apply bg-success-50 border-success-400 text-success-400;
-}
-
-.btn-outline-info:disabled {
-    @apply bg-primary-50 border-primary-400 text-primary-400;
-}
-
-.btn-outline-warning:disabled {
-    @apply bg-warning-50 border-warning-400 text-warning-400;
-}
