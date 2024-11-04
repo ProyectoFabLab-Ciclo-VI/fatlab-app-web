@@ -1,6 +1,5 @@
 
 import { Component, OnInit, Signal } from '@angular/core';
-import { Table } from 'primeng/table';
 import { CustomerService } from './gestion.service';
 
 type Severity = 'success' | 'secondary' | 'info' | 'warning' | 'danger' | 'contrast' | undefined;
@@ -72,10 +71,6 @@ export class GestionPedidoComponent {
           { label: 'Renewal', value: 'renewal' },
           { label: 'Proposal', value: 'proposal' }
       ];
-  }
-
-  clear(table: Table) {
-      table.clear();
   }
 
   getSeverity(status: string): Severity {

@@ -1,19 +1,5 @@
-/* label {
-    transition: all .3s;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    -ms-transition: all .3s;
-    -o-transition: all .3s;
-} */
-
 label:has(#profile input:checked) {
     @apply bg-primary-600;
-}
-
-nav {
-    position: absolute;
-    width: max-content;
-    @apply bg-primary-700 rounded-2xl px-2 py-4 top-[105%] shadow-md shadow-primary-900 grid gap-[10px];
 }
 
 #user:has(#profile input:not(:checked)):active {

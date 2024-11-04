@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PasswordModule } from 'primeng/password';
-import { InputTextModule } from 'primeng/inputtext';
-import { FloatLabelModule } from 'primeng/floatlabel';
 import { Router, RouterModule } from '@angular/router';
 import { AuthUserService } from '../../core/index.service.http';
 import { NotificationService } from '../../core/index.service.trigger';
@@ -14,7 +11,7 @@ import { FloatLabelComponent } from '../../shared/components/float-label/float-l
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, PasswordModule, InputTextModule, FloatLabelModule, RouterModule, FloatLabelComponent]
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, FloatLabelComponent]
 })
 export class LoginComponent {
   user: FormGroup = new FormGroup({
