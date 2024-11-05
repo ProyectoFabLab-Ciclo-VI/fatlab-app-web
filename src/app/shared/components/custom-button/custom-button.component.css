@@ -60,15 +60,15 @@ button {
     }
     
     &.danger {
-        @apply bg-error-400 hover:bg-error-300 active:bg-error-500 active:shadow-error-200 disabled:bg-error-100;
+        @apply bg-error-300 hover:bg-error-200 active:bg-error-300 active:shadow-error-100 focus:bg-error-400 disabled:bg-error-100;
     }
     
     &.neutral {
-        @apply bg-neutral-400 hover:bg-neutral-300 active:bg-neutral-500 active:shadow-neutral-200 disabled:bg-neutral-100;
+        @apply bg-neutral-300 hover:bg-neutral-200 active:bg-neutral-300 active:shadow-neutral-100 focus:bg-neutral-400 disabled:bg-neutral-100;
     }
     
     &.success {
-        @apply bg-success-400 hover:bg-success-300 active:bg-success-500 active:shadow-success-200 disabled:bg-success-100;
+        @apply bg-success-300 hover:bg-success-200 active:bg-success-300 active:shadow-success-100 focus:bg-success-400 disabled:bg-success-100;
     }
     
     & span {
@@ -126,10 +126,10 @@ button {
     }
     
     &.danger {
-        @apply border-error-400 hover:border-error-300 active:border-error-200 active:shadow-error-200 *:text-error-400 disabled:border-error-100;
+        @apply border-error-300 hover:border-error-200 active:border-error-100 active:shadow-error-100 focus:border-error-400 *:text-error-300 disabled:border-error-75;
 
         &:disabled {
-            @apply *:text-error-100;
+            @apply *:text-error-75;
             & img {
                 filter: invert(76%) sepia(31%) saturate(4435%) hue-rotate(309deg) brightness(99%) contrast(84%);
                 -webkit-filter: invert(76%) sepia(31%) saturate(4435%) hue-rotate(309deg) brightness(99%) contrast(84%);
@@ -137,29 +137,40 @@ button {
         }
 
         & img {
-            filter: invert(17%) sepia(66%) saturate(2835%) hue-rotate(348deg) brightness(90%) contrast(93%);
-            -webkit-filter: invert(17%) sepia(66%) saturate(2835%) hue-rotate(348deg) brightness(90%) contrast(93%);
+            filter: invert(25%) sepia(73%) saturate(3731%) hue-rotate(349deg) brightness(90%) contrast(90%);
+            -webkit-filter: invert(25%) sepia(73%) saturate(3731%) hue-rotate(349deg) brightness(90%) contrast(90%);
         }
         
         &:not(:disabled):hover {
             & span {
-                @apply text-error-300;
+                @apply text-error-200;
             }
 
             & img {
-                filter: invert(28%) sepia(92%) saturate(6093%) hue-rotate(353deg) brightness(94%) contrast(83%);
-                -webkit-filter: invert(28%) sepia(92%) saturate(6093%) hue-rotate(353deg) brightness(94%) contrast(83%);
+                filter: invert(51%) sepia(25%) saturate(6604%) hue-rotate(332deg) brightness(93%) contrast(90%);
+                -webkit-filter: invert(51%) sepia(25%) saturate(6604%) hue-rotate(332deg) brightness(93%) contrast(90%);
             }
         }
         
         &:not(:disabled):active {
             & span {
-                @apply text-error-500;
+                @apply text-error-400;
             }
 
             & img {
-                filter: invert(11%) sepia(67%) saturate(4171%) hue-rotate(355deg) brightness(98%) contrast(86%);
-                -webkit-filter: invert(11%) sepia(67%) saturate(4171%) hue-rotate(355deg) brightness(98%) contrast(86%);
+                filter: invert(25%) sepia(73%) saturate(3731%) hue-rotate(349deg) brightness(90%) contrast(90%);
+                -webkit-filter: invert(25%) sepia(73%) saturate(3731%) hue-rotate(349deg) brightness(90%) contrast(90%);
+            }
+        }
+
+        &:not(:disabled):focus {
+            & span {
+                @apply text-error-300;
+            }
+
+            & img {
+                filter: invert(17%) sepia(39%) saturate(5341%) hue-rotate(348deg) brightness(85%) contrast(93%);
+                -webkit-filter: invert(17%) sepia(39%) saturate(5341%) hue-rotate(348deg) brightness(85%) contrast(93%);
             }
         }
     }
