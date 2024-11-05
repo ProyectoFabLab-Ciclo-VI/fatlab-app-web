@@ -4,26 +4,31 @@ button {
     -moz-transition: background .3s, color .3s, border-color .3s, box-shadow .15s;
     -ms-transition: background .3s, color .3s, border-color .3s, box-shadow .15s;
     -o-transition: background .3s, color .3s, border-color .3s, box-shadow .15s;
+    user-select: none;
+
+    &:not(:disabled) {
+        @apply active:shadow-[0px_0px_0px_4px];
+    }
 }
 
 /* ---- btn flat ---- */
 .btn-flat {
     @apply border-none;
-    
+
     &.primary {
-        @apply bg-primary-500 hover:bg-primary-400 active:bg-primary-600 active:shadow-primary-300;
+        @apply bg-primary-500 hover:bg-primary-400 active:bg-primary-600 active:shadow-primary-300 disabled:bg-primary-300;
     }
     
     &.danger {
-        @apply bg-error-400 hover:bg-error-300 active:bg-error-500 active:shadow-error-200;
+        @apply bg-error-400 hover:bg-error-300 active:bg-error-500 active:shadow-error-200 disabled:bg-error-100;
     }
     
     &.neutral {
-        @apply bg-neutral-400 hover:bg-neutral-300 active:bg-neutral-500 active:shadow-neutral-200;
+        @apply bg-neutral-400 hover:bg-neutral-300 active:bg-neutral-500 active:shadow-neutral-200 disabled:bg-neutral-100;
     }
     
     &.success {
-        @apply bg-success-400 hover:bg-success-300 active:bg-success-500 active:shadow-success-200;
+        @apply bg-success-400 hover:bg-success-300 active:bg-success-500 active:shadow-success-200 disabled:bg-success-100;
     }
     
     & span {
@@ -43,14 +48,22 @@ button {
     border: 2px solid;
 
     &.primary {
-        @apply border-primary-500 hover:border-primary-400 active:border-primary-300 active:shadow-primary-300 *:text-primary-500;
+        @apply border-primary-500 hover:border-primary-400 active:border-primary-300 active:shadow-primary-300 *:text-primary-500 disabled:border-primary-200;
+
+        &:disabled {
+            @apply *:text-primary-200;
+            & img {
+                filter: invert(54%) sepia(5%) saturate(5714%) hue-rotate(185deg) brightness(108%) contrast(93%);
+                -webkit-filter: invert(54%) sepia(5%) saturate(5714%) hue-rotate(185deg) brightness(108%) contrast(93%);
+            }
+        }
 
         & img {
             filter: invert(34%) sepia(56%) saturate(1975%) hue-rotate(203deg) brightness(90%) contrast(112%);
             -webkit-filter: invert(34%) sepia(56%) saturate(1975%) hue-rotate(203deg) brightness(90%) contrast(112%);
         }
         
-        &:hover {
+        &:not(:disabled):hover {
             & span {
                 @apply text-primary-400;
             }
@@ -61,7 +74,7 @@ button {
             }
         }
         
-        &:active {
+        &:not(:disabled):active {
             & span {
                 @apply text-primary-600;
             }
@@ -73,14 +86,22 @@ button {
     }
     
     &.danger {
-        @apply border-error-400 hover:border-error-300 active:border-error-200 active:shadow-error-200 *:text-error-400;
+        @apply border-error-400 hover:border-error-300 active:border-error-200 active:shadow-error-200 *:text-error-400 disabled:border-error-100;
+
+        &:disabled {
+            @apply *:text-error-100;
+            & img {
+                filter: invert(76%) sepia(31%) saturate(4435%) hue-rotate(309deg) brightness(99%) contrast(84%);
+                -webkit-filter: invert(76%) sepia(31%) saturate(4435%) hue-rotate(309deg) brightness(99%) contrast(84%);
+            }
+        }
 
         & img {
             filter: invert(17%) sepia(66%) saturate(2835%) hue-rotate(348deg) brightness(90%) contrast(93%);
             -webkit-filter: invert(17%) sepia(66%) saturate(2835%) hue-rotate(348deg) brightness(90%) contrast(93%);
         }
         
-        &:hover {
+        &:not(:disabled):hover {
             & span {
                 @apply text-error-300;
             }
@@ -91,7 +112,7 @@ button {
             }
         }
         
-        &:active {
+        &:not(:disabled):active {
             & span {
                 @apply text-error-500;
             }
@@ -104,14 +125,22 @@ button {
     }
     
     &.neutral {
-        @apply border-neutral-400 hover:border-neutral-300 active:border-neutral-200 active:shadow-neutral-200 *:text-neutral-400;
+        @apply border-neutral-400 hover:border-neutral-300 active:border-neutral-200 active:shadow-neutral-200 *:text-neutral-400 disabled:border-neutral-100;
+
+        &:disabled {
+            @apply *:text-neutral-100;
+            & img {
+                filter: invert(77%) sepia(3%) saturate(1299%) hue-rotate(178deg) brightness(91%) contrast(87%);
+                -webkit-filter: invert(77%) sepia(3%) saturate(1299%) hue-rotate(178deg) brightness(91%) contrast(87%);
+            }
+        }
 
         & img {
             filter: invert(29%) sepia(12%) saturate(838%) hue-rotate(176deg) brightness(95%) contrast(87%);
             -webkit-filter: invert(29%) sepia(12%) saturate(838%) hue-rotate(176deg) brightness(95%) contrast(87%);
         }
         
-        &:hover {
+        &:not(:disabled):hover {
             & span {
                 @apply text-neutral-300;
             }
@@ -122,7 +151,7 @@ button {
             }
         }
         
-        &:active {
+        &:not(:disabled):active {
             & span {
                 @apply text-neutral-500;
             }
@@ -135,14 +164,26 @@ button {
     }
     
     &.success {
-        @apply border-success-400 hover:border-success-300 active:border-success-200 active:shadow-success-200 *:text-success-400;
+        @apply border-success-400 hover:border-success-300 active:border-success-200 active:shadow-success-200 *:text-success-400 disabled:border-success-100;
+
+        &:disabled {
+            @apply *:text-success-100;
+            & img {
+                filter: invert(84%) sepia(9%) saturate(1485%) hue-rotate(88deg) brightness(92%) contrast(94%);
+                -webkit-filter: invert(84%) sepia(9%) saturate(1485%) hue-rotate(88deg) brightness(92%) contrast(94%);
+            }
+        }
 
         & img {
             filter: invert(26%) sepia(60%) saturate(5256%) hue-rotate(141deg) brightness(95%) contrast(81%);
             -webkit-filter: invert(26%) sepia(60%) saturate(5256%) hue-rotate(141deg) brightness(95%) contrast(81%);
         }
         
-        &:hover {
+        &:disabled {
+            @apply *:text-success-200;
+        }
+
+        &:not(:disabled):hover {
             & span {
                 @apply text-success-300;
             }
@@ -153,7 +194,7 @@ button {
             }
         }
         
-        &:active {
+        &:not(:disabled):active {
             & span {
                 @apply text-success-500;
             }

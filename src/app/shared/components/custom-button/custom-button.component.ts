@@ -21,6 +21,7 @@ export class CustomButtonComponent{
   @Input() color: ButtonTheme = 'primary';
   @Input() isButtonOutline: boolean = false;
   @Input() isCircularButton: boolean = false;
+  @Input() isDisabled: boolean = false;
 
   iconHelper: IconHelper = new IconHelper();
 

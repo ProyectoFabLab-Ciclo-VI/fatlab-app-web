@@ -1,7 +1,8 @@
-<button [class]="'flex gap-1 items-center justify-between active:shadow-[0px_0px_0px_4px]' + 
+<button [class]="'flex gap-1 items-center justify-between ' + 
     (isCircularButton ? ' rounded-12 ' : ' rounded-3 ') +
     (!text && isCircularButton ? ' p-2 ' : ' px-4 py-2 ') +
-    (isButtonOutline ? ' btn-outline ' + color : ' btn-flat ' + color)">
+    (isButtonOutline ? ' btn-outline ' + color : ' btn-flat ' + color)"
+    [disabled]="isDisabled">
     @if (text) {
         <span class="font-poppins font-semibold text-base">{{ text }}</span>
     }
