@@ -1,14 +1,8 @@
-<button [class]="'flex gap-1 items-center justify-between ' + 
-    (isCircularButton ? ' rounded-12 ' : ' rounded-3 ') +
-    (!text && isCircularButton ? ' p-2 ' : ' px-4 py-2 ') +
+<button [class]="'flex gap-1 items-center justify-between *:font-poppins *:font-semibold ' + 
+    sizeButton +
+    (isCircularButton ? ' rounded-12 ' : ' rounded-normal ') +
     (isButtonOutline ? ' btn-outline ' + color : ' btn-flat ' + color)"
+    [type]="buttonType"
     [disabled]="isDisabled">
-    @if (text) {
-        <span class="font-poppins font-semibold text-base">{{ text }}</span>
-    }
-    @if (icon) {
-        <img [style]="getStyleAlignment()"
-            [src]="iconHelper.getIconUrl(icon.name, icon.type)" alt="icono del boton">
-                
-    }
+    <ng-content></ng-content>
 </button>
