@@ -1,0 +1,167 @@
+button {
+    transition: background .3s, color .3s, border-color .3s, box-shadow .15s;
+    -webkit-transition: background .3s, color .3s, border-color .3s, box-shadow .15s;
+    -moz-transition: background .3s, color .3s, border-color .3s, box-shadow .15s;
+    -ms-transition: background .3s, color .3s, border-color .3s, box-shadow .15s;
+    -o-transition: background .3s, color .3s, border-color .3s, box-shadow .15s;
+}
+
+/* ---- btn flat ---- */
+.btn-flat {
+    @apply border-none;
+    
+    &.primary {
+        @apply bg-primary-500 hover:bg-primary-400 active:bg-primary-600 active:shadow-primary-300;
+    }
+    
+    &.danger {
+        @apply bg-error-400 hover:bg-error-300 active:bg-error-500 active:shadow-error-200;
+    }
+    
+    &.neutral {
+        @apply bg-neutral-400 hover:bg-neutral-300 active:bg-neutral-500 active:shadow-neutral-200;
+    }
+    
+    &.success {
+        @apply bg-success-400 hover:bg-success-300 active:bg-success-500 active:shadow-success-200;
+    }
+    
+    & span {
+        @apply text-white;
+    }
+    
+    & img {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(64deg) brightness(109%) contrast(102%);
+        -webkit-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(64deg) brightness(109%) contrast(102%);
+    }
+}
+
+
+/* ---- btn outline ---- */
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid;
+
+    &.primary {
+        @apply border-primary-500 hover:border-primary-400 active:border-primary-300 active:shadow-primary-300 *:text-primary-500;
+
+        & img {
+            filter: invert(34%) sepia(56%) saturate(1975%) hue-rotate(203deg) brightness(90%) contrast(112%);
+            -webkit-filter: invert(34%) sepia(56%) saturate(1975%) hue-rotate(203deg) brightness(90%) contrast(112%);
+        }
+        
+        &:hover {
+            & span {
+                @apply text-primary-400;
+            }
+
+            & img {
+                filter: invert(44%) sepia(17%) saturate(5122%) hue-rotate(203deg) brightness(101%) contrast(92%);
+                -webkit-filter: invert(44%) sepia(17%) saturate(5122%) hue-rotate(203deg) brightness(101%) contrast(92%);
+            }
+        }
+        
+        &:active {
+            & span {
+                @apply text-primary-600;
+            }
+            & img {
+                filter: invert(26%) sepia(43%) saturate(7027%) hue-rotate(219deg) brightness(91%) contrast(89%);
+                -webkit-filter: invert(26%) sepia(43%) saturate(7027%) hue-rotate(219deg) brightness(91%) contrast(89%);
+            }
+        }
+    }
+    
+    &.danger {
+        @apply border-error-400 hover:border-error-300 active:border-error-200 active:shadow-error-200 *:text-error-400;
+
+        & img {
+            filter: invert(17%) sepia(66%) saturate(2835%) hue-rotate(348deg) brightness(90%) contrast(93%);
+            -webkit-filter: invert(17%) sepia(66%) saturate(2835%) hue-rotate(348deg) brightness(90%) contrast(93%);
+        }
+        
+        &:hover {
+            & span {
+                @apply text-error-300;
+            }
+
+            & img {
+                filter: invert(28%) sepia(92%) saturate(6093%) hue-rotate(353deg) brightness(94%) contrast(83%);
+                -webkit-filter: invert(28%) sepia(92%) saturate(6093%) hue-rotate(353deg) brightness(94%) contrast(83%);
+            }
+        }
+        
+        &:active {
+            & span {
+                @apply text-error-500;
+            }
+
+            & img {
+                filter: invert(11%) sepia(67%) saturate(4171%) hue-rotate(355deg) brightness(98%) contrast(86%);
+                -webkit-filter: invert(11%) sepia(67%) saturate(4171%) hue-rotate(355deg) brightness(98%) contrast(86%);
+            }
+        }
+    }
+    
+    &.neutral {
+        @apply border-neutral-400 hover:border-neutral-300 active:border-neutral-200 active:shadow-neutral-200 *:text-neutral-400;
+
+        & img {
+            filter: invert(29%) sepia(12%) saturate(838%) hue-rotate(176deg) brightness(95%) contrast(87%);
+            -webkit-filter: invert(29%) sepia(12%) saturate(838%) hue-rotate(176deg) brightness(95%) contrast(87%);
+        }
+        
+        &:hover {
+            & span {
+                @apply text-neutral-300;
+            }
+
+            & img {
+                filter: invert(45%) sepia(25%) saturate(396%) hue-rotate(176deg) brightness(92%) contrast(87%);
+                -webkit-filter: invert(45%) sepia(25%) saturate(396%) hue-rotate(176deg) brightness(92%) contrast(87%);
+            }
+        }
+        
+        &:active {
+            & span {
+                @apply text-neutral-500;
+            }
+
+            & img {
+                filter: invert(26%) sepia(33%) saturate(305%) hue-rotate(176deg) brightness(92%) contrast(92%);
+                -webkit-filter: invert(26%) sepia(33%) saturate(305%) hue-rotate(176deg) brightness(92%) contrast(92%);
+            }
+        }
+    }
+    
+    &.success {
+        @apply border-success-400 hover:border-success-300 active:border-success-200 active:shadow-success-200 *:text-success-400;
+
+        & img {
+            filter: invert(26%) sepia(60%) saturate(5256%) hue-rotate(141deg) brightness(95%) contrast(81%);
+            -webkit-filter: invert(26%) sepia(60%) saturate(5256%) hue-rotate(141deg) brightness(95%) contrast(81%);
+        }
+        
+        &:hover {
+            & span {
+                @apply text-success-300;
+            }
+
+            & img {
+                filter: invert(66%) sepia(50%) saturate(4390%) hue-rotate(98deg) brightness(104%) contrast(73%);
+                -webkit-filter: invert(66%) sepia(50%) saturate(4390%) hue-rotate(98deg) brightness(104%) contrast(73%);
+            }
+        }
+        
+        &:active {
+            & span {
+                @apply text-success-500;
+            }
+
+            & img {
+                filter: invert(18%) sepia(92%) saturate(6871%) hue-rotate(154deg) brightness(92%) contrast(84%);
+                -webkit-filter: invert(18%) sepia(92%) saturate(6871%) hue-rotate(154deg) brightness(92%) contrast(84%);
+            }
+        }
+    }
+}

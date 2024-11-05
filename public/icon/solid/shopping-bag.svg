@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="shopping-bag">
+<g id="Vector">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14 7H10V10C10 10.5523 9.55228 11 9 11C8.44772 11 8 10.5523 8 10V7H6C5.47746 7 5.04302 7.40231 5.00294 7.9233L4.08577 19.8466C3.99641 21.0082 4.91486 22 6.07988 22H17.9201C19.0851 22 20.0036 21.0082 19.9142 19.8466L18.9971 7.9233C18.957 7.40231 18.5225 7 18 7H16V10C16 10.5523 15.5523 11 15 11C14.4477 11 14 10.5523 14 10V7Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C10.8954 4 10 4.89543 10 6V7H8V6C8 3.79086 9.79086 2 12 2C14.2091 2 16 3.79086 16 6V7H14V6C14 4.89543 13.1046 4 12 4Z" fill="currentColor"/>
+</g>
+</g>
+</svg>

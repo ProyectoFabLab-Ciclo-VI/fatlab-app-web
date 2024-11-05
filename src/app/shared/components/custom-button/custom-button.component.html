@@ -1,0 +1,13 @@
+<button [class]="'flex gap-1 items-center justify-between active:shadow-[0px_0px_0px_4px]' + 
+    (isCircularButton ? ' rounded-12 ' : ' rounded-3 ') +
+    (!text && isCircularButton ? ' p-2 ' : ' px-4 py-2 ') +
+    (isButtonOutline ? ' btn-outline ' + color : ' btn-flat ' + color)">
+    @if (text) {
+        <span class="font-poppins font-semibold text-base">{{ text }}</span>
+    }
+    @if (icon) {
+        <img [style]="getStyleAlignment()"
+            [src]="iconHelper.getIconUrl(icon.name, icon.type)" alt="icono del boton">
+                
+    }
+</button>
