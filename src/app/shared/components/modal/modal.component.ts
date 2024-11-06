@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ViewContainerRef, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, ViewChild, ViewContainerRef, AfterViewInit, EventEmitter, Output, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -10,9 +10,14 @@ export class ModalComponent implements AfterViewInit {
   @Input() title: string = '';
   @Input() alertMessage: string = '';
   @ViewChild('dynamicComponent', { read: ViewContainerRef }) dynamicComponent!: ViewContainerRef;
+  @ViewChild('ModalContent') modalContent!: ElementRef;
   @Output() closeEvent = new EventEmitter<void>();
 
   private componentToLoad: any;
+
+  constructor(
+    private render: Renderer2,
+  ) {}
 
   ngAfterViewInit() {
     if (this.componentToLoad) this.loadComponent(this.componentToLoad);
@@ -22,6 +27,10 @@ export class ModalComponent implements AfterViewInit {
     if (this.dynamicComponent) {
       this.dynamicComponent.clear();
       this.dynamicComponent.createComponent(component);
+      const element = this.modalContent.nativeElement;
+      if(element) {
+        this.render.addClass(element, 'open')
+      }
     } else {
       console.error('dynamicComponent ViewContainerRef is not initialized.');
     }
@@ -29,7 +38,16 @@ export class ModalComponent implements AfterViewInit {
 
   public close() {
     let isClose = this.alertMessage !== '' ? confirm(this.alertMessage) : true;
-    if (isClose) this.closeEvent.emit();
+    if (isClose) {
+      const element = this.modalContent.nativeElement;
+      if(element) {
+        this.render.removeClass(element, 'open')
+        this.render.addClass(element, 'exit')
+        setTimeout(() => {
+          this.closeEvent.emit();
+        }, 500);
+      }
+    }
   }
 
   public setComponent(component: any) {
