@@ -1,12 +1,12 @@
-<form class="grid gap-8 mt-3">
+<form [formGroup]="maquinaForm" (ngSubmit)="onSubmit()" class="grid gap-8 mt-3">
     <div class="grid gap-4">
         <div class="grid gap-4">
             <app-float-label>
-                <input id="nombre-maquina" type="text" placeholder="nombre"/>
+                <input id="nombre-maquina" type="text" placeholder="nombre" formControlName="nombre"/>
                 <label for="nombre-maquina" class="select-none text-neutral-300">Nombre</label>
             </app-float-label>
             <app-float-label>
-                <input id="codigo" type="text" placeholder="codigo"/>
+                <input id="codigo" type="text" placeholder="codigo" formControlName="codigo"/>
                 <label for="codigo" class="select-none text-neutral-300">Código Upeu</label>
             </app-float-label>
         </div>
@@ -32,10 +32,10 @@
         </div>
     </div>
     <div class="grid grid-cols-[auto_auto] justify-end gap-3">
-        <app-custom-button class="grid" color="danger" [isButtonOutline]="true" sizeButton="sm">
+        <app-custom-button class="grid" color="danger" [isButtonOutline]="true" sizeButton="sm" buttonType="button">
             <span class="text-base">Cancelar</span>
         </app-custom-button>
-        <app-custom-button class="grid" sizeButton="sm">
+        <app-custom-button class="grid" sizeButton="sm" buttonType="submit">
             <span class="text-base">Agregar</span>
             <img src="/icon/normal/check-circle.svg" alt="icono del boton">
         </app-custom-button>
