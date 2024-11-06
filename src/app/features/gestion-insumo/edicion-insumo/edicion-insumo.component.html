@@ -1,0 +1,33 @@
+<form class="grid gap-8 mt-3">
+    <div class="grid gap-4">
+        <app-float-label>
+            <input id="nombre-insumo" type="text" placeholder="nombre"/>
+            <label for="nombre-insumo" class="select-none text-neutral-300">Nombre</label>
+        </app-float-label>
+        <app-float-label>
+            <input id="unidad" type="text" placeholder="unidad"/>
+            <label for="unidad" class="select-none text-neutral-300">Unidad de medida</label>
+        </app-float-label>
+        <app-float-label class="min-w-[192px]">
+            <select id="tipo_maquina" disabled>
+                <option value="s2">categoria 2</option>
+                <option value="s3">categoria 3</option>
+                <option value="s4">categoria 4</option>
+            </select>
+            <label for="tipo_maquina" class="select-none text-neutral-300 text-nowrap">Selecionar Marca</label>
+        </app-float-label>
+        <app-float-label>
+            <textarea name="descripcion" id="descripcion" placeholder="descripcion" class="resize-y min-h-32"></textarea>
+            <label for="descripcion" class="select-none text-neutral-300">Descripcion</label>
+        </app-float-label>
+    </div>
+    <div class="grid grid-cols-[auto_auto] justify-end gap-3">
+        <app-custom-button class="grid" color="danger" [isButtonOutline]="true" sizeButton="sm">
+            <span class="text-base">Cancelar</span>
+        </app-custom-button>
+        <app-custom-button class="grid" sizeButton="sm">
+            <span class="text-base">Agregar</span>
+            <img src="/icon/normal/check-circle.svg" alt="icono del boton">
+        </app-custom-button>
+    </div>
+</form>
