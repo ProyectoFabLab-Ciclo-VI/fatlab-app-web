@@ -1,5 +1,5 @@
 import { Injectable, ComponentRef, EnvironmentInjector, ViewContainerRef } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { ModalComponent } from '../../../shared/components/modal/modal.component';
 import { Modal } from '../../index.model.system';
 
@@ -9,14 +9,20 @@ import { Modal } from '../../index.model.system';
 export class ModalService {
   private modalRef: ComponentRef<ModalComponent> | null = null;
   private modalCloseSubject = new Subject<any>();
+  viewContianerRef!: ViewContainerRef;
 
   constructor(
     private environmentInjector: EnvironmentInjector
   ) { }
 
-  public openModal(viewContainerRef: ViewContainerRef, modalConfig: Modal): Observable<any> {
+  public defineViewContainer(viewContainer: ViewContainerRef) {
+    this.viewContianerRef = viewContainer;
+  }
+
+  public openModal(modalConfig: Modal): Observable<any> {
     this.closeModal();
-    this.modalRef = viewContainerRef.createComponent(ModalComponent, {
+    if(!this.viewContianerRef) throwError;
+    this.modalRef = this.viewContianerRef.createComponent(ModalComponent, {
       environmentInjector: this.environmentInjector
     });
 
