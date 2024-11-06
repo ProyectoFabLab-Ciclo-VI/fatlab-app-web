@@ -12,7 +12,7 @@
             <ul class="grid gap-1">
                 @for (item of group.items; track $index) {
                     <li>
-                        @if (item.component) {
+                        @if (item.modal) {
                             <span routerLinkActive="bg-primary-800" (click)="activePerformance(item)" 
                             class="rounded-[12px] flex items-center gap-2 px-6 py-3 hover:bg-primary-700 transition-all active:scale-95 select-none">
                                 <img src="{{item.icon}}" alt="icon {{item.name}}">

@@ -4,12 +4,16 @@ import { AgregarMaquinaComponent } from '../../../../features/gestion-maquina/ag
 
 import { ModalService } from '../../../../core/index.service.trigger';
 import { Modal } from '../../../../core/index.model.system';
+import { EdicionInsumoComponent } from '../../../../features/gestion-insumo/edicion-insumo/edicion-insumo.component';
 
 interface Page {
   name: string;
   icon: string;
   link?: string;
-  component?: Type<any> // para el modal
+  modal?: {
+    component: Type<any>,
+    title: string;
+  }
 }
 
 interface GroupPage {
@@ -27,8 +31,8 @@ export class SidebarComponent {
     {
       title: 'Inventario',
       items: [
-        { name: 'Máquina', icon: 'icon/sidebar/icon-maquina.webp', component: AgregarMaquinaComponent },
-        { name: 'Insumos', icon: 'icon/sidebar/icon-insumo.webp', link: '/home/gestion-insumo' },
+        { name: 'Máquina', icon: 'icon/sidebar/icon-maquina.webp', modal: { component: AgregarMaquinaComponent, title: 'Agregar máquina' } },
+        { name: 'Insumos', icon: 'icon/sidebar/icon-insumo.webp', modal: { component: EdicionInsumoComponent, title: 'Agregar insumo' } },
         // { name: 'Materiales Especiales', icon: 'icon/sidebar/icon-dashboard.webp' },
         { name: 'Configuración', icon: 'icon/sidebar/icon-pedido.webp' },
         { name: 'Tarifario', icon: 'icon/sidebar/icon-prestamo.webp', link: '/home/tarifario'},
@@ -49,13 +53,13 @@ export class SidebarComponent {
   ) {}
 
   public activePerformance(page: Page) {
-    const { component } = page;
+    const { modal } = page;
     
-    if(!component) return;
+    if(!modal) return;
     
     const modalConfig: Modal = {
-      title: 'Agregar máquina',
-      component: component,
+      title: modal.title,
+      component: modal.component,
     }
     this.modalSrv.openModal(modalConfig);
   }
