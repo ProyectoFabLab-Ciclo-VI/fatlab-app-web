@@ -1,6 +1,12 @@
+.float-label {
+    display: grid;
+}
+
 .float-label label {
-    background: #fff;
-    font-size: 1rem;
+    @apply text-neutral-300 font-poppins text-base;
+}
+
+.float-label label {
     padding: 0 0.25rem;
     position: absolute;
     top: 50%;
@@ -20,18 +26,12 @@
 .float-label input,
 .float-label textarea,
 .float-label select {
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    width: 100%;
-    background: #fff;
-    padding: 0.5rem 1rem;
-    border: 1px solid #E6E9ED;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    @apply outline-none bg-white border border-solid border-neutral-100 rounded-[12px] px-4 py-3 text-base font-poppins;
 }
 
 .float-label input::placeholder,
@@ -40,18 +40,44 @@
     color: transparent;
 }
 
-.float-label input:hover,
-.float-label textarea:hover,
-.float-label select:hover {
-    border-color:#6A7991;
-    box-shadow: 0px 0px 4px #00000040;
+.float-label input:not(:disabled):not(:focus):hover,
+.float-label textarea:not(:disabled):not(:focus):hover,
+.float-label select:not(:disabled):not(:focus):hover {
+    @apply bg-primary-50 border-primary-100;
 }
+
+.float-label input:active,
+.float-label textarea:active,
+.float-label select:active {
+    @apply bg-white border-primary-200 border-[3px];
+}
+
+.float-label input:active ~ label,
+.float-label textarea:active ~ label,
+.float-label select:active ~ label {
+    @apply text-primary-300;
+}
+
+.float-label input:disabled,
+.float-label textarea:disabled,
+.float-label select:disabled {
+    @apply cursor-not-allowed border-neutral-50 bg-neutral-50;
+}
+
+.float-label input:disabled ~ label,
+.float-label textarea:disabled ~ label,
+.float-label select:disabled ~ label {
+    width: calc(100% - 32px - 8px);
+    @apply cursor-not-allowed bg-neutral-50;
+}
+
+
 
 .float-label input:focus,
 .float-label textarea:focus,
 .float-label select:focus {
-    border-color:#122545;
-    box-shadow: 0px 0px 4px #146FB4;
+    box-shadow: 0 4px 6px #1c63f21e;
+    @apply border-primary-500 bg-white;
 }
 
 .float-label input:focus ~ label,
@@ -61,8 +87,8 @@
 .float-label textarea:not(:placeholder-shown) ~ label,
 .float-label select:valid ~ label {
     color: #146FB4;
-    /* font-size: 0.8rem; */
-    top: -0.2rem;
+    background-color: #fff;
+    top: 0px;
 }
 
 
