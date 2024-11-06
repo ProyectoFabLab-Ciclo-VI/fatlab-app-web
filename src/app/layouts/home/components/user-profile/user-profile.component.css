@@ -1,3 +1,8 @@
+#profile img {
+    filter: invert(99%) sepia(73%) saturate(0%) hue-rotate(66deg) brightness(111%) contrast(100%);
+    -webkit-filter: invert(99%) sepia(73%) saturate(0%) hue-rotate(66deg) brightness(111%) contrast(100%);
+}
+
 label:has(#profile input:checked) {
     @apply bg-primary-600;
 }

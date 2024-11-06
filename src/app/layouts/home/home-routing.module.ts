@@ -25,12 +25,16 @@ const routes: Routes = [
         loadChildren: () => import('../../features/gestion-pedido/gestion-pedido.module').then(m => m.GestionPedidoModule),
       },
       {
+        path: 'tarifario',
+        loadComponent: () => import('../../features/tarifario/tarifario.component').then(c => c.TarifarioComponent),
+      },
+      {
         path: 'not-found',
         component: NotFoundComponent
       },
       {
         path: '',
-        redirectTo: 'gestion-maquina',
+        redirectTo: 'tarifario',
         pathMatch: 'full'
       },
       {

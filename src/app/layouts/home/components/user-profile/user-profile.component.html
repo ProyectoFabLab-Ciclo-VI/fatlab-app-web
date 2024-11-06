@@ -1,13 +1,14 @@
-<article class="flex items-center justify-center gap-1 h-[54px] relative">
+<article class="flex items-center justify-center gap-1 relative">
     <div id="user">
-        <label #checkboxMenu class="flex items-center px-2 py-1 gap-1 mb-1 cursor-pointer rounded-3 transition-[all_0.3s] select-none">
-            <div id="profile">
+        <label #checkboxMenu class="flex items-center px-2 py-1 gap-1 cursor-pointer rounded-3 transition-[all_0.3s] select-none">
+            <div id="profile" class="grid place-items-center relative">
+                <img src="/icon/solid/user-circle.svg" alt="icono de usuario" class="w-full h-full">
                 <input type="checkbox" style="display: none;" [(ngModel)]="isActiveMenu">
             </div>
-            <p class="text-white font-poppins text-3xl font-bold whitespace-nowrap">
+            <p class="text-white font-poppins text-xl font-bold whitespace-nowrap">
                 {{user.name}}
             </p>
-            <img src="icon/profile-user/icon-caret-down.webp" alt="caret down" class="h-6 w-6">
+            <!-- <img src="icon/profile-user/icon-caret-down.webp" alt="caret down" class="h-6 w-6"> -->
         </label>
         <nav #menu class="absolute z-50 min-w-[246px] w-max left-4 bg-primary-800 rounded-4 px-2 py-4 top-[105%] shadow-medium shadow-primary-900 grid gap-[10px]">
             <a routerLink="/" class="w-fit flex gap-2 items-center rounded-2 bg-primary-600 active:scale-95 px-3 py-1">
