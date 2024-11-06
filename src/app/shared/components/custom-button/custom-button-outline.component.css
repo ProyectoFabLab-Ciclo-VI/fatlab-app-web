@@ -1,0 +1,174 @@
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid;
+
+    &.primary {
+        @apply border-primary-500 hover:border-primary-400 active:border-primary-300 active:shadow-primary-300 *:text-primary-500 disabled:border-primary-200;
+
+        &:disabled {
+            @apply *:text-primary-200;
+            & img {
+                filter: invert(54%) sepia(5%) saturate(5714%) hue-rotate(185deg) brightness(108%) contrast(93%);
+                -webkit-filter: invert(54%) sepia(5%) saturate(5714%) hue-rotate(185deg) brightness(108%) contrast(93%);
+            }
+        }
+
+        & img {
+            filter: invert(34%) sepia(56%) saturate(1975%) hue-rotate(203deg) brightness(90%) contrast(112%);
+            -webkit-filter: invert(34%) sepia(56%) saturate(1975%) hue-rotate(203deg) brightness(90%) contrast(112%);
+        }
+        
+        &:not(:disabled):hover {
+            & span {
+                @apply text-primary-400;
+            }
+
+            & img {
+                filter: invert(44%) sepia(17%) saturate(5122%) hue-rotate(203deg) brightness(101%) contrast(92%);
+                -webkit-filter: invert(44%) sepia(17%) saturate(5122%) hue-rotate(203deg) brightness(101%) contrast(92%);
+            }
+        }
+        
+        &:not(:disabled):active {
+            & span {
+                @apply text-primary-600;
+            }
+            & img {
+                filter: invert(26%) sepia(43%) saturate(7027%) hue-rotate(219deg) brightness(91%) contrast(89%);
+                -webkit-filter: invert(26%) sepia(43%) saturate(7027%) hue-rotate(219deg) brightness(91%) contrast(89%);
+            }
+        }
+    }
+    
+    &.danger {
+        @apply border-error-300 hover:border-error-200 active:border-error-100 active:shadow-error-100 focus:border-error-400 *:text-error-300 disabled:border-error-75;
+
+        &:disabled {
+            @apply *:text-error-75;
+            & img {
+                filter: invert(76%) sepia(31%) saturate(4435%) hue-rotate(309deg) brightness(99%) contrast(84%);
+                -webkit-filter: invert(76%) sepia(31%) saturate(4435%) hue-rotate(309deg) brightness(99%) contrast(84%);
+            }
+        }
+
+        & img {
+            filter: invert(25%) sepia(73%) saturate(3731%) hue-rotate(349deg) brightness(90%) contrast(90%);
+            -webkit-filter: invert(25%) sepia(73%) saturate(3731%) hue-rotate(349deg) brightness(90%) contrast(90%);
+        }
+        
+        &:not(:disabled):hover {
+            & span {
+                @apply text-error-200;
+            }
+
+            & img {
+                filter: invert(51%) sepia(25%) saturate(6604%) hue-rotate(332deg) brightness(93%) contrast(90%);
+                -webkit-filter: invert(51%) sepia(25%) saturate(6604%) hue-rotate(332deg) brightness(93%) contrast(90%);
+            }
+        }
+        
+        &:not(:disabled):active {
+            & span {
+                @apply text-error-400;
+            }
+
+            & img {
+                filter: invert(25%) sepia(73%) saturate(3731%) hue-rotate(349deg) brightness(90%) contrast(90%);
+                -webkit-filter: invert(25%) sepia(73%) saturate(3731%) hue-rotate(349deg) brightness(90%) contrast(90%);
+            }
+        }
+
+        &:not(:disabled):focus {
+            & span {
+                @apply text-error-300;
+            }
+
+            & img {
+                filter: invert(17%) sepia(39%) saturate(5341%) hue-rotate(348deg) brightness(85%) contrast(93%);
+                -webkit-filter: invert(17%) sepia(39%) saturate(5341%) hue-rotate(348deg) brightness(85%) contrast(93%);
+            }
+        }
+    }
+    
+    &.neutral {
+        @apply border-neutral-400 hover:border-neutral-300 active:border-neutral-200 active:shadow-neutral-200 *:text-neutral-400 disabled:border-neutral-100;
+
+        &:disabled {
+            @apply *:text-neutral-100;
+            & img {
+                filter: invert(77%) sepia(3%) saturate(1299%) hue-rotate(178deg) brightness(91%) contrast(87%);
+                -webkit-filter: invert(77%) sepia(3%) saturate(1299%) hue-rotate(178deg) brightness(91%) contrast(87%);
+            }
+        }
+
+        & img {
+            filter: invert(29%) sepia(12%) saturate(838%) hue-rotate(176deg) brightness(95%) contrast(87%);
+            -webkit-filter: invert(29%) sepia(12%) saturate(838%) hue-rotate(176deg) brightness(95%) contrast(87%);
+        }
+        
+        &:not(:disabled):hover {
+            & span {
+                @apply text-neutral-300;
+            }
+
+            & img {
+                filter: invert(45%) sepia(25%) saturate(396%) hue-rotate(176deg) brightness(92%) contrast(87%);
+                -webkit-filter: invert(45%) sepia(25%) saturate(396%) hue-rotate(176deg) brightness(92%) contrast(87%);
+            }
+        }
+        
+        &:not(:disabled):active {
+            & span {
+                @apply text-neutral-500;
+            }
+
+            & img {
+                filter: invert(26%) sepia(33%) saturate(305%) hue-rotate(176deg) brightness(92%) contrast(92%);
+                -webkit-filter: invert(26%) sepia(33%) saturate(305%) hue-rotate(176deg) brightness(92%) contrast(92%);
+            }
+        }
+    }
+    
+    &.success {
+        @apply border-success-400 hover:border-success-300 active:border-success-200 active:shadow-success-200 *:text-success-400 disabled:border-success-100;
+
+        &:disabled {
+            @apply *:text-success-100;
+            & img {
+                filter: invert(84%) sepia(9%) saturate(1485%) hue-rotate(88deg) brightness(92%) contrast(94%);
+                -webkit-filter: invert(84%) sepia(9%) saturate(1485%) hue-rotate(88deg) brightness(92%) contrast(94%);
+            }
+        }
+
+        & img {
+            filter: invert(26%) sepia(60%) saturate(5256%) hue-rotate(141deg) brightness(95%) contrast(81%);
+            -webkit-filter: invert(26%) sepia(60%) saturate(5256%) hue-rotate(141deg) brightness(95%) contrast(81%);
+        }
+        
+        &:disabled {
+            @apply *:text-success-200;
+        }
+
+        &:not(:disabled):hover {
+            & span {
+                @apply text-success-300;
+            }
+
+            & img {
+                filter: invert(66%) sepia(50%) saturate(4390%) hue-rotate(98deg) brightness(104%) contrast(73%);
+                -webkit-filter: invert(66%) sepia(50%) saturate(4390%) hue-rotate(98deg) brightness(104%) contrast(73%);
+            }
+        }
+        
+        &:not(:disabled):active {
+            & span {
+                @apply text-success-500;
+            }
+
+            & img {
+                filter: invert(18%) sepia(92%) saturate(6871%) hue-rotate(154deg) brightness(92%) contrast(84%);
+                -webkit-filter: invert(18%) sepia(92%) saturate(6871%) hue-rotate(154deg) brightness(92%) contrast(84%);
+            }
+        }
+    }
+}

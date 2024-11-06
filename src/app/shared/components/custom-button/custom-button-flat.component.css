@@ -1,0 +1,28 @@
+.btn-flat {
+    @apply border-none;
+
+    &.primary {
+        @apply bg-primary-500 hover:bg-primary-400 active:bg-primary-600 active:shadow-primary-300 disabled:bg-primary-300;
+    }
+    
+    &.danger {
+        @apply bg-error-300 hover:bg-error-200 active:bg-error-300 active:shadow-error-100 focus:bg-error-400 disabled:bg-error-100;
+    }
+    
+    &.neutral {
+        @apply bg-neutral-300 hover:bg-neutral-200 active:bg-neutral-300 active:shadow-neutral-100 focus:bg-neutral-400 disabled:bg-neutral-100;
+    }
+    
+    &.success {
+        @apply bg-success-300 hover:bg-success-200 active:bg-success-300 active:shadow-success-100 focus:bg-success-400 disabled:bg-success-100;
+    }
+    
+    & span {
+        @apply text-white;
+    }
+    
+    & img {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(64deg) brightness(109%) contrast(102%);
+        -webkit-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(64deg) brightness(109%) contrast(102%);
+    }
+}
