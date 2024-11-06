@@ -3,19 +3,29 @@
 }
 
 .float-label label {
-    @apply text-neutral-300 font-poppins text-base;
-}
-
-.float-label label {
     padding: 0 0.25rem;
     position: absolute;
-    top: 50%;
     left: 0.75rem;
+    @apply text-neutral-300 font-poppins text-base;
     transition: all .3s;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     -ms-transition: all .3s;
     -o-transition: all .3s;
+}
+
+.float-label input ~ label,
+.float-label select ~ label {
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.float-label textarea ~ label {
+    top: 20px;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
