@@ -6,6 +6,7 @@ import { CustomButtonComponent } from '../../../shared/components/custom-button/
 
 import { SelectItem } from '../../../core/index.model.system';
 import { MaquinaService } from '../../../core/index.service.http';
+import { NotificationService } from '../../../core/index.service.trigger';
 import { Maquina } from '../../../core/index.data.model';
 
 @Component({
@@ -16,10 +17,7 @@ import { Maquina } from '../../../core/index.data.model';
   imports: [FloatLabelComponent, CustomButtonComponent, ReactiveFormsModule],
 })
 export class AgregarMaquinaComponent {
-  maquinaForm: FormGroup = new FormGroup({
-    nombre: new FormControl(''),
-    codigo: new FormControl(''),
-  })
+  maquinaForm: FormGroup = this.initializateFormGroupMaquina()
 
   tipoMaquina: SelectItem[] = [
     { value: 1, viewValue: 'Ploteo' },
@@ -36,7 +34,15 @@ export class AgregarMaquinaComponent {
 
   constructor(
     private maquinaSrv: MaquinaService,
+    private notificationSrv: NotificationService,
   ) { }
+
+  private initializateFormGroupMaquina() {
+    return new FormGroup({
+      nombre: new FormControl(''),
+      codigo: new FormControl(''),
+    });
+  }
 
   public onSubmit() {
     const { nombre, codigo } = this.maquinaForm.value;
@@ -47,12 +53,15 @@ export class AgregarMaquinaComponent {
       isDelete: false,
     }
 
+    this.notificationSrv.addNotification('info', 'Guardando maquina...')
+
     this.maquinaSrv.saveMaquina(maquina).subscribe({
       next: () => {
-        alert("maquina guardada");
+        this.notificationSrv.addNotification('success', 'Maquina guardada exitosamente');
+        this.maquinaForm = this.initializateFormGroupMaquina();
       },
       error: (err) => {
-        alert("error al guardar maquina");
+        this.notificationSrv.addNotification('error', 'Error del servidor')
         console.error(err);
       }
     });
