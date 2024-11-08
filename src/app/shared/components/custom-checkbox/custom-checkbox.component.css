@@ -1,0 +1,93 @@
+.container input {
+    display: none;
+}
+
+.container {
+    --size: 24px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: var(--size);
+    width: var(--size);
+    border: 1px solid #BFC6CF;
+    background-color: #F2F3F7;
+    border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    -o-border-radius: 0.25em;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    -ms-transition: all 0.25s;
+    -o-transition: all 0.25s;
+}
+
+.container input:not(:disabled) ~ .checkmark:hover {
+    background-color: #BFC6CF;
+}
+
+.container input:not(:disabled) ~ .checkmark:active {
+    background-color: #F2F3F7;
+    box-shadow: 0 0 0 4px #BFC6CF;
+}
+
+.container input:checked ~ .checkmark {
+    border-color: #1B5BFF;
+    background-color: #1B5BFF;
+}
+
+.container input:checked:not(:disabled) ~ .checkmark:hover {
+    border-color: #0030A8;
+    background-color: #0030A8;
+}
+
+.container input:checked:not(:disabled) ~ .checkmark:active {
+    box-shadow: 0 0 0 4px #A3BDFF;
+}
+
+.container input:checked:disabled ~ .checkmark {
+    opacity: 50%;
+}
+
+.container input:disabled:not(:checked) ~ .checkmark {
+    background-color: #D3D5E4;
+    border-color: #D3D5E4;
+}
+
+.checkmark:after {
+    content: "";
+    opacity: 0;
+    position: absolute;
+    border: 0.1em solid black;
+    left: calc(var(--size)/3.2);
+    top: calc(var(--size)/10);
+    width: calc(var(--size)/3);
+    height: calc(var(--size)/2);
+    transition: all 0.25s, border-width 0.1s, opacity 0;
+    -webkit-transition: all 0.25s, border-width 0.1s, opacity 0;
+    -moz-transition: all 0.25s, border-width 0.1s, opacity 0;
+    -ms-transition: all 0.25s, border-width 0.1s, opacity 0;
+    -o-transition: all 0.25s, border-width 0.1s, opacity 0;
+}
+
+.container input:checked~.checkmark:after {
+    opacity: 1;
+    border-color: #fff0 white white #fff0;
+    border-width: 0 0.15em 0.15em 0;
+    border-radius: 0em;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
