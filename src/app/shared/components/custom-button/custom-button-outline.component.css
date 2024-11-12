@@ -91,7 +91,7 @@
     }
     
     &.neutral {
-        @apply border-neutral-400 hover:border-neutral-300 active:border-neutral-200 active:shadow-neutral-200 *:text-neutral-400 disabled:border-neutral-100;
+        @apply border-neutral-75 hover:border-neutral-100 active:border-neutral-50 active:shadow-neutral-50 *:text-neutral-400 disabled:border-neutral-100;
 
         &:disabled {
             @apply *:text-neutral-100;

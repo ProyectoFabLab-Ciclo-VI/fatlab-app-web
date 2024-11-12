@@ -1,7 +1,4 @@
-<button [class]="'flex gap-1 items-center justify-between *:font-poppins *:font-semibold ' + 
-    sizeButton +
-    (isCircularButton ? ' rounded-12 ' : ' rounded-normal ') +
-    (isButtonOutline ? ' btn-outline ' + color : ' btn-flat ' + color)"
+<button [class]="getStyleButton()"
     [type]="buttonType"
     [disabled]="isDisabled">
     <ng-content></ng-content>

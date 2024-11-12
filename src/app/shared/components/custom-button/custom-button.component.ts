@@ -21,4 +21,13 @@ export class CustomButtonComponent{
   @Input() isDisabled: boolean = false;
   @Input() buttonType: string = "button";
   @Input() sizeButton: ButtonSize = 'xs';
+  @Input() roundedCustom: string = '';
+
+  public getStyleButton() {
+    return `
+      flex gap-1 items-center justify-between *:font-poppins *:font-semibold ${this.sizeButton} 
+      ${(this.roundedCustom != '' ? this.roundedCustom : (this.isCircularButton ? ' rounded-12 ' : ' rounded-normal '))} 
+      ${(this.isButtonOutline ? ' btn-outline ' + this.color : ' btn-flat ' + this.color)}
+    `;
+  }
 }
