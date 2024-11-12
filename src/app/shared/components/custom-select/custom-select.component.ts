@@ -1,5 +1,4 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { SelectItem } from '../../../core/index.model.system';
 
 @Component({
@@ -7,33 +6,46 @@ import { SelectItem } from '../../../core/index.model.system';
   templateUrl: './custom-select.component.html',
   styleUrl: './custom-select.component.css',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
 })
 export class CustomSelectComponent {
+  @ViewChild('SelectedComponente') selectedComponente!: any;
+
   @Input({required: true}) options: SelectItem[] = [];
   @Input() placeholder: string = 'Seleccione una opción';
   @Input() disabled: boolean = false;
-  @Input() labelName: string = "";
+  
+  @Input() selectedValue!: SelectItem;
+  @Output() selectedValueChange = new EventEmitter<SelectItem>();
 
-  @Output() selectionChange = new EventEmitter<any>();
-
-  selectedValue: any;
   panelOpen: boolean = false;
 
-  togglePanel() {
+  @HostListener('document:click', ['$event'])
+  clickEvent($event: any) {
+    if(!this.selectedComponente.nativeElement.contains($event.target)) {
+      this.closePanel()
+    };
+  }
+
+  private closePanel() {
+    this.panelOpen = false;
+  }
+
+  public togglePanel() {
     if (!this.disabled) {
       this.panelOpen = !this.panelOpen;
     }
   }
 
-  selectOption(option: any) {
-    this.selectedValue = option.value;
-    this.selectionChange.emit(this.selectedValue);
-    this.panelOpen = false;
+  public selectOption(option: SelectItem) {
+    this.selectedValue = option;
+    this.selectedValueChange.emit(this.selectedValue);
+    this.closePanel();
   }
 
-  getViewValue(value: any): string {
-    const selectedOption = this.options.find(option => option.value === value);
-    return selectedOption ? selectedOption.viewValue : '';
+  public getViewValue(itemSelect: SelectItem): string {
+    if(!itemSelect || itemSelect.viewValue == '') return this.placeholder;
+    const selectedOption = this.options.find(option => option.value === itemSelect.value);
+    return selectedOption ? selectedOption.viewValue : this.placeholder;
   }
 }

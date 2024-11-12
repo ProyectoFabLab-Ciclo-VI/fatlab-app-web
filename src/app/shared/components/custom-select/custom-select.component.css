@@ -5,3 +5,11 @@
     -ms-transition: all .3s;
     -o-transition: all .3s;
 }
+
+.section-content >*:nth-child(n+2){
+    margin-top: 0.5px;
+}
+
+.font-w {
+    font-weight: 600;
+}
