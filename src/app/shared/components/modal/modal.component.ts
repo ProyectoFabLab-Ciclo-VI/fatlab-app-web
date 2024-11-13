@@ -1,4 +1,14 @@
-import { Component, Input, ViewChild, ViewContainerRef, AfterViewInit, EventEmitter, Output, Renderer2, ElementRef } from '@angular/core';
+import { 
+  Component,
+  Input,
+  ViewChild,
+  ViewContainerRef,
+  AfterViewInit,
+  EventEmitter,
+  Output,
+  Renderer2,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -40,15 +50,16 @@ export class ModalComponent implements AfterViewInit {
     let isClose = this.alertMessage !== '' ? confirm(this.alertMessage) : true;
     if (isClose) {
       const element = this.modalContent.nativeElement;
-      if(element) {
-        this.render.removeClass(element, 'open')
-        this.render.addClass(element, 'exit')
+      if (element) {
+        this.render.removeClass(element, 'open');
+        this.render.addClass(element, 'exit');
         setTimeout(() => {
           this.closeEvent.emit();
         }, 500);
       }
     }
-  }
+  }  
+  
 
   public setComponent(component: any) {
     this.componentToLoad = component;

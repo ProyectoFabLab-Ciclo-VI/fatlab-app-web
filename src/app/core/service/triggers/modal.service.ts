@@ -20,8 +20,10 @@ export class ModalService {
   }
 
   public openModal(modalConfig: Modal): Observable<any> {
-    this.closeModal();
-    if(!this.viewContianerRef) throwError;
+    this.closeExistingModal();
+    
+    if (!this.viewContianerRef) return throwError(() => new Error('ViewContainerRef no está definido'));
+    
     this.modalRef = this.viewContianerRef.createComponent(ModalComponent, {
       environmentInjector: this.environmentInjector
     });
@@ -31,18 +33,35 @@ export class ModalService {
     if (title) this.modalRef.instance.title = title;
     if (alertMessage !== undefined) this.modalRef.instance.alertMessage = alertMessage;
 
-    this.modalRef.instance.closeEvent.subscribe(() => this.closeModal());
+    this.modalRef.instance.closeEvent.subscribe((result: any) => this.handleClose(result));
+    
     document.body.appendChild(this.modalRef.location.nativeElement);
     this.modalRef.instance.setComponent(component);
 
     return this.modalCloseSubject.asObservable();
   }
 
-  public closeModal(result?: any) {
+  public closeModal() {
+    if (this.modalRef) {
+      this.modalRef.instance.close();
+    }
+  }
+
+  private handleClose(result?: any) {
     if (this.modalRef) {
       this.modalRef.destroy();
       this.modalRef = null;
       this.modalCloseSubject.next(result);
+      this.modalCloseSubject.complete();
+      this.modalCloseSubject = new Subject<any>();
+    }
+  }
+
+  private closeExistingModal() {
+    if (this.modalRef) {
+      this.modalRef.destroy();
+      this.modalRef = null;
+      this.modalCloseSubject.next(true);
       this.modalCloseSubject.complete();
       this.modalCloseSubject = new Subject<any>();
     }
