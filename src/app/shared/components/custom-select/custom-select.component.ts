@@ -13,6 +13,7 @@ export class CustomSelectComponent {
 
   @Input({required: true}) options: SelectItem[] = [];
   @Input() placeholder: string = 'Seleccione una opción';
+  @Input() label!: string;
   @Input() disabled: boolean = false;
   
   @Input() selectedValue!: SelectItem;

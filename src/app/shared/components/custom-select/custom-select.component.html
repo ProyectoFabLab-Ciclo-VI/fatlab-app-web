@@ -1,9 +1,10 @@
 <div class="relative" #SelectedComponente>
-    <div class="relative inline-block w-full" [class.opacity-50]="disabled" [class.cursor-not-allowed]="disabled">
-        <div class="flex justify-between items-center z-20 border border-solid border-neutral-75 rounded-[12px] px-4 py-3 bg-white cursor-pointer select-none"
+    <div class="selected relative inline-block w-full" [class.opacity-50]="disabled" [class.cursor-not-allowed]="disabled">
+        <div class="selected__header flex justify-between items-center z-20 border border-solid border-neutral-75 rounded-[12px] px-4 py-3 bg-white cursor-pointer select-none hover:bg-primary-50 hover:border-primary-200 active:bg-white"
              (click)="togglePanel()"
              [class.bg-neutral-100]="disabled">
-            <span class="block truncate text-neutral-300 text-base font-poppins">{{ getViewValue(selectedValue) }}</span>
+             @if (label) { <span class="absolute -top-[7px] left-3 px-1 bg-white text-base text-primary-500">{{ label }}</span> }
+            <span class="block truncate text-neutral-300 text-base font-poppins" [class]="selectedValue ? ' text-primary-900 ' : ''">{{ getViewValue(selectedValue) }}</span>
             <div class="icon-selected" [class.-rotate-180]="panelOpen">
                 <svg width="12" height="7" viewBox="0 0 12 7" fill="none">
                     <path opacity="0.8" d="M1 1L6 6L11 1" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -11,15 +12,17 @@
             </div>
         </div>
         @if (panelOpen) {
-            <div class="selected-content absolute w-full grid bg-neutral-75 top-[108%] max-h-60 overflow-y-auto z-[9] rounded-[16px]">
-                @for (option of options; track $index) {
-                    <div class="px-4 py-3 cursor-pointer select-none relative"
-                         (click)="selectOption(option)"
-                         [class]="selectedValue && option.value === selectedValue.value ? ' bg-primary-50 font-w ' : ' bg-white hover:bg-neutral-50 '">
-                        <span class="text-neutral-300 text-base font-poppins">{{ option.viewValue }}</span>
-                    </div>
-                }
-            </div>
+            <article class="selected__body absolute w-full top-[108%] max-h-60 overflow-y-auto overflow-x-hidden z-[9] rounded-[16px] border border-solid border-primary-500 shadow-medium">
+                <div class="bg-primary-500 relative">
+                    @for (option of options; track $index) {
+                        <div class="selected__item px-4 py-3 cursor-pointer select-none relative block"
+                             (click)="selectOption(option)"
+                             [class]="selectedValue && option.value === selectedValue.value ? ' bg-primary-500 *:text-white font-w ' : ' bg-white hover:bg-primary-50 '">
+                            <span class="block text-base font-poppins truncate">{{ option.viewValue }}</span>
+                        </div>
+                    }
+                </div>
+            </article>
         }
     </div>
 </div>

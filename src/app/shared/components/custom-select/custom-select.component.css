@@ -6,8 +6,24 @@
     -o-transition: all .3s;
 }
 
-.section-content >*:nth-child(n+2){
-    margin-top: 0.5px;
+.selected__header {
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+.selected__header:active {
+    box-shadow: 0 0 0 2px #1c64f2;
+}
+
+.selected:has(.selected__body) .selected__header {
+    @apply border-primary-500;
+}
+
+.selected__item:nth-child(n+2) {
+    margin-top: 1px;
 }
 
 .font-w {
