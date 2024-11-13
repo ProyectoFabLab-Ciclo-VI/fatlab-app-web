@@ -59,7 +59,8 @@
 .float-label input:active,
 .float-label textarea:active,
 .float-label select:active {
-    @apply bg-white border-primary-200 border-[3px];
+    box-shadow: 0 0 0 2px #1c64f2;
+    @apply bg-white;
 }
 
 .float-label input:active ~ label,
