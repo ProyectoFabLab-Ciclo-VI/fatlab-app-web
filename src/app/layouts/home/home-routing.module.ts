@@ -29,6 +29,10 @@ const routes: Routes = [
         loadComponent: () => import('../../features/tarifario/tarifario.component').then(c => c.TarifarioComponent),
       },
       {
+        path: 'configuracion',
+        loadChildren: () => import('../../features/configuracion/configuracion.module').then(m => m.ConfiguracionModule),
+      },
+      {
         path: 'not-found',
         component: NotFoundComponent
       },

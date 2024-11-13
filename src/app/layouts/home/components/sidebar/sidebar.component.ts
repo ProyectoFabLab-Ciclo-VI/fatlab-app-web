@@ -34,7 +34,7 @@ export class SidebarComponent {
         { name: 'Máquina', icon: 'icon/sidebar/icon-maquina.webp', modal: { component: AgregarMaquinaComponent, title: 'Agregar máquina' } },
         { name: 'Insumos', icon: 'icon/sidebar/icon-insumo.webp', modal: { component: EdicionInsumoComponent, title: 'Agregar insumo' } },
         // { name: 'Materiales Especiales', icon: 'icon/sidebar/icon-dashboard.webp' },
-        { name: 'Configuración', icon: 'icon/sidebar/icon-pedido.webp' },
+        { name: 'Configuración', icon: 'icon/sidebar/icon-pedido.webp', link: '/home/configuracion' },
         { name: 'Tarifario', icon: 'icon/sidebar/icon-prestamo.webp', link: '/home/tarifario'},
       ]
     },
