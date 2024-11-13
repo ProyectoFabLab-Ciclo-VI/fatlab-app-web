@@ -1,0 +1,24 @@
+.card-configuration .icon-more {
+    transition-duration: .3s;
+}
+
+.card-configuration .icon-more:has(:checked) {
+    rotate: -180deg;
+}
+
+.card-configuration .configuration-content {
+    max-height: 0;
+    overflow-y: auto;
+    padding: 0 20px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    -webkit-transition: max-height 0.3s ease, padding 0.3s ease;
+    -moz-transition: max-height 0.3s ease, padding 0.3s ease;
+    -ms-transition: max-height 0.3s ease, padding 0.3s ease;
+    -o-transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.card-configuration:has(.icon-more input:checked) .configuration-content {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    max-height: 500px;
+}
