@@ -1,7 +1,10 @@
 <section class="h-screen w-full flex items-center justify-center">
     <div class="flex flex-col items-center">
-        <h1 class="text-title-1">404</h1>
-        <p class="text-subtitle-1 mb-3">¿Estas perdido?</p>
-        <span class="btn btn-flat-primary" (click)="goBack()">regresa a chambear</span>
+        <h1 class="text-5xl font-poppins font-bold">404</h1>
+        <p class="text-2xl font-poppins">¿Estas perdido?</p>
+        <app-custom-button class="mt-2" (click)="goBack()">
+            <img src="/icon/normal/arrow-left.svg" alt="">
+            <span class="uppercase">regresa a chambear</span>
+        </app-custom-button>
     </div>
 </section>
