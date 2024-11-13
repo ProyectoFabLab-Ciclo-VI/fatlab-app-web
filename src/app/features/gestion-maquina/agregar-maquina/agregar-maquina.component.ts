@@ -6,42 +6,61 @@ import { CustomButtonComponent } from '../../../shared/components/custom-button/
 
 import { SelectItem } from '../../../core/index.model.system';
 import { MaquinaService } from '../../../core/index.service.http';
-import { NotificationService } from '../../../core/index.service.trigger';
+import { ModalService, NotificationService } from '../../../core/index.service.trigger';
 import { Maquina } from '../../../core/index.data.model';
+import { CustomSelectComponent } from '../../../shared/components/custom-select/custom-select.component';
+import { LoaderComponent } from '../../../shared/components/loader/loader.component';
+import { ImpresoraComponent } from "./components/impresora/impresora.component";
+import { PapeleriaComponent } from './components/papeleria/papeleria.component';
+import { LaserComponent } from './components/laser/laser.component';
+import { EscaneoComponent } from './components/escaneo/escaneo.component';
 
 @Component({
   selector: 'app-agregar-maquina',
   templateUrl: './agregar-maquina.component.html',
   styleUrl: './agregar-maquina.component.css',
   standalone: true,
-  imports: [FloatLabelComponent, CustomButtonComponent, ReactiveFormsModule],
+  imports: [
+    FloatLabelComponent,
+    CustomButtonComponent,
+    ReactiveFormsModule,
+    CustomSelectComponent,
+    LoaderComponent,
+    ImpresoraComponent,
+    PapeleriaComponent,
+    LaserComponent,
+    EscaneoComponent,
+  ],
 })
 export class AgregarMaquinaComponent {
-  maquinaForm: FormGroup = this.initializateFormGroupMaquina()
+  
+  isSend: boolean = false;
+  maquinaForm: FormGroup = this.initializateFormGroupMaquina();
 
-  tipoMaquina: SelectItem[] = [
-    { value: 1, viewValue: 'Ploteo' },
-    { value: 2, viewValue: 'Corte laser' },
-    { value: 3, viewValue: 'Impresora' },
-    { value: 4, viewValue: 'Modelado' },
+  categorias: SelectItem[] = [
+    { value: 1, viewValue: 'Impresiones 3D' },
+    { value: 2, viewValue: 'Papelería / Ploteo' },
+    { value: 3, viewValue: 'Laser 3D' },
+    { value: 4, viewValue: 'Escaneo 3D' },
   ];
 
-  estadoMaquina: SelectItem[] = [
-    { value: 1, viewValue: 'Activo' },
-    { value: 2, viewValue: 'En mantenimiento' },
-    { value: 3, viewValue: 'Inactivo' },
-  ];
+  maquinaSelected = this.categorias[0];
 
   constructor(
     private maquinaSrv: MaquinaService,
     private notificationSrv: NotificationService,
+    private modalSrv: ModalService,
   ) { }
 
   private initializateFormGroupMaquina() {
     return new FormGroup({
-      nombre: new FormControl(''),
-      codigo: new FormControl(''),
+      nombre: new FormControl<string>(''),
+      codigo: new FormControl<string>(''),
     });
+  }
+
+  public cancel(){
+    this.modalSrv.closeModal();
   }
 
   public onSubmit() {
@@ -52,16 +71,18 @@ export class AgregarMaquinaComponent {
       codigoUpeu: codigo,
       isDelete: false,
     }
-
+    this.isSend = true;
     this.notificationSrv.addNotification('info', 'Guardando maquina...')
 
     this.maquinaSrv.saveMaquina(maquina).subscribe({
       next: () => {
         this.notificationSrv.addNotification('success', 'Maquina guardada exitosamente');
         this.maquinaForm = this.initializateFormGroupMaquina();
+        this.isSend = false;
       },
       error: (err) => {
         this.notificationSrv.addNotification('error', 'Error del servidor')
+        this.isSend = false;
         console.error(err);
       }
     });

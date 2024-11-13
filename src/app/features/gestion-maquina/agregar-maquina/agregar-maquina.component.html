@@ -1,38 +1,29 @@
-<form [formGroup]="maquinaForm" (ngSubmit)="onSubmit()" class="grid gap-8 mt-3">
+<form [formGroup]="maquinaForm" (ngSubmit)="onSubmit()" class="relative grid gap-8 pt-3 overflow-hidden">
     <div class="grid gap-4">
-        <div class="grid gap-4">
+        <div class="grid grid-cols-[400px_200px] gap-4">
             <app-float-label>
                 <input id="nombre-maquina" type="text" placeholder="nombre" formControlName="nombre"/>
                 <label for="nombre-maquina" class="select-none text-neutral-300">Nombre</label>
             </app-float-label>
-            <app-float-label>
-                <input id="codigo" type="text" placeholder="codigo" formControlName="codigo"/>
-                <label for="codigo" class="select-none text-neutral-300">Código Upeu</label>
-            </app-float-label>
+            <app-custom-select [options]="categorias" [(selectedValue)]="maquinaSelected"></app-custom-select>
         </div>
-        <div class="grid grid-cols-[1fr_1fr] gap-4">
-            <app-float-label class="min-w-[192px]">
-                <select id="tipo_maquina" disabled>
-                    <!-- <option value="s1" selected>categoria 1</option> -->
-                    <option value="s2">categoria 2</option>
-                    <option value="s3">categoria 3</option>
-                    <option value="s4">categoria 4</option>
-                </select>
-                <label for="tipo_maquina" class="select-none text-neutral-300 text-nowrap">Selecionar Categoria</label>
-            </app-float-label>
-            <app-float-label class="min-w-[182px]">
-                <select id="estado" disabled>
-                    <!-- <option value="e1" selected>estado 1</option> -->
-                    <option value="e2">estado 2</option>
-                    <option value="e3">estado 3</option>
-                    <option value="e4">estado 4</option>
-                </select>
-                <label for="estado" class="select-none text-neutral-300 text-nowrap">Seleccionar Estado</label>
-            </app-float-label>
-        </div>
+        @switch (maquinaSelected.value) {
+            @case (1) {
+                <app-impresora/>
+            }
+            @case (2) {
+                <app-papeleria/>
+            }
+            @case (3) {
+                <app-laser/>
+            }
+            @case (4) {
+                <app-escaneo/>
+            }
+        }
     </div>
     <div class="grid grid-cols-[auto_auto] justify-end gap-3">
-        <app-custom-button class="grid" color="danger" [isButtonOutline]="true" sizeButton="sm" buttonType="button">
+        <app-custom-button class="grid" color="neutral" (click)="cancel()" [isButtonOutline]="true" sizeButton="sm" buttonType="button">
             <span class="text-base">Cancelar</span>
         </app-custom-button>
         <app-custom-button class="grid" sizeButton="sm" buttonType="submit">
@@ -40,4 +31,9 @@
             <img src="/icon/normal/check-circle.svg" alt="icono del boton">
         </app-custom-button>
     </div>
+    @if (isSend) {
+        <div class="absolute top-0 bottom-0 left-0 right-0 z-[99999] grid place-content-center bg-[#ffffff85]">
+            <app-loader/>
+        </div>
+    }
 </form>
