@@ -1,34 +1,33 @@
-<form class="grid gap-8 mt-3" [formGroup]="insumoForm" (ngSubmit)="onSumit()">
-    <div class="grid gap-4">
-        <div class="grid grid-cols-[300px_100px] gap-2">
+<form class="grid gap-8" [formGroup]="insumoForm" (ngSubmit)="onSumit()">
+    <div class="grid gap-5">
+        <app-custom-select [options]="categorias" placeholder="Seleccionar categoria" label="Categoria"></app-custom-select>
+        <div class="grid grid-cols-[250px_250px] gap-5">
             <app-float-label>
                 <input id="nombre-insumo" type="text" placeholder="nombre" formControlName="nombre"/>
                 <label for="nombre-insumo" class="select-none text-neutral-300">Nombre</label>
             </app-float-label>
+            <app-custom-select [options]="marcas" placeholder="Seleccionar marca" label="Marca" />
             <app-float-label>
-                <select id="unidad" formControlName="unidadMedida">
-                    <option value="kg">Kg</option>
-                    <option value="L">Litro</option>
-                    <option value="M">Metro</option>
-                </select>
-                <label for="unidad" class="select-none text-neutral-300">Medida</label>
+                <input id="coste-insumo" type="number" placeholder="coste"/>
+                <label for="coste-insumo" class="select-none text-neutral-300">Coste Insumo</label>
+            </app-float-label>
+            <app-custom-select [options]="unidadesDeMedida" [(selectedValue)]="unidadMedidaSeleccionada" placeholder="Seleccionar unidad de medida" label="Unidad de medida" />
+            <app-float-label>
+                <input id="cantidad-insumo" type="number" placeholder="cantidad"/>
+                <label for="cantidad-insumo" class="select-none text-neutral-300">Cantidad Insumo</label>
+            </app-float-label>
+            <app-float-label>
+                <input id="peso-unitario" type="number" placeholder="medida unitaria"/>
+                <label for="peso-unitario" class="select-none text-neutral-300">Medida unitaria ({{ unidadMedidaSeleccionada.value }})</label>
             </app-float-label>
         </div>
-        <app-float-label class="min-w-[192px]">
-            <select id="tipo_maquina" disabled>
-                <option value="s2">categoria 2</option>
-                <option value="s3">categoria 3</option>
-                <option value="s4">categoria 4</option>
-            </select>
-            <label for="tipo_maquina" class="select-none text-neutral-300 text-nowrap">Selecionar Marca</label>
-        </app-float-label>
         <app-float-label>
             <textarea name="descripcion" id="descripcion" placeholder="descripcion" class="resize-y min-h-32" formControlName="descripcion"></textarea>
             <label for="descripcion" class="select-none text-neutral-300">Descripcion</label>
         </app-float-label>
     </div>
     <div class="grid grid-cols-[auto_auto] justify-end gap-3">
-        <app-custom-button class="grid" color="danger" [isButtonOutline]="true" sizeButton="sm" buttonType="button">
+        <app-custom-button class="grid" color="neutral" [isButtonOutline]="true" sizeButton="sm" buttonType="button">
             <span class="text-base">Cancelar</span>
         </app-custom-button>
         <app-custom-button class="grid" sizeButton="sm"  buttonType="submit">
