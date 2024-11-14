@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { FloatLabelComponent } from '../../../shared/components/float-label/float-label.component';
 import { CustomButtonComponent } from '../../../shared/components/custom-button/custom-button.component';
 import { CustomSelectComponent } from '../../../shared/components/custom-select/custom-select.component';
 
@@ -15,7 +14,7 @@ import { SelectItem } from '../../../core/index.model.system';
   templateUrl: './edicion-insumo.component.html',
   styleUrl: './edicion-insumo.component.css',
   standalone: true,
-  imports: [FloatLabelComponent, CustomButtonComponent, ReactiveFormsModule, CustomSelectComponent],
+  imports: [CustomButtonComponent, ReactiveFormsModule, CustomSelectComponent],
 })
 export class EdicionInsumoComponent {
   insumoForm: FormGroup = this.initializateFormGroupInsumo();

@@ -1,8 +1,11 @@
 .float-label {
     display: grid;
+    /* display: block; */
+    position: relative;
 }
 
 .float-label label {
+    user-select: none;
     padding: 0 0.25rem;
     position: absolute;
     left: 0.75rem;
@@ -36,12 +39,15 @@
 .float-label input,
 .float-label textarea,
 .float-label select {
+    outline: none;
+    padding: 12px 20px;
+    background-color: white;
     transition: all .3s;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     -ms-transition: all .3s;
     -o-transition: all .3s;
-    @apply outline-none bg-white border border-solid border-neutral-100 rounded-[12px] px-4 py-3 text-base font-poppins;
+    @apply border border-solid border-neutral-100 rounded-[12px] text-base font-poppins;
 }
 
 .float-label input::placeholder,
@@ -59,8 +65,8 @@
 .float-label input:active,
 .float-label textarea:active,
 .float-label select:active {
+    background-color: white;
     box-shadow: 0 0 0 2px #1c64f2;
-    @apply bg-white;
 }
 
 .float-label input:active ~ label,
@@ -72,14 +78,16 @@
 .float-label input:disabled,
 .float-label textarea:disabled,
 .float-label select:disabled {
-    @apply cursor-not-allowed border-neutral-50 bg-neutral-50;
+    cursor: not-allowed;
+    @apply border-neutral-50 bg-neutral-50;
 }
 
 .float-label input:disabled ~ label,
 .float-label textarea:disabled ~ label,
 .float-label select:disabled ~ label {
+    cursor: not-allowed;
     width: calc(100% - 32px - 8px);
-    @apply cursor-not-allowed bg-neutral-50;
+    @apply bg-neutral-50;
 }
 
 
@@ -88,7 +96,8 @@
 .float-label textarea:focus,
 .float-label select:focus {
     box-shadow: 0 4px 6px #1c63f21e;
-    @apply border-primary-500 bg-white;
+    background-color: white;
+    @apply border-primary-500;
 }
 
 .float-label input:focus ~ label,

@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { AuthUserService } from '../../core/index.service.http';
 import { NotificationService } from '../../core/index.service.trigger';
-import { CommonModule } from '@angular/common';
-import { FloatLabelComponent } from '../../shared/components/float-label/float-label.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, FloatLabelComponent]
+  imports: [CommonModule, ReactiveFormsModule, RouterModule]
 })
 export class LoginComponent {
   user: FormGroup = new FormGroup({

@@ -1,3 +1,8 @@
+.float-label-2 {
+    position: relative;
+    display: block;
+}
+
 .float-label-2 label {
     background: #fff;
     font-size: 1rem;

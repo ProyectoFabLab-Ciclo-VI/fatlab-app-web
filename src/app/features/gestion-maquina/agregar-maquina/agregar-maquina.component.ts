@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { FloatLabelComponent } from '../../../shared/components/float-label/float-label.component';
 import { CustomButtonComponent } from '../../../shared/components/custom-button/custom-button.component';
 
 import { SelectItem } from '../../../core/index.model.system';
@@ -21,7 +20,6 @@ import { EscaneoComponent } from './components/escaneo/escaneo.component';
   styleUrl: './agregar-maquina.component.css',
   standalone: true,
   imports: [
-    FloatLabelComponent,
     CustomButtonComponent,
     ReactiveFormsModule,
     CustomSelectComponent,

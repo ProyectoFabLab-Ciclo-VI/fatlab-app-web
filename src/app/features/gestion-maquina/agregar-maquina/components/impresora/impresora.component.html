@@ -1,32 +1,32 @@
 <div class="grid grid-cols-[1fr_1fr] gap-4">
     <div class="grid gap-4">
         <app-custom-select [options]="categoriasInsumo" placeholder="Seleccionar categoria insumo" label="Categoria Insumo"/>
-        <app-float-label>
+        <span class="float-label">
             <input id="codigo" type="text" placeholder="codigo"/>
             <label for="codigo" class="select-none text-neutral-300">Código Upeu</label>
-        </app-float-label>
-        <app-float-label>
+        </span>
+        <span class="float-label">
             <input id="tipo_insumo" type="text" placeholder="codigo"/>
             <label for="tipo_insumo" class="select-none text-neutral-300">Tipo insumo</label>
-        </app-float-label>
-        <app-float-label>
+        </span>
+        <span class="float-label">
             <input id="desperdicio_maquina" type="number" placeholder="codigo" min="0" max="100"/>
             <label for="desperdicio_maquina" class="select-none text-neutral-300">Desperdicio maquina</label>
-        </app-float-label>
+        </span>
     </div>
     <div class="grid gap-4">
         <app-custom-select placeholder="Seleccionar Estado" [options]="estados" label="Estado maquina"/>
-        <app-float-label>
+        <span class="float-label">
             <input id="arquitectura" type="text" placeholder="codigo"/>
             <label for="arquitectura" class="select-none text-neutral-300">Arquitectura</label>
-        </app-float-label>
-        <app-float-label>
+        </span>
+        <span class="float-label">
             <input id="precio_maquina" type="number" placeholder="codigo" min="0"/>
             <label for="precio_maquina" class="select-none text-neutral-300">Precio maquina</label>
-        </app-float-label>
-        <app-float-label>
+        </span>
+        <span class="float-label">
             <input id="consumo_luz" type="number" placeholder="consumo luz" min="0"/>
             <label for="consumo_luz" class="select-none text-neutral-300">Consumo Luz</label>
-        </app-float-label>  
+        </span>  
     </div>
 </div>

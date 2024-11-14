@@ -2,29 +2,29 @@
     <div class="grid gap-5">
         <app-custom-select [options]="categorias" placeholder="Seleccionar categoria" label="Categoria"></app-custom-select>
         <div class="grid grid-cols-[250px_250px] gap-5">
-            <app-float-label>
+            <span class="float-label">
                 <input id="nombre-insumo" type="text" placeholder="nombre" formControlName="nombre"/>
                 <label for="nombre-insumo" class="select-none text-neutral-300">Nombre</label>
-            </app-float-label>
+            </span>
             <app-custom-select [options]="marcas" placeholder="Seleccionar marca" label="Marca" />
-            <app-float-label>
+            <span  class="float-label">
                 <input id="coste-insumo" type="number" placeholder="coste"/>
                 <label for="coste-insumo" class="select-none text-neutral-300">Coste Insumo</label>
-            </app-float-label>
+            </span>
             <app-custom-select [options]="unidadesDeMedida" [(selectedValue)]="unidadMedidaSeleccionada" placeholder="Seleccionar unidad de medida" label="Unidad de medida" />
-            <app-float-label>
+            <span  class="float-label">
                 <input id="cantidad-insumo" type="number" placeholder="cantidad"/>
                 <label for="cantidad-insumo" class="select-none text-neutral-300">Cantidad Insumo</label>
-            </app-float-label>
-            <app-float-label>
+            </span>
+            <span  class="float-label">
                 <input id="peso-unitario" type="number" placeholder="medida unitaria"/>
                 <label for="peso-unitario" class="select-none text-neutral-300">Medida unitaria ({{ unidadMedidaSeleccionada.value }})</label>
-            </app-float-label>
+            </span>
         </div>
-        <app-float-label>
+        <span  class="float-label">
             <textarea name="descripcion" id="descripcion" placeholder="descripcion" class="resize-y min-h-32" formControlName="descripcion"></textarea>
             <label for="descripcion" class="select-none text-neutral-300">Descripcion</label>
-        </app-float-label>
+        </span>
     </div>
     <div class="grid grid-cols-[auto_auto] justify-end gap-3">
         <app-custom-button class="grid" color="neutral" [isButtonOutline]="true" sizeButton="sm" buttonType="button">

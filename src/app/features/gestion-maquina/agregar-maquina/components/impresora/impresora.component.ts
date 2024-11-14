@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SelectItem } from '../../../../../core/index.model.system';
 
-import { FloatLabelComponent } from '../../../../../shared/components/float-label/float-label.component';
 import { CustomSelectComponent } from '../../../../../shared/components/custom-select/custom-select.component';
 
 @Component({
@@ -9,7 +8,7 @@ import { CustomSelectComponent } from '../../../../../shared/components/custom-s
   templateUrl: './impresora.component.html',
   styleUrl: './impresora.component.css',
   standalone: true,
-  imports: [FloatLabelComponent, CustomSelectComponent],
+  imports: [CustomSelectComponent],
 })
 export class ImpresoraComponent {
   categoriasInsumo: SelectItem[] = [

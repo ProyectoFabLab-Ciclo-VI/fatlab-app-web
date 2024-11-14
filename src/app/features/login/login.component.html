@@ -1,12 +1,12 @@
 <form [formGroup]="user" (ngSubmit)="onSubmit()" class="flex flex-col gap-5 items-center relative px-4 py-2">
     <h1 class="font-space-grotesk font-bold text-3xl text-center w-auto md:w-72">Login</h1>
     <div class="grid gap-1 w-full">
-        <app-float-label>
+        <span class="float-label">
             <input id="username" type="text"
                 placeholder="username" formControlName="username"
                 [ngClass]="{'ng-invalid ng-dirty': user.controls['username'].touched && user.controls['username'].invalid}"/>
             <label for="username">username</label>
-        </app-float-label>
+        </span>
         
         @if (user.controls['username'].touched && user.value.username === '') {
             <p class="text-[red] pl-2">Es requerido el email</p>
@@ -16,12 +16,12 @@
 
     </div>
     <div class="grid gap-1 w-full">
-        <app-float-label>
+        <span class="float-label">
             <input id="password" type="password"
                 placeholder="password" formControlName="password"
                 [ngClass]="{'ng-invalid ng-dirty': user.controls['password'].touched && user.controls['password'].invalid}" />
             <label for="password">password</label>
-        </app-float-label>
+        </span>
         @if (user.controls['password'].touched && user.value.password === '') {
             <p class="text-[red] pl-2">Es requerido la contraseña</p>
         }

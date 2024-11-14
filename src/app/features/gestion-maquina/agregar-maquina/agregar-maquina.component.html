@@ -1,10 +1,10 @@
 <form [formGroup]="maquinaForm" (ngSubmit)="onSubmit()" class="relative grid gap-8">
     <div class="grid gap-5">
         <div class="grid grid-cols-[400px_200px] gap-5">
-            <app-float-label>
+            <span class="float-label">
                 <input id="nombre-maquina" type="text" placeholder="nombre" formControlName="nombre"/>
                 <label for="nombre-maquina" class="select-none text-neutral-300">Nombre</label>
-            </app-float-label>
+            </span>
             <app-custom-select [options]="categorias" [(selectedValue)]="maquinaSelected" label="Categoria maquina"></app-custom-select>
         </div>
         @switch (maquinaSelected.value) {
