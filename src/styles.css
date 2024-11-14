@@ -6,7 +6,7 @@
     scrollbar-width: thin;
     scrollbar-color: #5C6C7B #EDF0F3;
     scroll-behavior: smooth;
-    @apply text-primary-900 font-inter;
+    @apply text-primary-900 font-poppins;
 }
 
 body { @apply m-0 p-0 box-border; }
@@ -14,32 +14,32 @@ body { @apply m-0 p-0 box-border; }
 @font-face {
     font-family: "inter";
     src: 
-        url('/public/font/Inter/Inter-Italic-VariableFont_opsz.ttf'),
-        url('/public/font/Inter/Inter-VariableFont_opsz.ttf'),
+        url('/font/Inter/Inter-VariableFont_opsz.ttf'),
+        url('/font/Inter/Inter-Italic-VariableFont_opsz.ttf'),
         ;
 }
 
 @font-face {
     font-family: "poppins";
     src: 
-        url('/public/font/Poppins/Poppins-Regular.ttf'),
-        url('/public/font/Poppins/Poppins-Black.ttf'),
-        url('/public/font/Poppins/Poppins-BlackItalic.ttf'),
-        url('/public/font/Poppins/Poppins-Bold.ttf'),
-        url('/public/font/Poppins/Poppins-BoldItalic.ttf'),
-        url('/public/font/Poppins/Poppins-ExtraBold.ttf'),
-        url('/public/font/Poppins/Poppins-ExtraBoldItalic.ttf'),
-        url('/public/font/Poppins/Poppins-ExtraLight.ttf'),
-        url('/public/font/Poppins/Poppins-ExtraLightItalic.ttf'),
-        url('/public/font/Poppins/Poppins-Italic.ttf'),
-        url('/public/font/Poppins/Poppins-Light.ttf'),
-        url('/public/font/Poppins/Poppins-LightItalic.ttf'),
-        url('/public/font/Poppins/Poppins-Medium.ttf'),
-        url('/public/font/Poppins/Poppins-MediumItalic.ttf'),
-        url('/public/font/Poppins/Poppins-SemiBold.ttf'),
-        url('/public/font/Poppins/Poppins-SemiBoldItalic.ttf'),
-        url('/public/font/Poppins/Poppins-Thin.ttf'),
-        url('/public/font/Poppins/Poppins-ThinItalic.ttf'),
+        url('/font/Poppins/Poppins-Regular.ttf'),
+        url('/font/Poppins/Poppins-Black.ttf'),
+        url('/font/Poppins/Poppins-BlackItalic.ttf'),
+        url('/font/Poppins/Poppins-Bold.ttf'),
+        url('/font/Poppins/Poppins-BoldItalic.ttf'),
+        url('/font/Poppins/Poppins-ExtraBold.ttf'),
+        url('/font/Poppins/Poppins-ExtraBoldItalic.ttf'),
+        url('/font/Poppins/Poppins-ExtraLight.ttf'),
+        url('/font/Poppins/Poppins-ExtraLightItalic.ttf'),
+        url('/font/Poppins/Poppins-Italic.ttf'),
+        url('/font/Poppins/Poppins-Light.ttf'),
+        url('/font/Poppins/Poppins-LightItalic.ttf'),
+        url('/font/Poppins/Poppins-Medium.ttf'),
+        url('/font/Poppins/Poppins-MediumItalic.ttf'),
+        url('/font/Poppins/Poppins-SemiBold.ttf'),
+        url('/font/Poppins/Poppins-SemiBoldItalic.ttf'),
+        url('/font/Poppins/Poppins-Thin.ttf'),
+        url('/font/Poppins/Poppins-ThinItalic.ttf'),
         ;
 }
 
