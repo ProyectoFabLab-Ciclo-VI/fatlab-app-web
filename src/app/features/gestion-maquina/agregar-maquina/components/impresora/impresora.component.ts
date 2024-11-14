@@ -12,7 +12,7 @@ import { CustomSelectComponent } from '../../../../../shared/components/custom-s
   imports: [FloatLabelComponent, CustomSelectComponent],
 })
 export class ImpresoraComponent {
-  categoriasInusmo: SelectItem[] = [
+  categoriasInsumo: SelectItem[] = [
     { value: 1, viewValue: 'Filamento x2' },
     { value: 2, viewValue: 'Oslos' },
     { value: 3, viewValue: 'Bimbom' },
