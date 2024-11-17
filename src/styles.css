@@ -6,6 +6,7 @@
     scrollbar-width: thin;
     scrollbar-color: #5C6C7B #EDF0F3;
     scroll-behavior: smooth;
+    box-sizing: border-box;
     @apply text-primary-900 font-poppins;
 }
 
