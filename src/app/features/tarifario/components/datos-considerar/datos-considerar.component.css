@@ -1,0 +1,47 @@
+@import url("../../../../shared/css/input-group/input-group.css");
+
+.form__item {
+    margin-bottom: 16px;
+}
+
+.form__item p {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form__item p:not(.text-neutral-100) {
+    color: black;
+}
+
+.form__item span {
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+/* ----- overflow que se oculta ----- */
+/* .overflow-y-auto {
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition-duration: .3s;
+}
+.overflow-y-auto:hover {
+    scrollbar-color: #888 #e0e0e0;
+}
+.overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+    border: none;
+}
+
+.overflow-y-auto:hover::-webkit-scrollbar-thumb {
+    background-color: #888;
+} */

@@ -1,0 +1,57 @@
+<div class="h-full grid grid-rows-[auto_1fr] overflow-hidden">
+    <h3 class="font-poppins text-2xl font-bold text-black mb-4">Datos del pedido</h3>
+    <div class="grid overflow-y-auto">
+        <div class="form__item">
+            <p>Cantidad a emplear</p>
+            <div class="input-group">
+                <input id="cantidad-empleada" type="number" min="0" [(ngModel)]="datosPedido.cantidadUsada" (change)="sendChange()">
+                <label for="cantidad-empleada">ml</label>
+            </div>
+            <span>Especifica la cantidad que deseas utilizar para la operación actual.</span>
+        </div>
+        <div class="form__item">
+            <p>Tiempo de Impresión</p>
+            <div class="input-group">
+                <input id="tiempo-impresion" type="number" min="0" [(ngModel)]="datosPedido.tiempoImpresion" (change)="sendChange()">
+                <label for="tiempo-impresion">h</label>
+            </div>
+            <span>Introduce la duración estimada del proceso de impresión. Asegúrate de especificar el tiempo en horas (h).</span>
+        </div>
+        <div class="form__item">
+            <p>Ganancia</p>
+            <div class="input-group">
+                <input id="ganancia" type="number" min="0" [(ngModel)]="datosPedido.porcentajeGanancia" (change)="sendChange()">
+                <label for="ganancia">%</label>
+            </div>
+            <span>Introduce el porcentaje de ganancia estimado o deseado para la operación.</span>
+        </div>
+        <div class="form__item">
+            <p>Tasa de Fallo</p>
+            <div class="input-group">
+                <input id="tasa-fallo" type="number" min="0" [(ngModel)]="datosPedido.porcentajeTasaFallo" (change)="sendChange()">
+                <label for="tasa-fallo">%</label>
+            </div>
+            <span>Introduce el porcentaje de fallos. Asegúrate de que el valor ingresado esté expresado en porcentaje.</span>
+        </div>
+        <app-custom-select [options]="roles" placeholder="Seleccione un rol" [roundedPx]="'4px'" />
+        <div class="form__item">
+            <p>Coste Operario</p>
+            <div class="input-group">
+                <label for="coste-operario">s/.</label>
+                <input id="coste-operario" type="number" min="0"  [(ngModel)]="datosPedido.costoOperador" (change)="sendChange()">
+            </div>
+            <span>Introduce el costo asociado al operario o mano de obra involucrada en el proceso.</span>
+        </div>
+        <div class="form__item">
+            <p>¿Deseas agregar IGV?</p>
+            <label>
+                <input type="radio" name="igv" [checked]="datosPedido.usarIgv" (click)="sendChange(true)">
+                <span>Si</span>
+            </label>
+            <label>
+                <input type="radio" name="igv" [checked]="!datosPedido.usarIgv" (click)="sendChange(false)">
+                <span>No</span>
+            </label>
+        </div>
+    </div>
+</div>

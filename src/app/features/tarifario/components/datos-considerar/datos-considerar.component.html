@@ -1,0 +1,48 @@
+<div class="h-full relative grid grid-rows-[auto_1fr_auto]">
+    <h3 class="font-poppins text-2xl font-bold text-black mb-4">Datos a Considerar</h3>
+    <div class="grid overflow-y-auto mb-6">
+        <div class="form__item">
+            <p class="text-neutral-100">Desperdicio de Máquina</p>
+            <div class="input-group">
+                <input id="desperdicio-maquina" type="number" min="0" [value]="datosConsiderado.porcentajeDesperdicioMaquina" disabled>
+                <label for="desperdicio-maquina">%</label>
+            </div>
+            <span>Porcentaje de desperdicio generado por la máquina.</span>
+        </div>
+        <div class="form__item">
+            <p class="text-neutral-100">Coste de Insumo</p>
+            <div class="input-group">
+                <label for="coste-insumo">s/.</label>
+                <input id="coste-insumo" type="number" min="0" [value]="datosConsiderado.costoInsumo" disabled>
+            </div>
+            <span>Indica el costo unitario del insumo utilizado.</span>
+        </div>
+        <div class="form__item">
+            <p class="text-neutral-100">Coste por Hora de Luz</p>
+            <div class="input-group">
+                <label for="coste-hora-luz">s/.</label>
+                <input id="coste-hora-luz" type="number" min="0" [value]="datosConsiderado.costoPorHoraElectricidad" disabled>
+            </div>
+            <span>Especifica el costo por cada hora de consumo eléctrico.</span>
+        </div>
+        <div class="form__item">
+            <p class="text-neutral-100">Coste de Amortización por Hora</p>
+            <div class="input-group">
+                <label for="coste-amortizacion">s/.</label>
+                <input id="coste-amortizacion" type="number" min="0" [value]="datosConsiderado.costoAmortizuacionPorHora" disabled>
+            </div>
+            <span>Costo estimado de amortización por cada hora de uso de la máquina.</span>
+        </div>
+    </div>
+    <div>
+        <div class="form__item" style="margin-bottom: 0px;">
+            <p>Desperdicio Generado</p>
+            <div class="input-group">
+                <input id="desperdicio-generado" type="number" min="0" placeholder="Desperdicio total" [value]="desperdicioGenerado != 0 ? desperdicioGenerado : null" disabled>
+                <label for="desperdicio-generado">ml</label>
+            </div>
+            <span>Desperdicio generado a través del calculo entre la cantidad empleada y el porcentaje de desperdicio de
+                la máquina.</span>
+        </div>
+    </div>
+</div>

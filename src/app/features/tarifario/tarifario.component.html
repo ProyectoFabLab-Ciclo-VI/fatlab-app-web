@@ -1,1 +1,22 @@
-<p>tarifario works!</p>
+<section class="grid gap-8 px-5 py-5">
+    <div #Calculadora__header class="grid grid-cols-[3fr_3fr_5fr] gap-5">
+        <div class="grid gap-4">
+            <span class="text-neutral-300">Categoría de Máquina</span>
+            <app-custom-select [hasBoldResult]="true" [options]="categoriasMaquina" [(selectedValue)]="categoriaMaquinaSelected"/>
+        </div>
+        <div class="grid gap-4">
+            <span class="text-neutral-300">Máquina de {{ categoriaMaquinaSelected ? categoriaMaquinaSelected.viewValue : '' }}</span>
+            <app-custom-select [hasBoldResult]="true" [options]="maquinas" [(selectedValue)]="maquinaSeleccionada" placeholder="Seleccionar Máquina"/>
+        </div>
+        <div class="grid gap-4">
+            <span class="text-neutral-300">Insumo de la Categoría <span class="text-black">{{ maquinaSeleccionada ? maquinaSeleccionada.viewValue : '' }}</span></span>
+            <app-custom-select [hasBoldResult]="true" [options]="insumos" [(selectedValue)]="insumoSelected" placeholder="Seleccionar Insumo"/>
+        </div>
+    </div>
+    <main #Calculadora__body class="relative grid grid-cols-[2fr_auto_2fr_3fr] gap-3">
+        <app-datos-pedido class="h-full overflow-hidden" [datosPedido]="datosPedido" (datosPedidoChange)="realizarCalculo($event)"/>
+        <div class="bg-neutral-200 w-[1px] h-full"></div>
+        <app-datos-considerar class="h-full overflow-hidden" [datosConsiderado]="datosConsiderado" [cantidadUsada]="datosPedido.cantidadUsada"/>
+        <app-resultado-calculadora [calculadora]="calculadora"/>
+    </main>
+</section>

@@ -1,0 +1,70 @@
+<div class="grid gap-5">
+    <article class="rounded-[10px] shadow-medium px-8 py-12">
+        <div class="flex flex-col items-center">
+            <h4 class="text-black text-2xl font-bold">Costo Total</h4>
+            <h1 class="text-primary-600 text-5xl">S/. {{(calculadora.costoTotal).toFixed(2)}}</h1>
+            <h5 class="flex gap-3 items-center">
+                <span class="font-bold text-neutral-300 text-lg">Subtotal</span>
+                <span class="font-bold text-neutral-300 text-lg">s/. {{(calculadora.costoTotal - calculadora.costoIgv).toFixed(2)}}</span>
+            </h5>
+        </div>
+        <div>
+            <div class="w-full h-[10px] bg-neutral-50 rounded-[999px] my-5 relative flex *:h-full overflow-hidden">
+                <span class="color--blue" [style]="'width: '+obtenerPorcentaje(calculadora.costoMateriales)+';'"></span>
+                <span class="color--yellow" [style]="'width: '+obtenerPorcentaje(calculadora.costoAmortizacion)+';'"></span>
+                <span class="color--green" [style]="'width: '+obtenerPorcentaje(calculadora.costoGanancia)+';'"></span>
+                <span class="color--purple" [style]="'width: '+obtenerPorcentaje(calculadora.costoOperario)+';'"></span>
+                <span class="color--red" [style]="'width: '+obtenerPorcentaje(calculadora.costoFallo)+';'"></span>
+                <span class="color--pink" [style]="'width: '+obtenerPorcentaje(calculadora.costoIgv)+';'"></span>
+            </div>
+            <ul>
+                <li>
+                    <span class="color--blue"></span>
+                    <p>Coste de Materiales</p>
+                    <strong>s/.{{ (calculadora.costoMateriales).toFixed(2) }}</strong>
+                    <strong>{{ obtenerPorcentaje(calculadora.costoMateriales) }}</strong>
+                </li>
+                <li>
+                    <span class="color--yellow"></span>
+                    <p>Coste de Amortización</p>
+                    <strong>s/.{{ (calculadora.costoAmortizacion).toFixed(2) }}</strong>
+                    <strong>{{ obtenerPorcentaje(calculadora.costoAmortizacion) }}</strong>
+                </li>
+                <li>
+                    <span class="color--green"></span>
+                    <p>Coste de Ganancia</p>
+                    <strong>s/.{{ (calculadora.costoGanancia).toFixed(2) }}</strong>
+                    <strong>{{ obtenerPorcentaje(calculadora.costoGanancia) }}</strong>
+                </li>
+                <li>
+                    <span class="color--purple"></span>
+                    <p>Coste Operario</p>
+                    <strong>s/.{{ (calculadora.costoOperario).toFixed(2) }}</strong>
+                    <strong>{{ obtenerPorcentaje(calculadora.costoOperario) }}</strong>
+                </li>
+                <li>
+                    <span class="color--red"></span>
+                    <p>Coste de Fallos</p>
+                    <strong>s/.{{ (calculadora.costoFallo).toFixed(2) }}</strong>
+                    <strong>{{ obtenerPorcentaje(calculadora.costoFallo) }}</strong>
+                </li>
+                <li>
+                    <span class="color--pink"></span>
+                    <p>Coste de IGV</p>
+                    <strong>s/.{{ (calculadora.costoIgv).toFixed(2) }}</strong>
+                    <strong>{{ obtenerPorcentaje(calculadora.costoIgv) }}</strong>
+                </li>
+            </ul>
+        </div>
+    </article>
+    <div class="grid grid-cols-2 gap-3">
+        <app-custom-button class="grid" color="neutral" [isButtonOutline]="true">
+            <img src="/icon/normal/clean.svg" alt="icono de limpiar">
+            <span>Limpiar</span>
+        </app-custom-button>
+        <app-custom-button class="grid">
+            <span>Guardar</span>
+            <img src="/icon/normal/save.svg" alt="icono de guardar">
+        </app-custom-button>
+    </div>
+</div>

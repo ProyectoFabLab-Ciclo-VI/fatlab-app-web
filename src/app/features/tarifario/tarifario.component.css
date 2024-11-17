@@ -1,0 +1,16 @@
+@import url("../../shared/css/input-group/input-group.css");
+
+.form__item {
+    margin-bottom: 16px;
+}
+
+.form__item p {
+    margin-bottom: 8px;
+    color: black;
+    font-weight: 600;
+}
+
+.form__item span {
+    margin-top: 4px;
+    font-size: 13px;
+}
