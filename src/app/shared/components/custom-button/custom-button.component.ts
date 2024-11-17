@@ -25,7 +25,7 @@ export class CustomButtonComponent{
 
   public getStyleButton() {
     return `
-      flex gap-1 items-center justify-between *:font-poppins *:font-semibold ${this.sizeButton} 
+      flex gap-1 items-center justify-center *:font-poppins *:font-semibold ${this.sizeButton} 
       ${(this.roundedCustom != '' ? this.roundedCustom : (this.isCircularButton ? ' rounded-12 ' : ' rounded-normal '))} 
       ${(this.isButtonOutline ? ' btn-outline ' + this.color : ' btn-flat ' + this.color)}
     `;
