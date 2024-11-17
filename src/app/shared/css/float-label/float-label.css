@@ -39,6 +39,7 @@
 .float-label input,
 .float-label textarea,
 .float-label select {
+    color: black;
     outline: none;
     padding: 12px 20px;
     background-color: white;
@@ -47,7 +48,7 @@
     -moz-transition: all .3s;
     -ms-transition: all .3s;
     -o-transition: all .3s;
-    @apply border border-solid border-neutral-100 rounded-[12px] text-base font-poppins;
+    @apply border border-solid border-neutral-100 rounded-[12px] font-poppins text-lg;
 }
 
 .float-label input::placeholder,
