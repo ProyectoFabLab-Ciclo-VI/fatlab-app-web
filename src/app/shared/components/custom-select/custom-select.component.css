@@ -22,8 +22,12 @@
     @apply border-primary-500;
 }
 
-.selected__item:nth-child(n+2) {
-    margin-top: 1px;
+.selected__item {
+    border-bottom: 1px solid #1c64f2;
+}
+
+.selected__item:last-child {
+    border: none;
 }
 
 .font-w {

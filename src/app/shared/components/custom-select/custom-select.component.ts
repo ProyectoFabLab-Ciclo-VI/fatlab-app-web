@@ -11,19 +11,21 @@ import { SelectItem } from '../../../core/index.model.system';
 export class CustomSelectComponent {
   @ViewChild('SelectedComponente') selectedComponente!: any;
 
+  @Input() roundedPx: string = '12px';
   @Input({required: true}) options: SelectItem[] = [];
   @Input() placeholder: string = 'Seleccione una opción';
   @Input() label!: string;
   @Input() disabled: boolean = false;
-  
-  @Input() selectedValue!: SelectItem;
+  @Input() hasBoldResult: boolean = false;
+
+  @Input() selectedValue: SelectItem | undefined;
   @Output() selectedValueChange = new EventEmitter<SelectItem>();
 
   panelOpen: boolean = false;
 
   @HostListener('document:click', ['$event'])
   clickEvent($event: any) {
-    if(!this.selectedComponente.nativeElement.contains($event.target)) {
+    if(this.selectedComponente && !this.selectedComponente.nativeElement.contains($event.target)) {
       this.closePanel()
     };
   }
@@ -44,7 +46,7 @@ export class CustomSelectComponent {
     this.closePanel();
   }
 
-  public getViewValue(itemSelect: SelectItem): string {
+  public getViewValue(itemSelect: SelectItem | undefined): string {
     if(!itemSelect || itemSelect.viewValue == '') return this.placeholder;
     const selectedOption = this.options.find(option => option.value === itemSelect.value);
     return selectedOption ? selectedOption.viewValue : this.placeholder;
