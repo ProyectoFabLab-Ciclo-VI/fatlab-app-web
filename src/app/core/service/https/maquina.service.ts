@@ -6,6 +6,7 @@ import { environment } from '../../../../environments/environment';
 import { Maquina } from '../../index.data.model';
 import { MaquinaDTO } from '../../index.data.entities';
 import { MaquinaMapper } from '../../index.data.mapper';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,15 @@ export class MaquinaService {
 
   public saveMaquina(maquina: Maquina) {
     const maquinaDto: MaquinaDTO = this.maquinaMapper.mapTo(maquina);
-    console.log(maquinaDto);
     return this.http.post(`${this.url}/add/maquina`,maquinaDto);
+  }
+
+  public getAllMaquinas() {
+    return this.http.get<Maquina[]>(`${this.url}/list/maquinas`).pipe(
+      map((maquinas: MaquinaDTO[]) => {
+        const maquinasTransformadas = maquinas.map(m => this.maquinaMapper.mapFrom(m));
+        return maquinasTransformadas;
+      })
+    );
   }
 }
