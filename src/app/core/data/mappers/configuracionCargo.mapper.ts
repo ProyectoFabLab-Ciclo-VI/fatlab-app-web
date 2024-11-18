@@ -1,7 +1,7 @@
 import { MapperHelper } from "../../index.helper";
 import { Mapper } from "../base/mapper";
-import { CargoDTO, ConfiguracionCargoDTO } from "../entities/ConfiguracionCargo";
-import { Cargo, ConfiguracionCargo } from "../models/ConfiguracionCargo";
+import { CargoDTO, ConfiguracionCargoDTO } from "../entities/configuracionCargo";
+import { Cargo, ConfiguracionCargo } from "../models/configuracionCargo";
 
 export class ConfiguracionCargoMapper extends Mapper<ConfiguracionCargoDTO, ConfiguracionCargo> {
     private mapperHelper: MapperHelper = new MapperHelper();
