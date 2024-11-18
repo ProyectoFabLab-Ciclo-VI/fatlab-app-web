@@ -7,9 +7,9 @@
     <ul class="grid gap-4">
         @for (rol of roles; track $index) {
             <li class="grid grid-cols-[200px_auto_30px] gap-4">
-                <span class="font-poppins font-medium text-lg text-neutral-500">{{ rol.name }}</span>
-                <app-custom-checkbox [(isChecked)]="rol.canUseManoDeObra"/>
-                <app-custom-checkbox [(isChecked)]="rol.canUseIgv"/>
+                <span class="font-poppins font-medium text-lg text-neutral-500">{{ rol.cargo?.nombre }}</span>
+                <app-custom-checkbox [(isChecked)]="rol.manoObra"/>
+                <app-custom-checkbox [(isChecked)]="rol.igv"/>
             </li>
         }
     </ul>
