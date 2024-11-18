@@ -1,6 +1,6 @@
 <form class="grid gap-8" [formGroup]="insumoForm" (ngSubmit)="onSumit()">
     <div class="grid gap-5">
-        <app-custom-select [options]="categorias" placeholder="Seleccionar categoria" label="Categoria"></app-custom-select>
+        <app-custom-select [options]="categorias" [(selectedValue)]="categoriaSeleccionada"  placeholder="Seleccionar categoria" label="Categoria"></app-custom-select>
         <div class="grid grid-cols-[250px_250px] gap-5">
             <span class="float-label">
                 <input id="nombre-insumo" type="text" placeholder="nombre" formControlName="nombre"/>
@@ -8,16 +8,16 @@
             </span>
             <app-custom-select [options]="marcas" placeholder="Seleccionar marca" label="Marca" />
             <span  class="float-label">
-                <input id="coste-insumo" type="number" placeholder="coste"/>
+                <input id="coste-insumo" type="number" placeholder="coste" formControlName="costeInsumo"/>
                 <label for="coste-insumo" class="select-none text-neutral-300">Coste Insumo</label>
             </span>
             <app-custom-select [options]="unidadesDeMedida" [(selectedValue)]="unidadMedidaSeleccionada" placeholder="Seleccionar unidad de medida" label="Unidad de medida" />
             <span  class="float-label">
-                <input id="cantidad-insumo" type="number" placeholder="cantidad"/>
+                <input id="cantidad-insumo" type="number" placeholder="cantidad" formControlName="cantidadTotal"/>
                 <label for="cantidad-insumo" class="select-none text-neutral-300">Cantidad Insumo</label>
             </span>
             <span  class="float-label">
-                <input id="peso-unitario" type="number" placeholder="medida unitaria"/>
+                <input id="peso-unitario" type="number" placeholder="medida unitaria" formControlName="precioUnitario"/>
                 <label for="peso-unitario" class="select-none text-neutral-300">Medida unitaria ({{ unidadMedidaSeleccionada.value }})</label>
             </span>
         </div>
@@ -35,4 +35,9 @@
             <img src="/icon/normal/check-circle.svg" alt="icono del boton">
         </app-custom-button>
     </div>
+    @if (isSend) {
+        <div class="absolute top-0 bottom-0 left-0 right-0 z-[99999] grid place-content-center bg-[#ffffff85]">
+            <app-loader/>
+        </div>
+    }
 </form>
