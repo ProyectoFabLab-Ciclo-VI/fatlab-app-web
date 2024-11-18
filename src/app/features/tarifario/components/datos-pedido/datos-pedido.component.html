@@ -33,25 +33,30 @@
             </div>
             <span>Introduce el porcentaje de fallos. Asegúrate de que el valor ingresado esté expresado en porcentaje.</span>
         </div>
-        <app-custom-select [options]="roles" placeholder="Seleccione un rol" [roundedPx]="'4px'" />
-        <div class="form__item">
-            <p>Coste Operario</p>
-            <div class="input-group">
-                <label for="coste-operario">s/.</label>
-                <input id="coste-operario" type="number" min="0"  [(ngModel)]="datosPedido.costoOperador" (change)="sendChange()">
+        <app-custom-select [options]="rolesSelected" [(selectedValue)]="roleSelect" placeholder="Seleccione un rol" [roundedPx]="'4px'" (click)="changeRol()"/>
+        @if (rol.manoObra) {
+            <div class="form__item">
+                <p>Coste Operario</p>
+                <div class="input-group">
+                    <label for="coste-operario">s/.</label>
+                    <input id="coste-operario" type="number" min="0"  [(ngModel)]="datosPedido.costoOperador" (change)="sendChange()">
+                </div>
+                <span>Introduce el costo asociado al operario o mano de obra involucrada en el proceso.</span>
             </div>
-            <span>Introduce el costo asociado al operario o mano de obra involucrada en el proceso.</span>
-        </div>
-        <div class="form__item">
-            <p>¿Deseas agregar IGV?</p>
-            <label>
-                <input type="radio" name="igv" [checked]="datosPedido.usarIgv" (click)="sendChange(true)">
-                <span>Si</span>
-            </label>
-            <label>
-                <input type="radio" name="igv" [checked]="!datosPedido.usarIgv" (click)="sendChange(false)">
-                <span>No</span>
-            </label>
-        </div>
+        }
+
+        @if (rol.igv) {
+            <div class="form__item">
+                <p>¿Deseas agregar IGV?</p>
+                <label>
+                    <input type="radio" name="igv" [checked]="datosPedido.usarIgv" (click)="sendChange(true)" disabled>
+                    <span>Si</span>
+                </label>
+                <label>
+                    <input type="radio" name="igv" [checked]="!datosPedido.usarIgv" (click)="sendChange(false)" disabled>
+                    <span>No</span>
+                </label>
+            </div>
+        }
     </div>
 </div>

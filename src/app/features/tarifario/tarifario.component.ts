@@ -83,6 +83,7 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
     this.maquinaSrv.getAllMaquinas().subscribe({
       next: (maquinas) => {
         this.maquinas = maquinas;
+        this.maquinasSelected = [];
         for(let maquina of maquinas) {
           const { id, nombre } = maquina;
           this.maquinasSelected.push({ value: id, viewValue: nombre })
@@ -135,6 +136,7 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
     this.inventarioSrv.getAllInsumoByIdCategoria(id).subscribe({
       next: insumos => {
         this.insumos = insumos;
+        this.insumosSelected = [];
         for(let insumo of insumos) {
           const { id, nombre } = insumo;
           this.insumosSelected.push({ value: id, viewValue: nombre });
