@@ -6,11 +6,11 @@
         </div>
         <div class="grid gap-4">
             <span class="text-neutral-300">Máquina de {{ categoriaMaquinaSelected ? categoriaMaquinaSelected.viewValue : '' }}</span>
-            <app-custom-select [hasBoldResult]="true" [options]="maquinas" [(selectedValue)]="maquinaSeleccionada" placeholder="Seleccionar Máquina"/>
+            <app-custom-select [hasBoldResult]="true" [options]="maquinasSelected" [(selectedValue)]="maquinaSeleccionada" placeholder="Seleccionar Máquina" (click)="filstrarInsumoPorMaquina()"/>
         </div>
         <div class="grid gap-4">
-            <span class="text-neutral-300">Insumo de la Categoría <span class="text-black">{{ maquinaSeleccionada ? maquinaSeleccionada.viewValue : '' }}</span></span>
-            <app-custom-select [hasBoldResult]="true" [options]="insumos" [(selectedValue)]="insumoSelected" placeholder="Seleccionar Insumo"/>
+            <span class="text-neutral-300">Insumo de la Categoría <span class="text-black">{{ categoriaInsumoMaquina }}</span></span>
+            <app-custom-select [hasBoldResult]="true" [options]="insumosSelected" [(selectedValue)]="insumoSelected" placeholder="Seleccionar Insumo" (click)="definirVariablesDePresupuesto()"/>
         </div>
     </div>
     <main #Calculadora__body class="relative grid grid-cols-[2fr_auto_2fr_3fr] gap-3">
