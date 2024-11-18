@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { CustomButtonComponent } from '../../../shared/components/custom-button/custom-button.component';
@@ -13,6 +13,8 @@ import { ImpresoraComponent } from "./components/impresora/impresora.component";
 import { PapeleriaComponent } from './components/papeleria/papeleria.component';
 import { LaserComponent } from './components/laser/laser.component';
 import { EscaneoComponent } from './components/escaneo/escaneo.component';
+import { InventarioService } from '../../../core/service/https/inventario.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-agregar-maquina',
@@ -30,10 +32,11 @@ import { EscaneoComponent } from './components/escaneo/escaneo.component';
     EscaneoComponent,
   ],
 })
-export class AgregarMaquinaComponent {
+export class AgregarMaquinaComponent implements OnInit, OnDestroy {
   
   isSend: boolean = false;
   maquinaForm: FormGroup = this.initializateFormGroupMaquina();
+  maquinaData!: Maquina;
 
   categorias: SelectItem[] = [
     { value: 1, viewValue: 'Impresiones 3D' },
@@ -42,19 +45,49 @@ export class AgregarMaquinaComponent {
     { value: 4, viewValue: 'Escaneo 3D' },
   ];
 
+  categoriasInsumoSub: Subscription = new Subscription();
+  categoriasInsumo: SelectItem[] = [];
+  categoriasInsumoSeleccionada!: SelectItem;
+  
+  estados: SelectItem[] = [
+    { value: 1, viewValue: 'Activo' },
+    { value: 2, viewValue: 'En mantenimiento' },
+    { value: 3, viewValue: 'Inactivo' },
+  ];
+
   maquinaSelected = this.categorias[0];
 
   constructor(
     private maquinaSrv: MaquinaService,
     private notificationSrv: NotificationService,
     private modalSrv: ModalService,
+    private inventarioSrv: InventarioService,
   ) { }
+
+  ngOnInit(): void {
+    this.inventarioSrv.getAllCategoriaInsumo().subscribe({
+      next: (categoriasInsumo) => {
+        for(let categoria of categoriasInsumo) {
+          const { id, nombre } = categoria;
+          this.categoriasInsumo.push({ value: id, viewValue: nombre });
+        }
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    if(this.categoriasInsumoSub) this.categoriasInsumoSub.unsubscribe();
+  }
 
   private initializateFormGroupMaquina() {
     return new FormGroup({
       nombre: new FormControl<string>(''),
       codigo: new FormControl<string>(''),
     });
+  }
+
+  public recopilateImpresora(maquina: Maquina) {
+    this.maquinaData = maquina;
   }
 
   public cancel(){
@@ -67,11 +100,19 @@ export class AgregarMaquinaComponent {
       id: 0,
       nombre: nombre,
       codigoUpeu: codigo,
+      categoriaInsumo: {
+        id: this.categoriasInsumoSeleccionada.value,
+        nombre: ''
+      },
+      costeAmortizacion: this.maquinaData.costeAmortizacion,
+      costeMaquina: this.maquinaData.costeMaquina,
+      categoriaMaquina: this.maquinaData.categoriaMaquina,
+      estadoMaquina: null,
       isDelete: false,
     }
     this.isSend = true;
     this.notificationSrv.addNotification('info', 'Guardando maquina...')
-
+    console.log(maquina);
     this.maquinaSrv.saveMaquina(maquina).subscribe({
       next: () => {
         this.notificationSrv.addNotification('success', 'Maquina guardada exitosamente');

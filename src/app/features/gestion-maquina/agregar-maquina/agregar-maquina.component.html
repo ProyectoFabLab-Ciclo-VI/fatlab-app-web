@@ -1,15 +1,16 @@
 <form [formGroup]="maquinaForm" (ngSubmit)="onSubmit()" class="relative grid gap-8">
     <div class="grid gap-5">
-        <div class="grid grid-cols-[400px_200px] gap-5">
-            <span class="float-label">
-                <input id="nombre-maquina" type="text" placeholder="nombre" formControlName="nombre"/>
-                <label for="nombre-maquina" class="select-none text-neutral-300">Nombre</label>
-            </span>
+        <span class="float-label">
+            <input id="nombre-maquina" type="text" placeholder="nombre" formControlName="nombre"/>
+            <label for="nombre-maquina" class="select-none text-neutral-300">Nombre</label>
+        </span>
+        <div class="grid grid-cols-[300px_300px] gap-5">
+            <app-custom-select [options]="categoriasInsumo" [(selectedValue)]="categoriasInsumoSeleccionada" placeholder="Seleccionar categoria insumo" label="Categoria Insumo"/>
             <app-custom-select [options]="categorias" [(selectedValue)]="maquinaSelected" label="Categoria maquina"></app-custom-select>
         </div>
         @switch (maquinaSelected.value) {
             @case (1) {
-                <app-impresora/>
+                <app-impresora (maquinaChange)="recopilateImpresora($event)"/>
             }
             @case (2) {
                 <app-papeleria/>
