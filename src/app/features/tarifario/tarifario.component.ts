@@ -149,7 +149,7 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
     if(!this.insumoSelected) return;
     const { value } = this.insumoSelected;
     const insumo = this.insumos.filter(i => i.id == value)[0];
-    this.datosConsiderado.costoInsumo = insumo.costeInsumo;
+    this.datosConsiderado.costoInsumo = insumo.precioUnitario;
 
   }
 
