@@ -34,9 +34,17 @@ export class EdicionInsumoComponent implements OnInit, OnDestroy {
   categoriaSeleccionada!: SelectItem;
 
   marcas: SelectItem[] = [
-    { value: 'fill-red', viewValue: 'Filamento rojo' },
-    { value: 'fill-blue', viewValue: 'Filamento azul' },
-    { value: 'fill-black', viewValue: 'Filamento negro' },
+    { value: 'fPolymaker', viewValue: 'Polymaker' },
+    { value: 'eSUN', viewValue: 'eSUN' },
+    { value: 'Hatchbox', viewValue: 'Hatchbox' },
+    { value: 'Ultimaker', viewValue: 'Ultimaker' },
+    { value: 'MatterHackers', viewValue: 'MatterHackers' },
+    { value: 'Prusament', viewValue: 'Prusament' },
+    { value: 'ColorFabb', viewValue: 'ColorFabb' },
+    { value: 'Fillamentum', viewValue: 'Fillamentum' },
+    { value: '3DXTech', viewValue: '3DXTech' },
+    { value: 'AMOLEN', viewValue: 'AMOLEN' },
+    { value: 'Overture', viewValue: 'Overture' },
   ];
 
   unidadMedidaSeleccionada: SelectItem = this.unidadesDeMedida[0];
