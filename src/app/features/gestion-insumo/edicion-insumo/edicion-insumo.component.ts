@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 import { CustomButtonComponent } from '../../../shared/components/custom-button/custom-button.component';
 import { CustomSelectComponent } from '../../../shared/components/custom-select/custom-select.component';
+import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 
 import { InsumoService } from '../../../core/index.service.http';
 import { NotificationService } from '../../../core/index.service.trigger';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Insumo } from '../../../core/index.data.model';
 import { SelectItem } from '../../../core/index.model.system';
 import { InventarioService } from '../../../core/service/https/inventario.service';
-import { Subscription } from 'rxjs';
-import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-edicion-insumo',
@@ -72,12 +72,12 @@ export class EdicionInsumoComponent implements OnInit, OnDestroy {
 
   private initializateFormGroupInsumo() {
     return new FormGroup({
-      nombre: new FormControl(''),
+      nombre: new FormControl('',[Validators.required]),
       descripcion: new FormControl(''),
       unidadMedida: new FormControl(''),
-      cantidadTotal: new FormControl(0),
-      costeInsumo: new FormControl(0),
-      precioUnitario: new FormControl(0),
+      cantidadTotal: new FormControl(0,[Validators.required, Validators.min(0)]),
+      costeInsumo: new FormControl(0,[Validators.required, Validators.min(0)]),
+      precioUnitario: new FormControl(0,[Validators.required, Validators.min(0)]),
     });
   }
 
