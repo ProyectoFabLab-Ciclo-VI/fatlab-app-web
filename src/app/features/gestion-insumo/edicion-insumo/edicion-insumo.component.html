@@ -1,6 +1,6 @@
 <form class="grid gap-8" [formGroup]="insumoForm" (ngSubmit)="onSumit()">
     <div class="grid gap-5">
-        <app-custom-select [options]="categorias" [(selectedValue)]="categoriaSeleccionada"  placeholder="Seleccionar categoria" label="Categoria"></app-custom-select>
+        <app-custom-select [isDefer]="true" [options]="categorias" [(selectedValue)]="categoriaSeleccionada"  placeholder="Seleccionar categoria" label="Categoria"></app-custom-select>
         <div class="grid grid-cols-[250px_250px] gap-5">
             <span class="float-label">
                 <input id="nombre-insumo" type="text" placeholder="nombre" formControlName="nombre"/>

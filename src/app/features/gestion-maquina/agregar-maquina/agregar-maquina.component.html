@@ -5,7 +5,7 @@
             <label for="nombre-maquina" class="select-none text-neutral-300">Nombre</label>
         </span>
         <div class="grid grid-cols-[300px_300px] gap-5">
-            <app-custom-select [options]="categoriasInsumo" [(selectedValue)]="categoriasInsumoSeleccionada" placeholder="Seleccionar categoria insumo" label="Categoria Insumo"/>
+            <app-custom-select [isDefer]="true" [options]="categoriasInsumo" [(selectedValue)]="categoriasInsumoSeleccionada" placeholder="Seleccionar categoria insumo" label="Categoria Insumo"/>
             <app-custom-select [options]="categorias" [(selectedValue)]="maquinaSelected" label="Categoria maquina"></app-custom-select>
         </div>
         @switch (maquinaSelected.value) {

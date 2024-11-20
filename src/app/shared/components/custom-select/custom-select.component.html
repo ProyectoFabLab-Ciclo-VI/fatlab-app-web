@@ -13,15 +13,28 @@
         </div>
         @if (panelOpen) {
             <article class="selected__body absolute w-full top-[108%] max-h-60 overflow-y-auto overflow-x-hidden z-[9] border border-solid border-primary-500 shadow-medium rounded-[{{ roundedPx }}]">
-                <div class="bg-primary-500 relative">
-                    @for (option of options; track $index) {
-                        <div class="selected__item px-4 py-3 cursor-pointer select-none relative"
-                             (click)="selectOption(option)"
-                             [class]="selectedValue && option.value === selectedValue.value ? ' bg-primary-500 *:text-white font-w ' : ' bg-white hover:bg-primary-50 '">
-                            <span class="font-poppins truncate block">{{ option.viewValue }}</span>
+                @if (options.length == 0) {
+                    @if (isDefer) {
+                        <div class="relative bg-white selected__item px-4 py-3 flex flex-col items-center">
+                            <app-loader [isHeightScreen]="false"/>
+                            <span>Cargando...</span>
+                        </div>
+                    } @else {
+                        <div class="relative bg-white selected__item px-4 py-3 flex flex-col items-center">
+                            <span>No hay opciones disponibles</span>
                         </div>
                     }
-                </div>
+                } @else {
+                    <div class="bg-primary-500 relative">
+                        @for (option of options; track $index) {
+                            <div class="selected__item px-4 py-3 cursor-pointer select-none relative"
+                                 (click)="selectOption(option)"
+                                 [class]="selectedValue && option.value === selectedValue.value ? ' bg-primary-500 *:text-white font-w ' : ' bg-white hover:bg-primary-50 '">
+                                <span class="font-poppins truncate block">{{ option.viewValue }}</span>
+                            </div>
+                        }
+                    </div>
+                }
             </article>
         }
     </div>

@@ -1,12 +1,13 @@
 import { Component, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { SelectItem } from '../../../core/index.model.system';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-custom-select',
   templateUrl: './custom-select.component.html',
   styleUrl: './custom-select.component.css',
   standalone: true,
-  imports: [],
+  imports: [LoaderComponent],
 })
 export class CustomSelectComponent {
   @ViewChild('SelectedComponente') selectedComponente!: any;
@@ -17,6 +18,7 @@ export class CustomSelectComponent {
   @Input() label!: string;
   @Input() disabled: boolean = false;
   @Input() hasBoldResult: boolean = false;
+  @Input() isDefer: boolean = false;
 
   @Input() selectedValue: SelectItem | undefined;
   @Output() selectedValueChange = new EventEmitter<SelectItem>();

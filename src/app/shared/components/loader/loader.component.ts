@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class LoaderComponent {
   @Input() scale: number = 150;
   sizeLoader = 'scale-[' + this.scale + '%]';
-  @Input() cssClass: string = 'flex items-center justify-center  h-screen'
+  @Input() isHeightScreen = true;
+  @Input() cssClass: string = 'flex items-center justify-center' + (this.isHeightScreen? 'h-screen' : '')
 }
