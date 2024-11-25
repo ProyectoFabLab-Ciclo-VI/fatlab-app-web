@@ -30,7 +30,7 @@ export class EdicionInsumoComponent implements OnInit, OnDestroy {
 
   categoriaInsumoSub: Subscription = new Subscription();
   categorias: SelectItem[] = [];
-  categoriaSeleccionada!: SelectItem;
+  categoriaSeleccionada: SelectItem = { value: 0, viewValue: '' };
 
   marcas: SelectItem[] = [
     { value: 'fPolymaker', viewValue: 'Polymaker' },
@@ -87,14 +87,14 @@ export class EdicionInsumoComponent implements OnInit, OnDestroy {
       id: 0,
       nombre: nombre,
       descripcion: descripcion,
-      unidadMedida: this.unidadMedidaSeleccionada.value,
+      unidadMedida: this.unidadMedidaSeleccionada.value ?? '',
       cantidadTotal: cantidadTotal,
       costeInsumo: costeInsumo,
       marca: '',
       precioUnitario: precioUnitario,
       activo: false,
       categoriaInsumo: {
-        id: this.categoriaSeleccionada.value,
+        id: this.categoriaSeleccionada.value ?? 0,
         nombre: ''
       },
     };
