@@ -7,6 +7,7 @@ import { ConfiguracionMaquinaComponent } from './components/configuracion-maquin
 import { ConfiguracionComponent } from './configuracion.component';
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 import { CustomCheckboxComponent } from '@shared/components/custom-checkbox/custom-checkbox.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CustomCheckboxComponent } from '@shared/components/custom-checkbox/cust
     CustomButtonComponent,
     ConfiguracionRoutingModule,
     CustomCheckboxComponent,
+    LoaderComponent,
   ]
 })
 export class ConfiguracionModule { }

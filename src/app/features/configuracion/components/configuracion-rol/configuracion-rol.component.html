@@ -1,21 +1,35 @@
 <form class="bg-white rounded-[8px] p-5 w-fit grid gap-5">
     <h1 class="text-black font-poppins text-2xl text-center font-bold">Configuración de Roles</h1>
-    <p class="flex justify-end gap-4 *:text-neutral-300 *:font-poppins *:text-base *:font-bold">
-        <span>Mano de obra</span>
-        <span class="w-[30px]">IGV</span>
-    </p>
-    <ul class="grid gap-4">
-        @for (rol of roles; track $index) {
-            <li class="grid grid-cols-[200px_auto_30px] gap-4">
-                <span class="font-poppins font-medium text-lg text-neutral-500">{{ rol.cargo?.nombre }}</span>
-                <app-custom-checkbox [(isChecked)]="rol.manoObra"/>
-                <app-custom-checkbox [(isChecked)]="rol.igv"/>
-            </li>
+    <div class="relative grid gap-5">
+        <p class="flex justify-end gap-4 *:text-neutral-300 *:font-poppins *:text-base *:font-bold">
+            <span>Mano de obra</span>
+            <span class="w-[30px]">IGV</span>
+        </p>
+        <ul class="grid gap-4">
+            @if (roles.length > 0) {
+                @for (rol of roles; track $index) {
+                    <li class="grid grid-cols-[200px_auto_30px] gap-4">
+                        <span class="font-poppins font-medium text-lg text-neutral-500">{{ rol.cargo?.nombre }}</span>
+                        <app-custom-checkbox [(isChecked)]="rol.manoObra"/>
+                        <app-custom-checkbox [(isChecked)]="rol.igv"/>
+                    </li>
+                }
+            } @else {
+                <div class="grid place-items-center">
+                    <app-loader/>
+                    <p>Cargando</p>
+                </div>
+            }
+        </ul>
+        <div class="flex justify-end">
+            <app-custom-button (click)="viewChange()" [isDisabled]="roles.length == 0">
+                <span>Guardar</span>
+            </app-custom-button>
+        </div>
+        @if (isSend) {
+            <div class="absolute top-0 bottom-0 left-0 right-0 z-[99999] grid place-content-center bg-[#ffffff85]">
+                <app-loader/>
+            </div>
         }
-    </ul>
-    <div class="flex justify-end">
-        <app-custom-button (click)="viewChange()">
-            <span>Guardar</span>
-        </app-custom-button>
     </div>
 </form>

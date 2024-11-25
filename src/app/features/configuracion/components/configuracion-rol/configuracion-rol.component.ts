@@ -13,6 +13,7 @@ import { ConfiguracionService } from '@core/index.service.http';
 export class ConfiguracionRolComponent implements OnInit, OnDestroy {
   roles: ConfiguracionCargo[] = []
   rolSub: Subscription = new Subscription();
+  isSend: boolean = false;
 
   constructor(
     private configuracionSrv: ConfiguracionService,
@@ -34,12 +35,15 @@ export class ConfiguracionRolComponent implements OnInit, OnDestroy {
   }
 
   public viewChange() {
+    this.isSend = true;
     this.configuracionSrv.updateConfiguracionesCargo(this.roles).subscribe({
       next: () => {
         this.notificationSrv.addNotification('success', 'Lista de roles actualizada');
+        this.isSend = false;
       },
       error: err => {
         this.notificationSrv.addNotification('error', 'Error del servidor');
+        this.isSend = false;
         console.error(err);
       }
     })
