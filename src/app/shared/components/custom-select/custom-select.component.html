@@ -1,6 +1,6 @@
 <div class="relative" #SelectedComponente>
     <div class="selected relative inline-block w-full" [class.opacity-50]="disabled" [class.cursor-not-allowed]="disabled">
-        <div class="selected__header flex justify-between items-center z-20 border border-solid border-neutral-75 px-4 py-3 bg-white cursor-pointer select-none hover:bg-primary-50 hover:border-primary-200 active:bg-white rounded-[{{ roundedPx }}]"
+        <div class="flex justify-between items-center z-20 border border-solid border-neutral-75 px-4 py-3 bg-white cursor-pointer select-none rounded-[{{ roundedPx }}] {{ (disabled ? '  ' : ' selected__header hover:bg-primary-50 hover:border-primary-200 active:bg-white ') }}"
              (click)="togglePanel()"
              [class.bg-neutral-100]="disabled">
              @if (label) { <span class="absolute -top-[7px] left-3 px-1 bg-white text-base text-primary-500">{{ label }}</span> }
