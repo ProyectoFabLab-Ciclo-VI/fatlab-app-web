@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { CustomButtonComponent } from '../../../shared/components/custom-button/custom-button.component';
 
@@ -36,6 +36,8 @@ export class AgregarMaquinaComponent implements OnInit, OnDestroy {
   
   isSend: boolean = false;
   maquinaForm: FormGroup = this.initializateFormGroupMaquina();
+  impresora3dForm: FormGroup = this.initializateFormGroupImpresion3d();
+
   maquinaData!: Maquina;
 
   categorias: SelectItem[] = [
@@ -86,6 +88,19 @@ export class AgregarMaquinaComponent implements OnInit, OnDestroy {
     });
   }
 
+  private initializateFormGroupImpresion3d() {
+    return new FormGroup({
+      codigoUpeu: new FormControl('', [Validators.required]),
+      costeLuzPorHora: new FormControl(0, [Validators.required, Validators.min(0)]),
+      tipoInyeccion: new FormControl('', Validators.required),
+      porcentajeDesperdicio: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(100)]),
+      arquitectura: new FormControl('', Validators.required),
+      costeMaquina: new FormControl(0, [Validators.required, Validators.min(0)]),
+      costeAmortizacion: new FormControl(0, [Validators.required, Validators.min(0)]),
+      estadoMaquina: new FormControl(''),
+    });
+  }
+
   public recopilateImpresora(maquina: Maquina) {
     this.maquinaData = maquina;
   }
@@ -117,6 +132,7 @@ export class AgregarMaquinaComponent implements OnInit, OnDestroy {
       next: () => {
         this.notificationSrv.addNotification('success', 'Maquina guardada exitosamente');
         this.maquinaForm = this.initializateFormGroupMaquina();
+        this.impresora3dForm = this.initializateFormGroupImpresion3d();
         this.isSend = false;
       },
       error: (err) => {

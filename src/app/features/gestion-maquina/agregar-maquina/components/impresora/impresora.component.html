@@ -1,34 +1,34 @@
-<div class="grid grid-cols-[1fr_1fr] gap-4">
+<div [formGroup]="parentForm" class="grid grid-cols-[1fr_1fr] gap-4">
     <div class="grid gap-4">
 
         <span class="float-label">
-            <input id="codigo" type="text" placeholder="codigo" [(ngModel)]="maquina.codigoUpeu" (change)="sendChange()"/>
+            <input id="codigo" type="text" placeholder="codigo" formControlName="codigoUpeu" (change)="sendChange()"/>
             <label for="codigo" class="select-none text-neutral-300">Código Upeu</label>
         </span>
         <span class="float-label">
-            <input id="consumo_luz" type="number" placeholder="consumo luz" min="0" [(ngModel)]="impresion.costeLuzPorHora" (change)="sendChange()"/>
+            <input id="consumo_luz" type="number" placeholder="consumo luz" min="0" formControlName="costeLuzPorHora" (change)="sendChange()"/>
             <label for="consumo_luz" class="select-none text-neutral-300">Consumo Luz</label>
         </span>
         <span class="float-label">
-            <input id="tipo_insumo" type="text" placeholder="codigo" [(ngModel)]="impresion.tipoInyeccion" (change)="sendChange()"/>
+            <input id="tipo_insumo" type="text" placeholder="codigo" formControlName="tipoInyeccion" (change)="sendChange()"/>
             <label for="tipo_insumo" class="select-none text-neutral-300">Tipo de Inyección</label>
         </span>
         <span class="float-label">
-            <input id="desperdicio_maquina" type="number" placeholder="codigo" min="0" max="100" [(ngModel)]="impresion.porcentajeDesperdicio" (change)="sendChange()"/>
+            <input id="desperdicio_maquina" type="number" placeholder="codigo" min="0" max="100" formControlName="porcentajeDesperdicio" (change)="sendChange()"/>
             <label for="desperdicio_maquina" class="select-none text-neutral-300">Desperdicio %</label>
         </span>
     </div>
     <div class="grid gap-4">
         <span class="float-label">
-            <input id="arquitectura" type="text" placeholder="codigo" [(ngModel)]="impresion.arquitectura" (change)="sendChange()"/>
+            <input id="arquitectura" type="text" placeholder="codigo" formControlName="arquitectura" (change)="sendChange()"/>
             <label for="arquitectura" class="select-none text-neutral-300">Arquitectura</label>
         </span>
         <span class="float-label">
-            <input id="precio_maquina" type="number" placeholder="codigo" min="0" [(ngModel)]="maquina.costeMaquina" (change)="sendChange()"/>
+            <input id="precio_maquina" type="number" placeholder="codigo" min="0" formControlName="costeMaquina" (change)="sendChange()"/>
             <label for="precio_maquina" class="select-none text-neutral-300">Coste maquina</label>
         </span>
         <span class="float-label">
-            <input id="amortizacion" type="number" placeholder="amortizacion" [(ngModel)]="maquina.costeAmortizacion" (change)="sendChange()"/>
+            <input id="amortizacion" type="number" placeholder="amortizacion" formControlName="costeAmortizacion" (change)="sendChange()"/>
             <label for="amortizacion" class="select-none text-neutral-300">Coste amortizacion</label>
         </span>
         <app-custom-select placeholder="Seleccionar Estado" [options]="estados" label="Estado maquina"/>

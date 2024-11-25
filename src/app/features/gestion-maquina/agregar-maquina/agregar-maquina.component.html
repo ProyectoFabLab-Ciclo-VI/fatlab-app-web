@@ -10,7 +10,8 @@
         </div>
         @switch (maquinaSelected.value) {
             @case (1) {
-                <app-impresora (maquinaChange)="recopilateImpresora($event)"/>
+                <app-impresora [(parentForm)]="impresora3dForm"/>
+                <!-- (maquinaChange)="recopilateImpresora($event)" -->
             }
             @case (2) {
                 <app-papeleria/>
@@ -27,7 +28,7 @@
         <app-custom-button class="grid" color="neutral" (click)="cancel()" [isButtonOutline]="true" sizeButton="sm" buttonType="button">
             <span class="text-base">Cancelar</span>
         </app-custom-button>
-        <app-custom-button class="grid" sizeButton="sm" buttonType="submit">
+        <app-custom-button class="grid" sizeButton="sm" buttonType="submit" [isDisabled]="maquinaForm.invalid || impresora3dForm.invalid">
             <span class="text-base">Agregar</span>
             <img src="/icon/normal/check-circle.svg" alt="icono del boton">
         </app-custom-button>
