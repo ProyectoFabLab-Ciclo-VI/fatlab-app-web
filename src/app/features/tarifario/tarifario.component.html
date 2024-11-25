@@ -10,7 +10,7 @@
         </div>
         <div class="grid gap-4">
             <span class="text-neutral-300">Insumo de la Categoría <span class="text-black">{{ categoriaInsumoMaquina }}</span></span>
-            <app-custom-select [isDefer]="true" [hasBoldResult]="true" [options]="insumosSelected" [(selectedValue)]="insumoSelected" placeholder="Seleccionar Insumo" (click)="definirVariablesDePresupuesto()"/>
+            <app-custom-select [isDefer]="true" [hasBoldResult]="true" [options]="insumosSelected" [(selectedValue)]="insumoSelected" placeholder="Seleccionar Insumo" (click)="definirVariablesDePresupuesto()" [disabled]="maquinaSeleccionada == undefined"/>
         </div>
     </div>
     <main #Calculadora__body class="relative grid grid-cols-[2fr_auto_2fr_3fr] gap-3">

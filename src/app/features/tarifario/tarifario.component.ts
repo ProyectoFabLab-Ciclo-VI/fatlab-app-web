@@ -43,7 +43,7 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
   public insumos: Insumo[] = [];
   public categoriaInsumoMaquina: string = "";
   
-  public categoriaMaquinaSelected!: SelectItem;
+  public categoriaMaquinaSelected: SelectItem = this.categoriasMaquina[0];
   public maquinaSeleccionada!: SelectItem;
   public insumoSelected!: SelectItem;
 
