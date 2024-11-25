@@ -21,10 +21,10 @@
     "baseUrl": "./",
     "paths": {
       "@core/*": ["src/app/core/*"],
-      "@feature/*": ["src/app/feature/*"],
-      "@layout/*": ["src/app/layout/*"],
+      "@features/*": ["src/app/features/*"],
+      "@layouts/*": ["src/app/layouts/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@environment/*": ["src/environments/*"],
+      "@environments/*": ["src/environments/*"],
     },
     "lib": [
       "ES2022",
