@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
-import { SelectItem } from '../../../core/index.model.system';
+import { SelectItem } from '@core/index.model.system';
 import { LoaderComponent } from '../loader/loader.component';
 
 @Component({

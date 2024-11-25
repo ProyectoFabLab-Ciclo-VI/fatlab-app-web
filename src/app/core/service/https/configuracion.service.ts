@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
+
+import { environment } from '@environments/environment';
+
 import { ConfiguracionCargo } from '../../index.data.model';
 import { ConfiguracionCargoDTO } from '../../index.data.entities';
 import { ConfiguracionCargoMapper } from '../../index.data.mapper';

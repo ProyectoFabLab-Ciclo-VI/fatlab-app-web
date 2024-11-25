@@ -1,20 +1,19 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
-import { CustomButtonComponent } from '../../../shared/components/custom-button/custom-button.component';
-
-import { SelectItem } from '../../../core/index.model.system';
-import { MaquinaService } from '../../../core/index.service.http';
-import { ModalService, NotificationService } from '../../../core/index.service.trigger';
-import { Maquina } from '../../../core/index.data.model';
-import { CustomSelectComponent } from '../../../shared/components/custom-select/custom-select.component';
-import { LoaderComponent } from '../../../shared/components/loader/loader.component';
 import { ImpresoraComponent } from "./components/impresora/impresora.component";
 import { PapeleriaComponent } from './components/papeleria/papeleria.component';
 import { LaserComponent } from './components/laser/laser.component';
 import { EscaneoComponent } from './components/escaneo/escaneo.component';
-import { InventarioService } from '../../../core/service/https/inventario.service';
-import { Subscription } from 'rxjs';
+import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
+import { CustomSelectComponent } from '@shared/components/custom-select/custom-select.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
+
+import { SelectItem } from '@core/index.model.system';
+import { InventarioService, MaquinaService } from '@core/index.service.http';
+import { ModalService, NotificationService } from '@core/index.service.trigger';
+import { Maquina } from '@core/index.data.model';
 
 @Component({
   selector: 'app-agregar-maquina',

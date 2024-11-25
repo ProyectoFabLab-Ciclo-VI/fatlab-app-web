@@ -1,8 +1,9 @@
 import { Component, HostListener, Type, ViewContainerRef } from '@angular/core';
 
-import { ModalService } from '../../../../core/index.service.trigger';
-import { Modal } from '../../../../core/index.model.system';
-import { NotFoundComponent } from '../../../../features/not-found/not-found.component';
+import { NotFoundComponent } from '@features/not-found/not-found.component';
+
+import { ModalService } from '@core/index.service.trigger';
+import { Modal } from '@core/index.model.system';
 
 @Component({
   selector: 'app-quick-access',
@@ -80,6 +81,6 @@ export class QuickAccessComponent {
       alertMessage: '¿Estas seguro que quieres descartar tu avanze?',
       title: title,
     }
-    this.modalSrv.openModal(this.viewContainerRef, modalConfig)
+    this.modalSrv.openModal(modalConfig)
   }
 }

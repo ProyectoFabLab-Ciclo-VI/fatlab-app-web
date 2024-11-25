@@ -3,8 +3,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { AuthUserService } from '../../core/index.service.http';
-import { NotificationService } from '../../core/index.service.trigger';
+import { AuthUserService } from '@core/index.service.http';
+import { NotificationService } from '@core/index.service.trigger';
 
 @Component({
   selector: 'app-login',

@@ -1,10 +1,10 @@
 import { Component, Type } from '@angular/core';
 
-import { AgregarMaquinaComponent } from '../../../../features/gestion-maquina/agregar-maquina/agregar-maquina.component';
+import { AgregarMaquinaComponent } from '@features/gestion-maquina/agregar-maquina/agregar-maquina.component';
+import { EdicionInsumoComponent } from '@features/gestion-insumo/edicion-insumo/edicion-insumo.component';
 
-import { ModalService } from '../../../../core/index.service.trigger';
-import { Modal } from '../../../../core/index.model.system';
-import { EdicionInsumoComponent } from '../../../../features/gestion-insumo/edicion-insumo/edicion-insumo.component';
+import { ModalService } from '@core/index.service.trigger';
+import { Modal } from '@core/index.model.system';
 
 interface Page {
   name: string;

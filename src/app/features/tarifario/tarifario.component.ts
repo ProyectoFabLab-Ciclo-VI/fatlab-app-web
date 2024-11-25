@@ -3,13 +3,12 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, Vie
 import { DatosPedidoComponent } from "./components/datos-pedido/datos-pedido.component";
 import { DatosConsiderarComponent } from './components/datos-considerar/datos-considerar.component';
 import { ResultadoCalculadoraComponent } from "./components/resultado-calculadora/resultado-calculadora.component";
-import { CustomSelectComponent } from '../../shared/components/custom-select/custom-select.component';
+import { CustomSelectComponent } from '@shared/components/custom-select/custom-select.component';
 
-import { SelectItem } from '../../core/index.model.system';
-import { DatoCalculadora, DatoConsiderado, DatoPedido, Insumo, Maquina } from '../../core/index.data.model';
-import { InventarioService } from '../../core/service/https/inventario.service';
-import { MaquinaService } from '../../core/index.service.http';
-import { NotificationService } from '../../core/index.service.trigger';
+import { SelectItem } from '@core/index.model.system';
+import { DatoCalculadora, DatoConsiderado, DatoPedido, Insumo, Maquina } from '@core/index.data.model';
+import { InventarioService, MaquinaService } from '@core/index.service.http';
+import { NotificationService } from '@core/index.service.trigger';
 
 @Component({
   selector: 'app-tarifario',

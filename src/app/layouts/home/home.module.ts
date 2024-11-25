@@ -5,9 +5,11 @@ import { FormsModule } from '@angular/forms';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { LoaderComponent } from '../../shared/components/loader/loader.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { ModalService } from './core/index.service.trigger';
+
+import { ModalService } from '@core/index.service.trigger';
 
 @Component({
   selector: 'app-root',

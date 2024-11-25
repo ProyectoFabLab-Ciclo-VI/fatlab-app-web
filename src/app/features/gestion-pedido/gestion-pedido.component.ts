@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { CustomerService } from './gestion.service';
 
 type Severity = 'success' | 'secondary' | 'info' | 'warning' | 'danger' | 'contrast' | undefined;

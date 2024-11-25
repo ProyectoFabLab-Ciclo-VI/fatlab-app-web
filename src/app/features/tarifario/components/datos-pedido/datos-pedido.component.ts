@@ -1,13 +1,12 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { CustomSelectComponent } from '../../../../shared/components/custom-select/custom-select.component';
-
-import { SelectItem } from '../../../../core/index.model.system';
-import { ConfiguracionCargo, DatoPedido } from '../../../../core/index.data.model';
-import { ConfiguracionService } from '../../../../core/service/https/configuracion.service';
 import { Subscription } from 'rxjs';
-import { fromReadableStreamLike } from 'rxjs/internal/observable/innerFrom';
+
+import { CustomSelectComponent } from '@shared/components/custom-select/custom-select.component';
+
+import { SelectItem } from '@core/index.model.system';
+import { ConfiguracionCargo, DatoPedido } from '@core/index.data.model';
+import { ConfiguracionService } from '@core/index.service.http';
 
 @Component({
   selector: 'app-datos-pedido',

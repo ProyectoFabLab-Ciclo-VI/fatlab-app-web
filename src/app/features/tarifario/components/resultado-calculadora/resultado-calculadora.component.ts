@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { CustomButtonComponent } from '../../../../shared/components/custom-button/custom-button.component';
+import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 
-import { DatoCalculadora } from '../../../../core/index.data.model';
+import { DatoCalculadora } from '@core/index.data.model';
 
 @Component({
   selector: 'app-resultado-calculadora',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { CustomButtonComponent } from '../../shared/components/custom-button/custom-button.component';
+import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 
 @Component({
   selector: 'app-not-found',

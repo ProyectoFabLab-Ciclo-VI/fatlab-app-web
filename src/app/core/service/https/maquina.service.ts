@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 
-import { environment } from '../../../../environments/environment';
+import { environment } from '@environments/environment';
 
 import { Maquina } from '../../index.data.model';
 import { MaquinaDTO } from '../../index.data.entities';
 import { MaquinaMapper } from '../../index.data.mapper';
-import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

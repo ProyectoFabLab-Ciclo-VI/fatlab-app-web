@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ConfiguracionService } from '../../../../core/service/https/configuracion.service';
-import { ConfiguracionCargo } from '../../../../core/index.data.model';
 import { Subscription } from 'rxjs';
-import { NotificationService } from '../../../../core/index.service.trigger';
+
+import { ConfiguracionCargo } from '@core/index.data.model';
+import { NotificationService } from '@core/index.service.trigger';
+import { ConfiguracionService } from '@core/index.service.http';
 
 @Component({
   selector: 'app-configuracion-rol',

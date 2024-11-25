@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { CustomSelectComponent } from '../../../../../shared/components/custom-select/custom-select.component';
-import { SelectItem } from '../../../../../core/index.model.system';
+import { CustomSelectComponent } from '@shared/components/custom-select/custom-select.component';
+
+import { SelectItem } from '@core/index.model.system';
 
 @Component({
   selector: 'app-impresora',

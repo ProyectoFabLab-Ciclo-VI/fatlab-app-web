@@ -2,15 +2,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { CustomButtonComponent } from '../../../shared/components/custom-button/custom-button.component';
-import { CustomSelectComponent } from '../../../shared/components/custom-select/custom-select.component';
-import { LoaderComponent } from '../../../shared/components/loader/loader.component';
+import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
+import { CustomSelectComponent } from '@shared/components/custom-select/custom-select.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 
-import { InsumoService } from '../../../core/index.service.http';
-import { NotificationService } from '../../../core/index.service.trigger';
-import { Insumo } from '../../../core/index.data.model';
-import { SelectItem } from '../../../core/index.model.system';
-import { InventarioService } from '../../../core/service/https/inventario.service';
+import { InsumoService, InventarioService } from '@core/index.service.http';
+import { NotificationService } from '@core/index.service.trigger';
+import { Insumo } from '@core/index.data.model';
+import { SelectItem } from '@core/index.model.system';
 
 @Component({
   selector: 'app-edicion-insumo',

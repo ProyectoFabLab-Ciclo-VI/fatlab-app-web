@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { Notification } from '../../../core/index.model.system';
-import { NotificationService } from '../../../core/index.service.trigger';
+import { Notification } from '@core/index.model.system';
+import { NotificationService } from '@core/index.service.trigger';
 
 
 @Component({

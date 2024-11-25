@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { DatoConsiderado } from '../../../../core/index.data.model';
+import { DatoConsiderado } from '@core/index.data.model';
 
 @Component({
   selector: 'app-datos-considerar',

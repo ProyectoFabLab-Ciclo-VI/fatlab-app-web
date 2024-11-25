@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../environments/environment';
-import { CategoriaInsumoMapper, InsumoMapper } from '../../index.data.mapper';
 import { HttpClient } from '@angular/common/http';
-import { CategoriaInsumo, Insumo } from '../../index.data.model';
 import { map } from 'rxjs';
+
+import { environment } from '@environments/environment';
+
+import { CategoriaInsumoMapper, InsumoMapper } from '../../index.data.mapper';
+import { CategoriaInsumo, Insumo } from '../../index.data.model';
 import { CategoriaInsumoDTO, InsumoDTO } from '../../index.data.entities';
 
 @Injectable({
