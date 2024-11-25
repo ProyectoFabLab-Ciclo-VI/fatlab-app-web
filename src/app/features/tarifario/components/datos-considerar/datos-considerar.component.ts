@@ -11,6 +11,7 @@ import { DatoConsiderado } from '../../../../core/index.data.model';
   imports: [FormsModule],
 })
 export class DatosConsiderarComponent implements OnChanges {
+  @Input() unidadMedida: string = "g";
   @Input() datosConsiderado: DatoConsiderado = {
     porcentajeDesperdicioMaquina: 0,
     costoInsumo: 0,

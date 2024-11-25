@@ -39,7 +39,7 @@
             <p>Desperdicio Generado</p>
             <div class="input-group">
                 <input id="desperdicio-generado" type="number" min="0" placeholder="Desperdicio total" [value]="desperdicioGenerado != 0 ? desperdicioGenerado : null" disabled>
-                <label for="desperdicio-generado">ml</label>
+                <label for="desperdicio-generado">{{ unidadMedida || 'g' }}</label>
             </div>
             <span>Desperdicio generado a través del calculo entre la cantidad empleada y el porcentaje de desperdicio de
                 la máquina.</span>

@@ -28,6 +28,8 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
   @ViewChild('Calculadora__header') calculadoraHeaderElement!: ElementRef<any>;
   @ViewChild('Calculadora__body') calculadoraBodyElement!: ElementRef<any>;
 
+  public unidadMedida: string = 'g';
+
   public categoriasMaquina: SelectItem[] = [
     { value: 1, viewValue: 'Impresiones 3D' },
     { value: 2, viewValue: 'Papelería / Ploteo' },
@@ -149,6 +151,7 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
     if(!this.insumoSelected) return;
     const { value } = this.insumoSelected;
     const insumo = this.insumos.filter(i => i.id == value)[0];
+    this.unidadMedida = insumo.unidadMedida;
     this.datosConsiderado.costoInsumo = insumo.precioUnitario;
 
   }
