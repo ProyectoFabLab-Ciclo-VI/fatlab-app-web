@@ -82,12 +82,13 @@ export class EdicionInsumoComponent implements OnInit, OnDestroy {
   }
 
   public onSumit() {
-    const { nombre, descripcion, unidadMedida, cantidadTotal, costeInsumo, precioUnitario } = this.insumoForm.value;
+    const { nombre, descripcion, cantidadTotal, costeInsumo, precioUnitario } = this.insumoForm.value;
+    this.unidadMedidaSeleccionada.value;
     const insumo: Insumo = {
       id: 0,
       nombre: nombre,
       descripcion: descripcion,
-      unidadMedida: unidadMedida,
+      unidadMedida: this.unidadMedidaSeleccionada.value,
       cantidadTotal: cantidadTotal,
       costeInsumo: costeInsumo,
       marca: '',
