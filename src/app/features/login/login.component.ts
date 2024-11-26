@@ -5,13 +5,14 @@ import { CommonModule } from '@angular/common';
 
 import { AuthUserService } from '@core/index.service.http';
 import { NotificationService } from '@core/index.service.trigger';
+import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule]
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, CustomButtonComponent]
 })
 export class LoginComponent {
   user: FormGroup = new FormGroup({
