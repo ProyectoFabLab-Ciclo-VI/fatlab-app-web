@@ -34,7 +34,7 @@
             <span>Introduce el porcentaje de fallos. Asegúrate de que el valor ingresado esté expresado en porcentaje.</span>
         </div>
         <app-custom-select [options]="rolesSelected" [(selectedValue)]="roleSelect" placeholder="Seleccione un rol" [roundedPx]="'4px'" (click)="changeRol()"/>
-        @if (rol.manoObra) {
+        @if (rol.manoObra && roleSelect != undefined) {
             <div class="form__item">
                 <p>Coste Operario</p>
                 <div class="input-group">
@@ -45,11 +45,11 @@
             </div>
         }
 
-        @if (rol.igv) {
+        @if (rol.igv && roleSelect != undefined) {
             <div class="form__item">
                 <p>¿Deseas agregar IGV?</p>
                 <label>
-                    <input type="radio" name="igv" [checked]="datosPedido.usarIgv" (click)="sendChange(true)" disabled>
+                    <input type="radio" name="igv" [checked]="datosPedido.usarIgv || rolesSelected == undefined" (click)="sendChange(true)" disabled>
                     <span>Si</span>
                 </label>
                 <label>

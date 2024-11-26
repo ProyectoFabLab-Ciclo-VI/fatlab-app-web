@@ -45,34 +45,13 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
   public categoriaInsumoMaquina: string = "";
   
   public categoriaMaquinaSelected: SelectItem = this.categoriasMaquina[0];
-  public maquinaSeleccionada!: SelectItem;
-  public insumoSelected!: SelectItem;
+  public maquinaSeleccionada: SelectItem | undefined;
+  public insumoSelected: SelectItem | undefined;
+  public roleSelect: SelectItem | undefined;
 
-  public datosConsiderado: DatoConsiderado = {
-    porcentajeDesperdicioMaquina: 0,
-    costoInsumo: 0,
-    costoPorHoraElectricidad: 0,
-    costoAmortizuacionPorHora: 0,
-  }
-
-  public calculadora: DatoCalculadora = {
-    costoMateriales: 0,
-    costoAmortizacion: 0,
-    costoGanancia: 0,
-    costoOperario: 0,
-    costoFallo: 0,
-    costoIgv: 0,
-    costoTotal: 0,
-  }
-
-  public datosPedido: DatoPedido = {
-    cantidadUsada: 0,
-    tiempoImpresion: 0,
-    porcentajeGanancia: 0,
-    porcentajeTasaFallo: 0,
-    costoOperador: 0,
-    usarIgv: false,
-  };
+  public datosConsiderado: DatoConsiderado = this.initializateConsiderar();
+  public calculadora: DatoCalculadora = this.initializateCalculadora();
+  public datosPedido: DatoPedido = this.initializatePedido();
 
   private maquinaSub = new Subscription();
   private inventarioSub = new Subscription();
@@ -119,10 +98,42 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
     if(this.inventarioSub) this.inventarioSub.unsubscribe();
   }
 
+  private initializateCalculadora(): DatoCalculadora {
+    return {
+      costoMateriales: 0,
+      costoAmortizacion: 0,
+      costoGanancia: 0,
+      costoOperario: 0,
+      costoFallo: 0,
+      costoIgv: 0,
+      costoTotal: 0,
+    };
+  }
+
+  private initializatePedido(): DatoPedido {
+     return {
+      cantidadUsada: 0,
+      tiempoImpresion: 0,
+      porcentajeGanancia: 0,
+      porcentajeTasaFallo: 0,
+      costoOperador: 0,
+      usarIgv: false,
+    };
+  }
+
+  private initializateConsiderar(): DatoConsiderado {
+    return {
+      porcentajeDesperdicioMaquina: 0,
+      costoInsumo: 0,
+      costoPorHoraElectricidad: 0,
+      costoAmortizuacionPorHora: 0,
+    }
+  }
+
   public filstrarInsumoPorMaquina(){
-    if(!this.maquinaSeleccionada) return;
-    
-    const maquina = this.maquinas.filter(m => m.id == this.maquinaSeleccionada.value)[0];
+    if(this.maquinaSeleccionada === undefined) return;
+    const { value } = this.maquinaSeleccionada;
+    const maquina = this.maquinas.filter(m => m.id == value)[0];
     
     if(!maquina.categoriaInsumo) {
       this.notificationSrv.addNotification('error', 'No existe un categoria de insumo')
@@ -219,5 +230,15 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
       materiales,
       operario,
     };
+  }
+
+  public limpiarPedido(){
+    this.datosPedido = this.initializatePedido();
+    this.datosConsiderado = this.initializateConsiderar();
+    this.calculadora = this.initializateCalculadora();
+    this.insumos = [];
+    this.insumoSelected = undefined;
+    this.maquinaSeleccionada = undefined;
+    this.roleSelect = undefined;
   }
 }

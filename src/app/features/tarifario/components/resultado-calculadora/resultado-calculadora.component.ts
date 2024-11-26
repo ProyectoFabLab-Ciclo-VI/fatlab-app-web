@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 
@@ -22,6 +22,8 @@ export class ResultadoCalculadoraComponent {
     costoTotal: 0,
   }
 
+  @Output() limpiarEvent: EventEmitter<any> = new EventEmitter<any>();
+
   public obtenerPorcentaje(mount: number) {
     const total = this.calculadora.costoTotal;
     
@@ -34,5 +36,9 @@ export class ResultadoCalculadoraComponent {
     const porcentajeRedondeado = resultadoPorcentaje.toFixed(2);
   
     return `${porcentajeRedondeado}%`;
+  }
+
+  public limpiar() {
+    this.limpiarEvent.emit(1);
   }
 }

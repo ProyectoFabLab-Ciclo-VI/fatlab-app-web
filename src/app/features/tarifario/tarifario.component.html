@@ -14,9 +14,9 @@
         </div>
     </div>
     <main #Calculadora__body class="relative grid grid-cols-[2fr_auto_2fr_3fr] gap-3">
-        <app-datos-pedido class="h-full overflow-hidden" [datosPedido]="datosPedido" (datosPedidoChange)="realizarCalculo($event)"/>
+        <app-datos-pedido class="h-full overflow-hidden" [datosPedido]="datosPedido" (datosPedidoChange)="realizarCalculo($event)" [(roleSelect)]="roleSelect"/>
         <div class="bg-neutral-200 w-[1px] h-full"></div>
         <app-datos-considerar class="h-full overflow-hidden" [datosConsiderado]="datosConsiderado" [cantidadUsada]="datosPedido.cantidadUsada" [unidadMedida]="unidadMedida"/>
-        <app-resultado-calculadora [calculadora]="calculadora"/>
+        <app-resultado-calculadora [calculadora]="calculadora" (limpiarEvent)="limpiarPedido()"/>
     </main>
 </section>

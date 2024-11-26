@@ -25,7 +25,8 @@ export class DatosPedidoComponent implements OnInit, OnDestroy {
   };
   roles: ConfiguracionCargo[] = [];
   rolesSelected: SelectItem[] = [];
-  roleSelect!: SelectItem;
+  @Input() roleSelect: SelectItem | undefined = undefined;
+  @Output() roleSelectChange = new EventEmitter<SelectItem | undefined>();
   
   roleSub: Subscription = new Subscription();
 
@@ -73,12 +74,14 @@ export class DatosPedidoComponent implements OnInit, OnDestroy {
   }
 
   public changeRol() {
-    if(this.roles.length <= 0) return;
-    this.rol = this.roles.filter(r => r.id == this.roleSelect.value)[0];
+    if(this.roles.length <= 0 || this.roleSelect === undefined) return;
+    const { value } = this.roleSelect;
+
+    this.rol = this.roles.filter(r => r.id == value)[0];
+    
     this.datosPedido.usarIgv = this.rol.igv;
-    if(!this.rol.manoObra) {
-      this.datosPedido.costoOperador = 0;
-    }
+    if(!this.rol.manoObra) this.datosPedido.costoOperador = 0;
+    this.roleSelectChange.emit(this.roleSelect);  
     this.sendChange();
   }
 }
