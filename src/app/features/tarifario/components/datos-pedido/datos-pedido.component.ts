@@ -7,13 +7,14 @@ import { CustomSelectComponent } from '@shared/components/custom-select/custom-s
 import { SelectItem } from '@core/index.model.system';
 import { ConfiguracionCargo, DatoPedido } from '@core/index.data.model';
 import { ConfiguracionService } from '@core/index.service.http';
+import { OnlyNumberDirective } from '@shared/directives/only-number/only-number.directive';
 
 @Component({
   selector: 'app-datos-pedido',
   templateUrl: './datos-pedido.component.html',
   styleUrl: './datos-pedido.component.css',
   standalone: true,
-  imports: [CustomSelectComponent, FormsModule],
+  imports: [CustomSelectComponent, FormsModule, OnlyNumberDirective],
 })
 export class DatosPedidoComponent implements OnInit, OnDestroy {
   rol: ConfiguracionCargo = {
@@ -34,7 +35,7 @@ export class DatosPedidoComponent implements OnInit, OnDestroy {
     porcentajeGanancia: 0,
     porcentajeTasaFallo: 0,
     costoOperador: 0,
-    usarIgv: true,
+    usarIgv: false,
   };
 
   @Output() datosPedidoChange = new EventEmitter<DatoPedido>();
@@ -61,12 +62,17 @@ export class DatosPedidoComponent implements OnInit, OnDestroy {
     if(this.roleSub) this.roleSub.unsubscribe();
   }
 
-  sendChange(useIgv?: boolean) {
+  public onInput(event: any): void {
+    const input = event.target;
+    input.value = input.value.replace(/[^0-9]/g, '');
+  }
+
+  public sendChange(useIgv?: boolean) {
     if(useIgv != undefined) this.datosPedido.usarIgv = useIgv;
     this.datosPedidoChange.emit(this.datosPedido);
   }
 
-  changeRol() {
+  public changeRol() {
     if(this.roles.length <= 0) return;
     this.rol = this.roles.filter(r => r.id == this.roleSelect.value)[0];
     this.datosPedido.usarIgv = this.rol.igv;

@@ -9,6 +9,7 @@ import { SelectItem } from '@core/index.model.system';
 import { DatoCalculadora, DatoConsiderado, DatoPedido, Insumo, Maquina } from '@core/index.data.model';
 import { InventarioService, MaquinaService } from '@core/index.service.http';
 import { NotificationService } from '@core/index.service.trigger';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tarifario',
@@ -70,8 +71,11 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
     porcentajeGanancia: 0,
     porcentajeTasaFallo: 0,
     costoOperador: 0,
-    usarIgv: true,
+    usarIgv: false,
   };
+
+  private maquinaSub = new Subscription();
+  private inventarioSub = new Subscription();
 
   constructor(
     private render: Renderer2,
@@ -81,14 +85,18 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
   ){ }
 
   ngOnInit(): void {
-    this.maquinaSrv.getAllMaquinas().subscribe({
+    this.maquinaSub = this.maquinaSrv.getAllMaquinas().subscribe({
       next: (maquinas) => {
         this.maquinas = maquinas;
         this.maquinasSelected = [];
+        this.realizarCalculo(this.datosPedido);
         for(let maquina of maquinas) {
           const { id, nombre } = maquina;
           this.maquinasSelected.push({ value: id, viewValue: nombre })
         }
+      },
+      error: () => {
+        this.notificationSrv.addNotification("error","Error al obtener datos");
       }
     });
   }
@@ -107,7 +115,8 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    
+    if(this.maquinaSub) this.maquinaSub.unsubscribe();
+    if(this.inventarioSub) this.inventarioSub.unsubscribe();
   }
 
   public filstrarInsumoPorMaquina(){
@@ -134,8 +143,9 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
     this.datosConsiderado.costoPorHoraElectricidad = costeLuzPorHora;
     this.datosConsiderado.costoAmortizuacionPorHora = maquina.costeAmortizacion;
 
-    this.inventarioSrv.getAllInsumoByIdCategoria(id).subscribe({
+    this.inventarioSub = this.inventarioSrv.getAllInsumoByIdCategoria(id).subscribe({
       next: insumos => {
+        this.realizarCalculo(this.datosPedido);
         this.insumos = insumos;
         this.insumosSelected = [];
         for(let insumo of insumos) {
@@ -148,6 +158,7 @@ export class TarifarioComponent implements OnInit,AfterViewInit, OnDestroy {
 
   public definirVariablesDePresupuesto(){
     if(!this.insumoSelected) return;
+    this.realizarCalculo(this.datosPedido);
     const { value } = this.insumoSelected;
     const insumo = this.insumos.filter(i => i.id == value)[0];
     this.unidadMedida = insumo.unidadMedida;
