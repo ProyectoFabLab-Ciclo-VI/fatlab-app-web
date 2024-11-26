@@ -4,15 +4,15 @@
         <div class="form__item">
             <p>Cantidad a emplear</p>
             <div class="input-group">
-                <input id="cantidad-empleada" type="number" min="0" appOnlyNumber [(ngModel)]="datosPedido.cantidadUsada" (keyup)="sendChange()">
-                <label for="cantidad-empleada">ml</label>
+                <input id="cantidad-empleada" type="number" min="0"  [(ngModel)]="datosPedido.cantidadUsada" (keyup)="sendChange()">
+                <label for="cantidad-empleada">{{ unidadMedida || 'g' }}</label>
             </div>
             <span>Especifica la cantidad que deseas utilizar para la operación actual.</span>
         </div>
         <div class="form__item">
             <p>Tiempo de Impresión</p>
             <div class="input-group">
-                <input id="tiempo-impresion" type="number" min="0" appOnlyNumber [(ngModel)]="datosPedido.tiempoImpresion" (keyup)="sendChange()">
+                <input id="tiempo-impresion" type="number" min="0"  [(ngModel)]="datosPedido.tiempoImpresion" (keyup)="sendChange()">
                 <label for="tiempo-impresion">h</label>
             </div>
             <span>Introduce la duración estimada del proceso de impresión. Asegúrate de especificar el tiempo en horas (h).</span>
@@ -20,7 +20,7 @@
         <div class="form__item">
             <p>Ganancia</p>
             <div class="input-group">
-                <input id="ganancia" type="number" min="0" appOnlyNumber [(ngModel)]="datosPedido.porcentajeGanancia" (keyup)="sendChange()">
+                <input id="ganancia" type="number" min="0"  [(ngModel)]="datosPedido.porcentajeGanancia" (keyup)="sendChange()">
                 <label for="ganancia">%</label>
             </div>
             <span>Introduce el porcentaje de ganancia estimado o deseado para la operación.</span>
@@ -28,7 +28,7 @@
         <div class="form__item">
             <p>Tasa de Fallo</p>
             <div class="input-group">
-                <input id="tasa-fallo" type="number" min="0" appOnlyNumber [(ngModel)]="datosPedido.porcentajeTasaFallo" (keyup)="sendChange()">
+                <input id="tasa-fallo" type="number" min="0"  [(ngModel)]="datosPedido.porcentajeTasaFallo" (keyup)="sendChange()">
                 <label for="tasa-fallo">%</label>
             </div>
             <span>Introduce el porcentaje de fallos. Asegúrate de que el valor ingresado esté expresado en porcentaje.</span>
@@ -39,7 +39,7 @@
                 <p>Coste Operario</p>
                 <div class="input-group">
                     <label for="coste-operario">s/.</label>
-                    <input id="coste-operario" type="number" min="0"  appOnlyNumber [(ngModel)]="datosPedido.costoOperador" (keyup)="sendChange()">
+                    <input id="coste-operario" type="number" min="0"  [(ngModel)]="datosPedido.costoOperador" (keyup)="sendChange()">
                 </div>
                 <span>Introduce el costo asociado al operario o mano de obra involucrada en el proceso.</span>
             </div>

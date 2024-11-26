@@ -7,14 +7,13 @@ import { CustomSelectComponent } from '@shared/components/custom-select/custom-s
 import { SelectItem } from '@core/index.model.system';
 import { ConfiguracionCargo, DatoPedido } from '@core/index.data.model';
 import { ConfiguracionService } from '@core/index.service.http';
-import { OnlyNumberDirective } from '@shared/directives/only-number/only-number.directive';
 
 @Component({
   selector: 'app-datos-pedido',
   templateUrl: './datos-pedido.component.html',
   styleUrl: './datos-pedido.component.css',
   standalone: true,
-  imports: [CustomSelectComponent, FormsModule, OnlyNumberDirective],
+  imports: [CustomSelectComponent, FormsModule],
 })
 export class DatosPedidoComponent implements OnInit, OnDestroy {
   rol: ConfiguracionCargo = {
@@ -25,6 +24,7 @@ export class DatosPedidoComponent implements OnInit, OnDestroy {
   };
   roles: ConfiguracionCargo[] = [];
   rolesSelected: SelectItem[] = [];
+  @Input() unidadMedida: string = "g";
   @Input() roleSelect: SelectItem | undefined = undefined;
   @Output() roleSelectChange = new EventEmitter<SelectItem | undefined>();
   
