@@ -7,7 +7,7 @@ import { CustomSelectComponent } from '@shared/components/custom-select/custom-s
 import { LoaderComponent } from '@shared/components/loader/loader.component';
 
 import { InsumoService, InventarioService } from '@core/index.service.http';
-import { NotificationService } from '@core/index.service.trigger';
+import { ModalService, NotificationService } from '@core/index.service.trigger';
 import { Insumo } from '@core/index.data.model';
 import { SelectItem } from '@core/index.model.system';
 import { OnlyNumberDirective } from '@shared/directives/only-number/only-number.directive';
@@ -53,6 +53,7 @@ export class EdicionInsumoComponent implements OnInit, OnDestroy {
     private insumoSrv: InsumoService,
     private notificationSrv: NotificationService,
     private inventarioSrv: InventarioService,
+    private modalSrv: ModalService,
   ) { }
 
   ngOnInit(): void {
@@ -79,6 +80,10 @@ export class EdicionInsumoComponent implements OnInit, OnDestroy {
       costeInsumo: new FormControl(0,[Validators.required, Validators.min(0)]),
       precioUnitario: new FormControl(0,[Validators.required, Validators.min(0)]),
     });
+  }
+
+  public cancel(){
+    this.modalSrv.closeModal();
   }
 
   public onSumit() {

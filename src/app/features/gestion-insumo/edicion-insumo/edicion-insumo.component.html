@@ -8,16 +8,16 @@
             </span>
             <app-custom-select [options]="marcas" placeholder="Seleccionar marca" label="Marca" />
             <span  class="float-label">
-                <input id="coste-insumo" type="number" placeholder="coste" min="0" formControlName="costeInsumo" appOnlyNumber/>
+                <input id="coste-insumo" type="text" placeholder="coste" min="0" formControlName="costeInsumo" appOnlyNumber/>
                 <label for="coste-insumo" class="select-none text-neutral-300">Coste Insumo</label>
             </span>
             <app-custom-select [options]="unidadesDeMedida" [(selectedValue)]="unidadMedidaSeleccionada" placeholder="Seleccionar unidad de medida" label="Unidad de medida" />
             <span  class="float-label">
-                <input id="cantidad-insumo" type="number" placeholder="cantidad" min="0" formControlName="cantidadTotal" appOnlyNumber/>
+                <input id="cantidad-insumo" type="text" placeholder="cantidad" min="0" formControlName="cantidadTotal" appOnlyNumber/>
                 <label for="cantidad-insumo" class="select-none text-neutral-300">Cantidad Insumo</label>
             </span>
             <span  class="float-label">
-                <input id="peso-unitario" type="number" placeholder="medida unitaria" min="0" formControlName="precioUnitario" appOnlyNumber/>
+                <input id="peso-unitario" type="text" placeholder="medida unitaria" min="0" formControlName="precioUnitario" appOnlyNumber/>
                 <label for="peso-unitario" class="select-none text-neutral-300">Medida unitaria ({{ unidadMedidaSeleccionada.value }})</label>
             </span>
         </div>
@@ -27,7 +27,7 @@
         </span>
     </div>
     <div class="grid grid-cols-[auto_auto] justify-end gap-3">
-        <app-custom-button class="grid" color="neutral" [isButtonOutline]="true" sizeButton="sm" buttonType="button">
+        <app-custom-button class="grid" color="neutral" [isButtonOutline]="true" sizeButton="sm" buttonType="button" (click)="cancel()">
             <span class="text-base">Cancelar</span>
         </app-custom-button>
         <app-custom-button class="grid" sizeButton="sm"  buttonType="submit" [isDisabled]="insumoForm.invalid">
