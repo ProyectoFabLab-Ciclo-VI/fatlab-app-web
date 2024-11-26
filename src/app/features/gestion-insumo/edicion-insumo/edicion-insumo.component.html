@@ -8,16 +8,16 @@
             </span>
             <app-custom-select [options]="marcas" placeholder="Seleccionar marca" label="Marca" />
             <span  class="float-label">
-                <input id="coste-insumo" type="number" placeholder="coste" min="0" formControlName="costeInsumo"/>
+                <input id="coste-insumo" type="number" placeholder="coste" min="0" formControlName="costeInsumo" appOnlyNumber/>
                 <label for="coste-insumo" class="select-none text-neutral-300">Coste Insumo</label>
             </span>
             <app-custom-select [options]="unidadesDeMedida" [(selectedValue)]="unidadMedidaSeleccionada" placeholder="Seleccionar unidad de medida" label="Unidad de medida" />
             <span  class="float-label">
-                <input id="cantidad-insumo" type="number" placeholder="cantidad" min="0" formControlName="cantidadTotal"/>
+                <input id="cantidad-insumo" type="number" placeholder="cantidad" min="0" formControlName="cantidadTotal" appOnlyNumber/>
                 <label for="cantidad-insumo" class="select-none text-neutral-300">Cantidad Insumo</label>
             </span>
             <span  class="float-label">
-                <input id="peso-unitario" type="number" placeholder="medida unitaria" min="0" formControlName="precioUnitario"/>
+                <input id="peso-unitario" type="number" placeholder="medida unitaria" min="0" formControlName="precioUnitario" appOnlyNumber/>
                 <label for="peso-unitario" class="select-none text-neutral-300">Medida unitaria ({{ unidadMedidaSeleccionada.value }})</label>
             </span>
         </div>

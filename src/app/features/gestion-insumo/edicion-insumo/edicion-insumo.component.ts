@@ -10,13 +10,14 @@ import { InsumoService, InventarioService } from '@core/index.service.http';
 import { NotificationService } from '@core/index.service.trigger';
 import { Insumo } from '@core/index.data.model';
 import { SelectItem } from '@core/index.model.system';
+import { OnlyNumberDirective } from '@shared/directives/only-number/only-number.directive';
 
 @Component({
   selector: 'app-edicion-insumo',
   templateUrl: './edicion-insumo.component.html',
   styleUrl: './edicion-insumo.component.css',
   standalone: true,
-  imports: [CustomButtonComponent, ReactiveFormsModule, CustomSelectComponent, LoaderComponent],
+  imports: [CustomButtonComponent, ReactiveFormsModule, CustomSelectComponent, LoaderComponent, OnlyNumberDirective],
 })
 export class EdicionInsumoComponent implements OnInit, OnDestroy {
   isSend: boolean = false;
