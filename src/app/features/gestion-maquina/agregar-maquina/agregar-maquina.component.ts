@@ -13,7 +13,7 @@ import { LoaderComponent } from '@shared/components/loader/loader.component';
 import { SelectItem } from '@core/index.model.system';
 import { InventarioService, MaquinaService } from '@core/index.service.http';
 import { ModalService, NotificationService } from '@core/index.service.trigger';
-import { Maquina } from '@core/index.data.model';
+import { Maquina, MaquinaImpresiones3D } from '@core/index.data.model';
 
 @Component({
   selector: 'app-agregar-maquina',
@@ -36,8 +36,6 @@ export class AgregarMaquinaComponent implements OnInit, OnDestroy {
   isSend: boolean = false;
   maquinaForm: FormGroup = this.initializateFormGroupMaquina();
   impresora3dForm: FormGroup = this.initializateFormGroupImpresion3d();
-
-  maquinaData!: Maquina;
 
   categorias: SelectItem[] = [
     { value: 1, viewValue: 'Impresiones 3D' },
@@ -100,33 +98,44 @@ export class AgregarMaquinaComponent implements OnInit, OnDestroy {
     });
   }
 
-  public recopilateImpresora(maquina: Maquina) {
-    this.maquinaData = maquina;
-  }
-
   public cancel(){
     this.modalSrv.closeModal();
   }
 
   public onSubmit() {
     const { nombre, codigo } = this.maquinaForm.value;
+    const { value } = this.categoriasInsumoSeleccionada;
+    const { costeAmortizacion, costeMaquina, costeLuzPorHora, arquitectura, porcentajeDesperdicio, tipoInyeccion } = this.maquinaForm.value;
+    
+    const impresora3d: MaquinaImpresiones3D = {
+      id: 0,
+      arquitectura: arquitectura,
+      costeLuzPorHora: costeLuzPorHora,
+      porcentajeDesperdicio: porcentajeDesperdicio,
+      tipoInyeccion: tipoInyeccion,
+    }
+    
     const maquina: Maquina = {
       id: 0,
       nombre: nombre,
       codigoUpeu: codigo,
       categoriaInsumo: {
-        id: this.categoriasInsumoSeleccionada.value,
+        id: value,
         nombre: ''
       },
-      costeAmortizacion: this.maquinaData.costeAmortizacion,
-      costeMaquina: this.maquinaData.costeMaquina,
-      categoriaMaquina: this.maquinaData.categoriaMaquina,
+      costeAmortizacion: costeAmortizacion,
+      costeMaquina: costeMaquina,
+      categoriaMaquina: {
+        categoria: 'Impresiones 3D',
+        maquina3D: impresora3d,
+      },
       estadoMaquina: null,
       isDelete: false,
     }
+    
     this.isSend = true;
     this.notificationSrv.addNotification('info', 'Guardando maquina...')
-    console.log(maquina);
+
     this.maquinaSrv.saveMaquina(maquina).subscribe({
       next: () => {
         this.notificationSrv.addNotification('success', 'Maquina guardada exitosamente');
