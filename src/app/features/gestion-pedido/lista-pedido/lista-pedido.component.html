@@ -1,0 +1,177 @@
+<section class="px-8 py-5">
+    <div class="grid gap-4">
+        <div>
+            <span class="px-4 py-2 border-b border-0 border-solid border-primary-600 text-primary-600" style="font-weight: 800;">Todos</span>
+            <span class="px-4 py-2 border-b border-0 border-solid border-neutral-300 text-neutral-300">Predefinido</span>
+            <span class="px-4 py-2 border-b border-0 border-solid border-neutral-300 text-neutral-300">Personalizado</span>
+        </div>
+        <div class="flex items-center justify-between">
+            <label class="search px-4 py-2 border border-solid border-neutral-300 rounded-[12px] flex gap-1">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
+                    <path d="M21 21.4097L17.5 17.9097M17 10.4097C17 14.2757 13.866 17.4097 10 17.4097C6.13401 17.4097 3 14.2757 3 10.4097C3 6.54367 6.13401 3.40967 10 3.40967C13.866 3.40967 17 6.54367 17 10.4097Z" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <input class="outline-none border-none" type="text">
+            </label>
+            <div class="flex gap-1">
+                <app-custom-button color="neutral" [isButtonOutline]="true">
+                    <img src="icon/normal/arrow-up-down.svg" alt="icono de ordenar">
+                    <span>Ordenar por</span>
+                </app-custom-button>
+                <app-custom-button color="neutral" [isButtonOutline]="true">
+                    <span>Todos los estados</span>
+                    <img src="icon/normal/angle-down.svg" alt="icono de ordenar">
+                </app-custom-button>
+                <app-custom-button color="neutral" [isButtonOutline]="true">
+                    <img src="icon/normal/refresh.svg" alt="icono de reiniciar">
+                </app-custom-button>
+            </div>
+        </div>
+        <main class="rounded-[12px] overflow-hidden shadow-medium">
+            <head class="table-row border-0 border-b border-solid bg-neutral-50 border-neutral-300 *:text-neutral-300 *:uppercase *:font-medium">
+                <p>Order Id</p>
+                <p>Usuario</p>
+                <p>Pago</p>
+                <p>Precio</p>
+                <p>Fecha de orden</p>
+                <p>Estado</p>
+                <p><!-- opciones --></p>
+            </head>
+            <div>
+                <div class="table-row *:text-black">
+                    <p>#PR00001E</p>
+                    <p>Luis Kenny</p>
+                    <p>
+                        <span>
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M3 12.4092C3 7.93084 3 5.69167 4.39124 4.30042C5.78249 2.90918 8.02166 2.90918 12.5 2.90918C16.9783 2.90918 19.2175 2.90918 20.6088 4.30042C22 5.69167 22 7.93084 22 12.4092C22 16.8875 22 19.1267 20.6088 20.518C19.2175 21.9092 16.9783 21.9092 12.5 21.9092C8.02166 21.9092 5.78249 21.9092 4.39124 20.518C3 19.1267 3 16.8875 3 12.4092Z" stroke="#141B34" stroke-width="1.5"/>
+                                <path d="M17 9.40942C17.8284 9.40942 18.5 8.73785 18.5 7.90942C18.5 7.081 17.8284 6.40942 17 6.40942C16.1716 6.40942 15.5 7.081 15.5 7.90942C15.5 8.73785 16.1716 9.40942 17 9.40942Z" stroke="#141B34" stroke-width="1.5"/>
+                                <path d="M16.5 22.4092C15.8805 20.1841 14.4345 18.1913 12.3765 16.7434C10.1576 15.1821 7.37163 14.3558 4.51569 14.4119C4.17658 14.4111 3.83776 14.4219 3.5 14.4443" stroke="#141B34" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M13.5 18.4091C15.2015 17.0824 17.0345 16.4019 18.8862 16.4092C19.9362 16.4081 20.9812 16.6307 22 17.0708" stroke="#141B34" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span>-</span>
+                        <span class="cursor-pointer hover:scale-110 active:scale-95">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M8.257 12.4097H16.743M21.5 12.4097C21.5 17.3802 17.4706 21.4097 12.5 21.4097C7.52944 21.4097 3.5 17.3802 3.5 12.4097C3.5 7.43911 7.52944 3.40967 12.5 3.40967C17.4706 3.40967 21.5 7.43911 21.5 12.4097Z" stroke="#FEC53D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </p>
+                    <p>S/.120.00</p>
+                    <p>Dic 02, 2024 3:40 PM</p>
+                    <p class="grid items-center ">
+                        <span class="pendiente">Proceso</span>
+                    </p>
+                    <p class="p-0">
+                        <span class="cursor-pointer hover:scale-110 active:scale-95">
+                            <svg width="22" height="25" viewBox="0 0 22 25" fill="none">
+                                <path d="M11 6.40967H11.01M11 12.4097H11.01M11 18.4097H11.01" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </p>
+                </div>
+                <div class="table-row *:text-black">
+                    <p>#PR00001E</p>
+                    <p>Luis Kenny</p>
+                    <p>
+                        <span>
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M3 12.4092C3 7.93084 3 5.69167 4.39124 4.30042C5.78249 2.90918 8.02166 2.90918 12.5 2.90918C16.9783 2.90918 19.2175 2.90918 20.6088 4.30042C22 5.69167 22 7.93084 22 12.4092C22 16.8875 22 19.1267 20.6088 20.518C19.2175 21.9092 16.9783 21.9092 12.5 21.9092C8.02166 21.9092 5.78249 21.9092 4.39124 20.518C3 19.1267 3 16.8875 3 12.4092Z" stroke="#141B34" stroke-width="1.5"/>
+                                <path d="M17 9.40942C17.8284 9.40942 18.5 8.73785 18.5 7.90942C18.5 7.081 17.8284 6.40942 17 6.40942C16.1716 6.40942 15.5 7.081 15.5 7.90942C15.5 8.73785 16.1716 9.40942 17 9.40942Z" stroke="#141B34" stroke-width="1.5"/>
+                                <path d="M16.5 22.4092C15.8805 20.1841 14.4345 18.1913 12.3765 16.7434C10.1576 15.1821 7.37163 14.3558 4.51569 14.4119C4.17658 14.4111 3.83776 14.4219 3.5 14.4443" stroke="#141B34" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M13.5 18.4091C15.2015 17.0824 17.0345 16.4019 18.8862 16.4092C19.9362 16.4081 20.9812 16.6307 22 17.0708" stroke="#141B34" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span>-</span>
+                        <span class="cursor-pointer hover:scale-110 active:scale-95">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M5.5 12.3267L10.224 16.9097L19.5 7.90967" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </p>
+                    <p>S/.120.00</p>
+                    <p>Dic 02, 2024 3:40 PM</p>
+                    <p class="grid items-center ">
+                        <span class="aceptado">Entregado</span>
+                    </p>
+                    <p class="p-0">
+                        <span class="cursor-pointer hover:scale-110 active:scale-95">
+                            <svg width="22" height="25" viewBox="0 0 22 25" fill="none">
+                                <path d="M11 6.40967H11.01M11 12.4097H11.01M11 18.4097H11.01" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </p>
+                </div>
+                <div class="table-row *:text-black">
+                    <p>#PR00001E</p>
+                    <p>Luis Kenny</p>
+                    <p>
+                        <span>
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path d="M3 12.4092C3 7.93084 3 5.69167 4.39124 4.30042C5.78249 2.90918 8.02166 2.90918 12.5 2.90918C16.9783 2.90918 19.2175 2.90918 20.6088 4.30042C22 5.69167 22 7.93084 22 12.4092C22 16.8875 22 19.1267 20.6088 20.518C19.2175 21.9092 16.9783 21.9092 12.5 21.9092C8.02166 21.9092 5.78249 21.9092 4.39124 20.518C3 19.1267 3 16.8875 3 12.4092Z" stroke="#141B34" stroke-width="1.5"/>
+                                <path d="M17 9.40942C17.8284 9.40942 18.5 8.73785 18.5 7.90942C18.5 7.081 17.8284 6.40942 17 6.40942C16.1716 6.40942 15.5 7.081 15.5 7.90942C15.5 8.73785 16.1716 9.40942 17 9.40942Z" stroke="#141B34" stroke-width="1.5"/>
+                                <path d="M16.5 22.4092C15.8805 20.1841 14.4345 18.1913 12.3765 16.7434C10.1576 15.1821 7.37163 14.3558 4.51569 14.4119C4.17658 14.4111 3.83776 14.4219 3.5 14.4443" stroke="#141B34" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M13.5 18.4091C15.2015 17.0824 17.0345 16.4019 18.8862 16.4092C19.9362 16.4081 20.9812 16.6307 22 17.0708" stroke="#141B34" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span>-</span>
+                        <span class="cursor-pointer hover:scale-110 active:scale-95">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1454 5.70079C19.5369 6.09034 19.5384 6.7235 19.1489 7.115L13.9107 12.3795L19.2089 17.7043C19.5984 18.0958 19.5968 18.729 19.2053 19.1185C18.8138 19.5081 18.1807 19.5065 17.7911 19.115L12.5 13.7973L7.20888 19.115C6.81933 19.5065 6.18617 19.5081 5.79467 19.1185C5.40317 18.729 5.40158 18.0958 5.79112 17.7043L11.0893 12.3795L5.8511 7.11501C5.46156 6.72351 5.46314 6.09034 5.85465 5.7008C6.24615 5.31125 6.87931 5.31284 7.26886 5.70434L12.5 10.9618L17.7311 5.70433C18.1207 5.31283 18.7539 5.31125 19.1454 5.70079Z" fill="#DC2626"/>
+                            </svg>
+                        </span>
+                    </p>
+                    <p>S/.120.00</p>
+                    <p>Dic 02, 2024 3:40 PM</p>
+                    <p class="grid items-center ">
+                        <span class="rechazado">Denegado</span>
+                    </p>
+                    <p class="p-0">
+                        <span class="cursor-pointer hover:scale-110 active:scale-95">
+                            <svg width="22" height="25" viewBox="0 0 22 25" fill="none">
+                                <path d="M11 6.40967H11.01M11 12.4097H11.01M11 18.4097H11.01" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </main>
+        <div class="flex justify-center">
+            <div class="paginator">
+                <p class="paginator__button">
+                    <span>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M15 19.4097L8 12.4097L15 5.40967" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span>Atrás</span>
+                </p>
+                <span class="paginator__item">
+                    <span>1</span>
+                </span>
+                <span class="paginator__item">
+                    <span>2</span>
+                </span>
+                <span class="paginator__item">
+                    <span>3</span>
+                </span>
+                <span class="paginator__item">
+                    <span>4</span>
+                </span>
+                <span class="paginator__item">
+                    <span>...</span>
+                </span>
+                <span class="paginator__item">
+                    <span>10</span>
+                </span>
+                <p class="paginator__button">
+                    <span>Siguiente</span>
+                    <span>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path d="M9 5.40967L16 12.4097L9 19.4097" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -3,19 +3,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { GestionPedidoRoutingModule } from './gestion-pedido-routing.module';
-import { GestionPedidoComponent } from './gestion-pedido.component';
 
-import { CustomerService } from './gestion.service';
+import { ListaPedidoComponent } from './lista-pedido/lista-pedido.component';
+import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 
 @NgModule({
   declarations: [
-    GestionPedidoComponent,
+    ListaPedidoComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     GestionPedidoRoutingModule,
+    CustomButtonComponent,
   ],
-  providers: [CustomerService],
+  providers: [],
 })
 export class GestionPedidoModule { }

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GestionPedidoComponent } from './gestion-pedido.component';
+import { ListaPedidoComponent } from './lista-pedido/lista-pedido.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: GestionPedidoComponent,
+    component: ListaPedidoComponent,
   }
 ];
 
