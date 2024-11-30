@@ -13,27 +13,31 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: () => import('../../features/dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren: () => import('@features/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
         path: 'gestion-insumo',
-        loadChildren: () => import('../../features/gestion-insumo/gestion-insumo.module').then(m => m.GestionInsumoModule)
+        loadChildren: () => import('@features/gestion-insumo/gestion-insumo.module').then(m => m.GestionInsumoModule)
       },
       {
         path: 'gestion-maquina',
-        loadChildren: () => import('../../features/gestion-maquina/gestion-maquina.module').then(m => m.GestionMaquinaModule)
+        loadChildren: () => import('@features/gestion-maquina/gestion-maquina.module').then(m => m.GestionMaquinaModule)
       },
       {
         path: 'pedido',
-        loadChildren: () => import('../../features/gestion-pedido/gestion-pedido.module').then(m => m.GestionPedidoModule),
+        loadChildren: () => import('@features/gestion-pedido/gestion-pedido.module').then(m => m.GestionPedidoModule),
       },
       {
         path: 'tarifario',
-        loadComponent: () => import('../../features/tarifario/tarifario.component').then(c => c.TarifarioComponent),
+        loadComponent: () => import('@features/tarifario/tarifario.component').then(c => c.TarifarioComponent),
       },
       {
         path: 'configuracion',
-        loadChildren: () => import('../../features/configuracion/configuracion.module').then(m => m.ConfiguracionModule),
+        loadChildren: () => import('@features/configuracion/configuracion.module').then(m => m.ConfiguracionModule),
+      },
+      {
+        path: 'gestion-modelo',
+        loadChildren: () => import('@features/gestion-modelo/gestion-modelo.module').then(m => m.GestionModeloModule),
       },
       {
         path: 'not-found',

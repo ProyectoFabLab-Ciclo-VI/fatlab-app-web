@@ -1,0 +1,11 @@
+@import '@shared/css/float-label/float-label.css';
+@import "@shared/css/input-group/input-group.css";
+
+.form-card {
+    @apply grid gap-4 px-5 py-5 border-solid border border-neutral-75 rounded-[8px];
+}
+
+.float-label input::placeholder,
+.float-label textarea::placeholder{
+    color: #64748B;
+}

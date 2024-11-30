@@ -1,0 +1,91 @@
+<section class="px-8 py-10">
+    <main>
+        <div class="flex gap-4 mb-8">
+            <div class="p-4 bg-neutral-50 rounded-[4px] grid place-items-center">
+                <img src="/icon/normal/arrow-left.svg" alt="icono de regresar">
+            </div>
+            <div>
+                <p class="text-neutral-400">Regresar al listado de modelos</p>
+                <h2 class="text-black">Agregar Nuevo Modelo Predefinido</h2>
+            </div>
+        </div>
+        <form class="grid grid-cols-[1fr_480px] gap-4">
+            <div class="grid gap-5">
+                <div>
+                    <strong class="text-black text-2xl">Modelo Predefinido</strong>
+                    <div class="form-card">
+                        <div class="grid gap-1">
+                            <label for="nombre-modelo" class="text-black">Nombre de Modelo</label>
+                            <div class="float-label">
+                                <input type="text" id="nombre-modelo" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="grid gap-1">
+                            <label for="nombre-modelo" class="text-black">Descripción del Modelo</label>
+                            <div class="float-label">
+                                <textarea id="nombre-modelo" placeholder="Descripcion"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <strong class="text-black text-2xl">Categoría</strong>
+                    <div class="form-card">
+                        <div class="grid gap-1">
+                            <label class="text-black">Categoría de Insumo</label>
+                            <app-custom-select [options]="[]" placeholder="Seleccionar categoría"/>
+                        </div>
+                        <div class="grid gap-1">
+                            <label class="text-black">Insumo</label>
+                            <app-custom-select [options]="[]" placeholder="Seleccionar insumo"/>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <strong class="text-black text-2xl">Precio</strong>
+                    <div class="form-card">
+                        <div class="grid gap-1">
+                            <label for="precio" class="text-black">Precio</label>
+                            <div class="input-group">
+                                <label for="precio">S/.</label>
+                                <input id="precio" type="number" min="0" placeholder="precio">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between">
+                <div class="grid gap-2">
+                    <div class="grid gap-1">
+                        <strong class="text-black text-2xl">Agregar Imagen Principal</strong>
+                    </div>
+                    <div class="form-card">
+                        <div class="px-5">
+                            <app-image-uploader></app-image-uploader>
+                        </div>
+                        <div class="grid gap-1">
+                            <strong class="text-neutral-400 text-xl">Agregar variantes de la imagen</strong>
+                            <p class="text-neutral-200">
+                                Agregar variantes de la imagen (Es obligatorio subir 3 imágenes adicionales). 
+                                Solo se permiten un total de 4 imágenes: 1 principal y 3 variantes.
+                            </p>
+                        </div>
+                        <div class="flex gap-2">
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px"></app-image-uploader>
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px"></app-image-uploader>
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px"></app-image-uploader>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-end gap-2 mt-4">
+                    <app-custom-button [isButtonOutline]="true" color="neutral">
+                        <span>Cancelar</span>
+                    </app-custom-button>
+                    <app-custom-button [isButtonOutline]="true">
+                        <span>Agregar modelo</span>
+                    </app-custom-button>
+                </div>
+            </div>
+        </form>
+    </main>
+</section>
