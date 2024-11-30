@@ -16,13 +16,13 @@
                             <span routerLinkActive="bg-primary-800" (click)="activePerformance(item)" 
                             class="flex items-center gap-2 px-6 py-3 hover:bg-primary-700 transition-all active:scale-95 select-none *:text-white">
                                 <img src="{{item.icon}}" alt="icon {{item.name}}">
-                                <p class="font-poppins font-medium text-lg text-nowrap">{{item.name}}</p>
+                                <p class="font-poppins text-lg text-nowrap">{{item.name}}</p>
                             </span>
                         } @else {
                             <a routerLinkActive="active-item" [routerLink]="item.link"
                             class="flex items-center gap-2 px-6 rounded-tr-0 py-3 hover:bg-primary-700 transition-all active:scale-95 select-none *:text-white">
                                 <img src="{{item.icon}}" alt="icon {{item.name}}">
-                                <p class="font-poppins font-medium text-lg text-nowrap">{{item.name}}</p>
+                                <p class="font-poppins text-lg text-nowrap">{{item.name}}</p>
                             </a>
                         }
                     </li>

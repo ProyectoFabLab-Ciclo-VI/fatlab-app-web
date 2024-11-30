@@ -14,6 +14,15 @@ a.active {
     @apply bg-primary-500 *:text-neutral-50;
 } */
 
+ul li {
+    font-weight: bold;
+}
+
+ul li img {
+    filter: invert(100%) sepia(1%) saturate(7444%) hue-rotate(72deg) brightness(111%) contrast(102%);
+    -webkit-filter: invert(100%) sepia(1%) saturate(7444%) hue-rotate(72deg) brightness(111%) contrast(102%);
+}
+
 .active-item {
     position: relative;
     background-color: white;
@@ -27,9 +36,13 @@ a.active {
     width: 40px;
     height: 40px;
     background-color: transparent;
-    border-radius: 40%;
     box-shadow: 35px 35px 0 10px white;
     pointer-events: none;
+    border-radius: 40%;
+    -webkit-border-radius: 40%;
+    -moz-border-radius: 40%;
+    -ms-border-radius: 40%;
+    -o-border-radius: 40%;
 }
 
 .active-item::after {
@@ -40,16 +53,20 @@ a.active {
     width: 40px;
     height: 40px;
     background-color: transparent;
-    border-radius: 40%;
     box-shadow: 35px -35px 0 10px white;
     pointer-events: none;
+    border-radius: 40%;
+    -webkit-border-radius: 40%;
+    -moz-border-radius: 40%;
+    -ms-border-radius: 40%;
+    -o-border-radius: 40%;
 }
 
 .active-item * {
     color: black;
-    font-weight: 900;
 }
 
-.active-item img {
-    filter: invert(100%) sepia(11%) saturate(7487%) hue-rotate(170deg) brightness(118%) contrast(100%);
+ul li .active-item img {
+    filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(321deg) brightness(107%) contrast(107%);
+    -webkit-filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(321deg) brightness(107%) contrast(107%);
 }

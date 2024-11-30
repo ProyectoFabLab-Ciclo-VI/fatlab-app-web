@@ -29,23 +29,21 @@ interface GroupPage {
 export class SidebarComponent {
   groups: GroupPage[] = [
     {
-      title: 'Inventario',
+      title: 'Menu',
       items: [
-        { name: 'Máquina', icon: 'icon/sidebar/icon-maquina.webp', modal: { component: AgregarMaquinaComponent, title: 'Agregar máquina' } },
-        { name: 'Insumos', icon: 'icon/sidebar/icon-insumo.webp', modal: { component: EdicionInsumoComponent, title: 'Agregar insumo' } },
-        { name: 'Configuración', icon: 'icon/sidebar/icon-pedido.webp', link: '/home/configuracion' },
-        { name: 'Tarifario', icon: 'icon/sidebar/icon-prestamo.webp', link: '/home/tarifario'},
-        { name: 'Modelos', icon: 'icon/sidebar/icon-pedido.webp', link: '/home/gestion-modelo' },
+        { name: 'Máquina', icon: 'icon/solid/computer-speaker.svg', modal: { component: AgregarMaquinaComponent, title: 'Agregar máquina' } },
+        { name: 'Insumos', icon: 'icon/solid/laravel.svg', modal: { component: EdicionInsumoComponent, title: 'Agregar insumo' } },
+        { name: 'Tarifario', icon: 'icon/solid/file-doc.svg', link: '/home/tarifario'},
+        { name: 'Modelos Predefinido', icon: 'icon/solid/dropbox.svg', link: '/home/gestion-modelo' },
+        { name: 'Pedidos', icon: 'icon/solid/book.svg', link: '/home/pedido' },
       ]
     },
-    // {
-    //   title: 'Pedidos',
-    //   items: [
-    //     { name: 'Usuario', icon: 'icon/sidebar/icon-pedido.webp' },
-    //     { name: 'Préstamo', icon: 'icon/sidebar/icon-pedido.webp' },
-    //     { name: 'Pagos', icon: 'icon/sidebar/icon-otro.webp' },
-    //   ]
-    // }
+    {
+      title: 'Otros',
+      items: [
+        { name: 'Configuración', icon: 'icon/solid/cog.svg', link: '/home/configuracion' },
+      ]
+    }
   ]
 
   constructor(
