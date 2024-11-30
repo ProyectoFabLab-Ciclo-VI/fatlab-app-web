@@ -265,6 +265,34 @@ The project follows a clean architecture approach to separate concerns and ensur
 - **Shared Module**: Contains reusable components, directives, pipes, and validators used across different features.
 - **Features Module**: Organized by the different functionalities of the app (e.g., inventory management, sales, loans).
 
+## Configuration of Environment Variables
+
+Before you start working with the project, you need to configure the required environment variables for development and production.
+
+### Steps to configure the `.env` file
+
+1. Create a `.env` file in the root of your project.
+
+2. Add the following environment variables for both development and production:
+
+```bash
+# Environment variables for development
+NG_APP_API_URL_DEVELOPMENT = http://localhost:8080
+NG_APP_NAME_CLOUDINARY_DEVELOPMENT = your_cloud_name
+NG_APP_API_KEY_CLOUDINARY_DEVELOPMENT = your_api_key
+
+# Environment variables for production
+NG_APP_API_URL_PRODUCTION = http://localhost:8080
+NG_APP_NAME_CLOUDINARY_PRODUCTION = your_cloud_name
+NG_APP_API_KEY_CLOUDINARY_PRODUCTION = your_api_key
+```
+
+3. Make sure to replace `your_api_url`, `your_cloud_name` and `your_api_key` with the actual credentials.
+
+### Usage of Environment Variables
+
+Angular handles environment variables through the `.env` file. Based on the environment in which the project is running, the variables will be automatically loaded as per the configuration in your `angular.json` file.
+
 ## How to Run
 
 ### Prerequisites
