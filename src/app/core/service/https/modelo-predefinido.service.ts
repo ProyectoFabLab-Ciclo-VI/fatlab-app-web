@@ -6,21 +6,22 @@ import { environment } from '@environments/environment';
 import { ModeloPredefinidoMapper } from '@core/index.data.mapper';
 import { ModeloPredefinido } from '@core/index.data.model';
 import { ModeloPredefinidoDTO } from '@core/index.data.entities';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModeloPredefinidoService {
-  private url: string = `${environment.API_URL}/apipedidos`;
+  private url: string = `${environment.API_URL}/apimodelo-predefinido`;
   private modeloPredefinidoMapper: ModeloPredefinidoMapper = new ModeloPredefinidoMapper();
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  public saveModeloPredefinido(formData: FormData) {
-    return this.http.post(`${this.url}/add/modelo`, formData, { responseType: 'text' as 'json' });
+  public saveModeloPredefinido(modelo: ModeloPredefinido) {
+    const modeloDto = this.modeloPredefinidoMapper.mapTo(modelo);
+    return this.http.post(`${this.url}/add`, modeloDto, { responseType: 'text' as 'json' });
   }
 
   public getAllModelosPredefinidos() {

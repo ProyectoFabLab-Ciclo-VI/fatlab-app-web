@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-card">
                         <div class="px-5">
-                            <app-image-uploader [(img)]="img1" fileName="imagen1"></app-image-uploader>
+                            <app-image-uploader [(urlImg)]="modeloPredefinido.img1" fileName="imagen1"></app-image-uploader>
                         </div>
                         <div class="grid gap-1">
                             <strong class="text-neutral-400 text-xl">Agregar variantes de la imagen</strong>
@@ -71,9 +71,9 @@
                             </p>
                         </div>
                         <div class="flex gap-2">
-                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(img)]="img2" fileName="imagen2"></app-image-uploader>
-                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(img)]="img3" fileName="imagen3"></app-image-uploader>
-                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(img)]="img4" fileName="imagen4"></app-image-uploader>
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(urlImg)]="modeloPredefinido.img2" fileName="imagen2"></app-image-uploader>
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(urlImg)]="modeloPredefinido.img3" fileName="imagen3"></app-image-uploader>
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(urlImg)]="modeloPredefinido.img4" fileName="imagen4"></app-image-uploader>
                         </div>
                     </div>
                 </div>
