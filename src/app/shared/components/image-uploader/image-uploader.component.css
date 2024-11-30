@@ -1,0 +1,52 @@
+.image-upload-container {
+  width: var(--size-box);
+  height: var(--size-box);
+  /* border: 3px dashed #ccc; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay div {
+  padding: 20px;
+}
+
+.overlay:has(.onDragOver) {
+  background-color: #E2E8F0;
+}
+
+.overlay:hover .remove-icon {
+  visibility: visible;
+  background-color: #0000001e;
+}
+
+.remove-icon {
+  height: 100%;
+  width: 100%;
+  font-size: 24px;
+  cursor: pointer;
+  visibility: hidden;
+  display: grid;
+  place-items: center;
+}

@@ -1,0 +1,41 @@
+<main class="image-upload-container border-dashed"
+     [class]="isAddImage ? ' border-primary-700 ' : ' border-black '"
+     [ngStyle]="{'background-image': image ? 'url(' + image + ')' : 'none'}"
+     (dragover)="onDragOver($event)"
+     (drop)="onDrop($event)"
+     (dragleave)="onDragLeave($event)"
+     (click)="fileInput.click()"
+     style="--size-box: {{sizeBox}};">
+  <input type="file" #fileInput [accept]="accept" style="display: none" (change)="onFileSelect($event)">
+  <div class="overlay">
+    @if (image) {
+      <span *ngIf="image" class="remove-icon {{ isAddImage ? ' scale-50 ' : '' }}" (click)="removeImage($event)">
+        <svg width="102" height="102" viewBox="0 0 102 102" fill="none">
+          <path d="M21.25 29.75H80.75M42.5 42.5V76.5M59.5 42.5V76.5M42.5 12.75H59.5C60.6272 12.75 61.7082 13.1978 62.5052 13.9948C63.3022 14.7918 63.75 15.8728 63.75 17V29.75H38.25V17C38.25 15.8728 38.6978 14.7918 39.4948 13.9948C40.2918 13.1978 41.3728 12.75 42.5 12.75ZM25.5 29.75H76.5V85C76.5 86.1272 76.0522 87.2082 75.2552 88.0052C74.4582 88.8022 73.3772 89.25 72.25 89.25H29.75C28.6228 89.25 27.5418 88.8022 26.7448 88.0052C25.9478 87.2082 25.5 86.1272 25.5 85V29.75Z" stroke="#E00034" stroke-opacity="0.5" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>        
+      </span>
+    } @else {
+      @if (hovering) {
+        <span class="onDragOver text-center">Suelta la imagen</span>
+      } @else {
+        @if (isAddImage) {
+          <div class="flex flex-col gap-1 items-center *:text-center">
+            <svg width="33" height="33" viewBox="0 0 33 33" fill="none">
+              <path d="M16.713 11.1575V22.4999M11.0418 16.8287H22.3842M28.7424 16.8287C28.7424 23.4724 23.3566 28.8581 16.713 28.8581C10.0693 28.8581 4.68359 23.4724 4.68359 16.8287C4.68359 10.1851 10.0693 4.79932 16.713 4.79932C23.3566 4.79932 28.7424 10.1851 28.7424 16.8287Z" stroke="#195BDC" stroke-width="2.6732" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>              
+          </div>
+        } @else {
+          <div class="flex flex-col gap-1 items-center *:text-center">
+            <span>
+              <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
+                <path d="M20.527 83.3218H75.472C79.807 83.3218 83.3213 79.8075 83.3213 75.4725V20.5275C83.3213 16.1925 79.807 12.6782 75.472 12.6782H20.527C16.192 12.6782 12.6777 16.1925 12.6777 20.5275V75.4725C12.6777 79.8075 16.192 83.3218 20.527 83.3218ZM20.527 83.3218L63.6981 40.1507L83.3213 59.7739M40.1502 34.2638C40.1502 37.515 37.5145 40.1507 34.2633 40.1507C31.012 40.1507 28.3763 37.515 28.3763 34.2638C28.3763 31.0125 31.012 28.3768 34.2633 28.3768C37.5145 28.3768 40.1502 31.0125 40.1502 34.2638Z" stroke="black" stroke-width="7.84928" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>              
+            </span>
+            <strong class="text-black">Haga click para cargar o arrastre y suelte</strong>
+            <p class="text-neutral-200">Tamaño máximo de archivo de 10 MB, solo archivos png y .jpeg.</p>
+          </div>
+        }
+      }
+    }
+  </div>
+</main>
