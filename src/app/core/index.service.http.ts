@@ -4,3 +4,4 @@ export * from './service/https/insumo.service';
 export * from './service/https/configuracion.service';
 export * from './service/https/inventario.service';
 export * from './service/https/upload.service';
+export * from './service/https/pedido.service';

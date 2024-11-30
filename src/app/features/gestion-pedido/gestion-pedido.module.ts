@@ -6,6 +6,7 @@ import { GestionPedidoRoutingModule } from './gestion-pedido-routing.module';
 
 import { ListaPedidoComponent } from './lista-pedido/lista-pedido.component';
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CustomButtonComponent } from '@shared/components/custom-button/custom-b
     FormsModule,
     GestionPedidoRoutingModule,
     CustomButtonComponent,
+    LoaderComponent,
   ],
   providers: [],
 })
