@@ -1,6 +1,32 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { UploadService } from '@core/index.service.http';
 import { NotificationService } from '@core/index.service.trigger';
+
+interface CloudinaryAsset {
+  asset_id: string;
+  public_id: string;
+  version: number;
+  version_id: string;
+  signature: string;
+  width: number;
+  height: number;
+  format: string;
+  resource_type: string;
+  created_at: string; // Formato ISO 8601
+  tags: string[];
+  bytes: number;
+  type: string;
+  etag: string;
+  placeholder: boolean;
+  url: string;
+  secure_url: string;
+  asset_folder: string;
+  display_name: string;
+  access_mode: string;
+  original_filename: string;
+}
+
 
 @Component({
   selector: 'app-image-uploader',
@@ -12,15 +38,18 @@ import { NotificationService } from '@core/index.service.trigger';
 export class ImageUploaderComponent {
   @Input() isAddImage: boolean = false;
   @Input() sizeBox: string = '400px';
+  @Output() urlImg: EventEmitter<string> = new EventEmitter();
   image: string | ArrayBuffer = '';
   hovering: boolean = false;
   accept: string = 'image/*';
 
   allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
   maxSize = 10 * 1024 * 1024;
+  cloudinaryAsset: CloudinaryAsset | undefined;
 
   constructor(
     private notificationSrv: NotificationService,
+    private uploaderSrv: UploadService,
   ) {}
 
   onDragOver(event: DragEvent): void {
@@ -68,10 +97,45 @@ export class ImageUploaderComponent {
     const reader = new FileReader();
     reader.onload = (e) => (this.image = reader.result ?? '');
     reader.readAsDataURL(file);
+    this.uploadImg(file);
+  }
+
+  private uploadImg(file: File) {
+    const data  = new FormData();
+    data.append('file',file);
+    data.append('upload_preset','fatlab');
+    data.append('cloud_name','djbqeqfj5');
+    
+    this.uploaderSrv.uploadImg(data).subscribe({
+      next: (res: CloudinaryAsset) =>{
+        this.cloudinaryAsset = res;
+        this.urlImg.emit(res.url);
+        this.notificationSrv.addNotification('success', 'Se subio la imagen correctamente');
+      },
+      error: (err) => {
+        this.notificationSrv.addNotification('error', 'Error al subir imagen');
+        console.log(err);
+      }
+    })
   }
 
   removeImage(event: MouseEvent): void {
     event.stopPropagation();
     this.image = '';
+    
+    if(!this.cloudinaryAsset) return;
+    
+    const { public_id, signature } = this.cloudinaryAsset;
+    
+    this.uploaderSrv.deleteImg(public_id, signature).subscribe({
+      next: (res: CloudinaryAsset) =>{
+        this.urlImg.emit("");
+        this.notificationSrv.addNotification('success', 'Se elimino correctamente');
+      },
+      error: (err) => {
+        this.notificationSrv.addNotification('error', 'Error al eliminar imagen');
+        console.log(err);
+      }
+    });
   }
 }
