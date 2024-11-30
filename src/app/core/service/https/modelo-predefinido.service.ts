@@ -12,16 +12,15 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class ModeloPredefinidoService {
-  private url: string = `${environment.API_URL}/apimodelo-predefinido`;
+  private url: string = `${environment.API_URL}/apipedidos`;
   private modeloPredefinidoMapper: ModeloPredefinidoMapper = new ModeloPredefinidoMapper();
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  public saveModeloPredefinido(modeloPredefinido: ModeloPredefinido) {
-    const modeloPredefinidoDto: ModeloPredefinidoDTO = this.modeloPredefinidoMapper.mapTo(modeloPredefinido);
-    return this.http.post(`${this.url}/add`, modeloPredefinidoDto, { responseType: 'text' as 'json' });
+  public saveModeloPredefinido(formData: FormData) {
+    return this.http.post(`${this.url}/add/modelo`, formData, { responseType: 'text' as 'json' });
   }
 
   public getAllModelosPredefinidos() {

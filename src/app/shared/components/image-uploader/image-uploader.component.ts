@@ -1,32 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { UploadService } from '@core/index.service.http';
 import { NotificationService } from '@core/index.service.trigger';
-
-interface CloudinaryAsset {
-  asset_id: string;
-  public_id: string;
-  version: number;
-  version_id: string;
-  signature: string;
-  width: number;
-  height: number;
-  format: string;
-  resource_type: string;
-  created_at: string; // Formato ISO 8601
-  tags: string[];
-  bytes: number;
-  type: string;
-  etag: string;
-  placeholder: boolean;
-  url: string;
-  secure_url: string;
-  asset_folder: string;
-  display_name: string;
-  access_mode: string;
-  original_filename: string;
-}
-
 
 @Component({
   selector: 'app-image-uploader',
@@ -38,19 +12,18 @@ interface CloudinaryAsset {
 export class ImageUploaderComponent {
   @Input() isAddImage: boolean = false;
   @Input() sizeBox: string = '400px';
-  @Input() urlImg: string = '';
-  @Output() urlImgChange: EventEmitter<string> = new EventEmitter();
+  @Input() fileName: string = 'image';
+  @Input() img: File = new File([],this.fileName);
+  @Output() imgChange: EventEmitter<File> = new EventEmitter();
   image: string | ArrayBuffer = '';
   hovering: boolean = false;
   accept: string = 'image/*';
 
   allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
   maxSize = 10 * 1024 * 1024;
-  cloudinaryAsset: CloudinaryAsset | undefined;
 
   constructor(
     private notificationSrv: NotificationService,
-    private uploaderSrv: UploadService,
   ) {}
 
   onDragOver(event: DragEvent): void {
@@ -94,49 +67,15 @@ export class ImageUploaderComponent {
       this.image = '';
       return;
     }
-
+    this.imgChange.emit(file);
     const reader = new FileReader();
     reader.onload = (e) => (this.image = reader.result ?? '');
     reader.readAsDataURL(file);
-    this.uploadImg(file);
-  }
-
-  private uploadImg(file: File) {
-    const data  = new FormData();
-    data.append('file',file);
-    data.append('upload_preset','fatlab');
-    data.append('cloud_name','djbqeqfj5');
-    
-    this.uploaderSrv.uploadImg(data).subscribe({
-      next: (res: CloudinaryAsset) =>{
-        this.cloudinaryAsset = res;
-        this.urlImgChange.emit(res.url);
-        this.notificationSrv.addNotification('success', 'Se subio la imagen correctamente');
-      },
-      error: (err) => {
-        this.notificationSrv.addNotification('error', 'Error al subir imagen');
-        console.log(err);
-      }
-    })
   }
 
   removeImage(event?: MouseEvent): void {
     if(event) event.stopPropagation();
     this.image = '';
-    
-    // if(!this.cloudinaryAsset) return;
-    
-    // const { public_id, signature } = this.cloudinaryAsset;
-    
-    // this.uploaderSrv.deleteImg(public_id, signature).subscribe({
-    //   next: (res: CloudinaryAsset) =>{
-    //     this.urlImgChange.emit("");
-    //     this.notificationSrv.addNotification('success', 'Se elimino correctamente');
-    //   },
-    //   error: (err) => {
-    //     this.notificationSrv.addNotification('error', 'Error al eliminar imagen');
-    //     console.log(err);
-    //   }
-    // });
+    this.imgChange.emit(new File([],this.fileName));
   }
 }
