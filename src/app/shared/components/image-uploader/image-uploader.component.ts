@@ -38,7 +38,8 @@ interface CloudinaryAsset {
 export class ImageUploaderComponent {
   @Input() isAddImage: boolean = false;
   @Input() sizeBox: string = '400px';
-  @Output() urlImg: EventEmitter<string> = new EventEmitter();
+  @Input() urlImg: string = '';
+  @Output() urlImgChange: EventEmitter<string> = new EventEmitter();
   image: string | ArrayBuffer = '';
   hovering: boolean = false;
   accept: string = 'image/*';
@@ -109,7 +110,7 @@ export class ImageUploaderComponent {
     this.uploaderSrv.uploadImg(data).subscribe({
       next: (res: CloudinaryAsset) =>{
         this.cloudinaryAsset = res;
-        this.urlImg.emit(res.url);
+        this.urlImgChange.emit(res.url);
         this.notificationSrv.addNotification('success', 'Se subio la imagen correctamente');
       },
       error: (err) => {
@@ -119,23 +120,23 @@ export class ImageUploaderComponent {
     })
   }
 
-  removeImage(event: MouseEvent): void {
-    event.stopPropagation();
+  removeImage(event?: MouseEvent): void {
+    if(event) event.stopPropagation();
     this.image = '';
     
-    if(!this.cloudinaryAsset) return;
+    // if(!this.cloudinaryAsset) return;
     
-    const { public_id, signature } = this.cloudinaryAsset;
+    // const { public_id, signature } = this.cloudinaryAsset;
     
-    this.uploaderSrv.deleteImg(public_id, signature).subscribe({
-      next: (res: CloudinaryAsset) =>{
-        this.urlImg.emit("");
-        this.notificationSrv.addNotification('success', 'Se elimino correctamente');
-      },
-      error: (err) => {
-        this.notificationSrv.addNotification('error', 'Error al eliminar imagen');
-        console.log(err);
-      }
-    });
+    // this.uploaderSrv.deleteImg(public_id, signature).subscribe({
+    //   next: (res: CloudinaryAsset) =>{
+    //     this.urlImgChange.emit("");
+    //     this.notificationSrv.addNotification('success', 'Se elimino correctamente');
+    //   },
+    //   error: (err) => {
+    //     this.notificationSrv.addNotification('error', 'Error al eliminar imagen');
+    //     console.log(err);
+    //   }
+    // });
   }
 }

@@ -17,13 +17,13 @@
                         <div class="grid gap-1">
                             <label for="nombre-modelo" class="text-black">Nombre de Modelo</label>
                             <div class="float-label">
-                                <input type="text" id="nombre-modelo" placeholder="Nombre">
+                                <input type="text" id="nombre-modelo" placeholder="Nombre" [(ngModel)]="modeloPredefinido.nombre" name="nombre">
                             </div>
                         </div>
                         <div class="grid gap-1">
                             <label for="nombre-modelo" class="text-black">Descripción del Modelo</label>
                             <div class="float-label">
-                                <textarea id="nombre-modelo" placeholder="Descripcion"></textarea>
+                                <textarea id="nombre-modelo" placeholder="Descripcion" [(ngModel)]="modeloPredefinido.comentario" name="descripcion"></textarea>
                             </div>
                         </div>
                     </div>
@@ -33,11 +33,11 @@
                     <div class="form-card">
                         <div class="grid gap-1">
                             <label class="text-black">Categoría de Insumo</label>
-                            <app-custom-select [options]="[]" placeholder="Seleccionar categoría"/>
+                            <app-custom-select [options]="categorias" [isDefer]="true" (selectedValueChange)="definirInsumos($event)" placeholder="Seleccionar categoría"/>
                         </div>
                         <div class="grid gap-1">
                             <label class="text-black">Insumo</label>
-                            <app-custom-select [options]="[]" placeholder="Seleccionar insumo"/>
+                            <app-custom-select [options]="insumos" [isDefer]="true" [disabled]="insumos.length == 0" [(selectedValue)]="insumoSelect" placeholder="Seleccionar insumo"/>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                             <label for="precio" class="text-black">Precio</label>
                             <div class="input-group">
                                 <label for="precio">S/.</label>
-                                <input id="precio" type="number" min="0" placeholder="precio">
+                                <input id="precio" type="number" min="0" placeholder="precio" [(ngModel)]="modeloPredefinido.precio" name="precio">
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-card">
                         <div class="px-5">
-                            <app-image-uploader></app-image-uploader>
+                            <app-image-uploader [(urlImg)]="modeloPredefinido.img1"></app-image-uploader>
                         </div>
                         <div class="grid gap-1">
                             <strong class="text-neutral-400 text-xl">Agregar variantes de la imagen</strong>
@@ -71,17 +71,17 @@
                             </p>
                         </div>
                         <div class="flex gap-2">
-                            <app-image-uploader [isAddImage]="true" sizeBox="100px"></app-image-uploader>
-                            <app-image-uploader [isAddImage]="true" sizeBox="100px"></app-image-uploader>
-                            <app-image-uploader [isAddImage]="true" sizeBox="100px"></app-image-uploader>
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(urlImg)]="modeloPredefinido.img2"></app-image-uploader>
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(urlImg)]="modeloPredefinido.img3"></app-image-uploader>
+                            <app-image-uploader [isAddImage]="true" sizeBox="100px" [(urlImg)]="modeloPredefinido.img4"></app-image-uploader>
                         </div>
                     </div>
                 </div>
                 <div class="flex justify-end gap-2 mt-4">
-                    <app-custom-button [isButtonOutline]="true" color="neutral">
+                    <app-custom-button [isButtonOutline]="true" color="neutral" (click)="limpiar()">
                         <span>Cancelar</span>
                     </app-custom-button>
-                    <app-custom-button [isButtonOutline]="true">
+                    <app-custom-button [isButtonOutline]="true" (click)="submit()">
                         <span>Agregar modelo</span>
                     </app-custom-button>
                 </div>

@@ -7,6 +7,7 @@ import { EdicionModeloPredefinidoComponent } from './edicion-modelo-predefinido/
 import { CustomButtonComponent } from '@shared/components/custom-button/custom-button.component';
 import { ImageUploaderComponent } from '@shared/components/image-uploader/image-uploader.component';
 import { CustomSelectComponent } from '@shared/components/custom-select/custom-select.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CustomSelectComponent } from '@shared/components/custom-select/custom-s
     ImageUploaderComponent,
     CustomSelectComponent,
     CustomButtonComponent,
+    FormsModule,
   ]
 })
 export class GestionModeloModule { }
